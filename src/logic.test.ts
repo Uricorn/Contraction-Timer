@@ -6,6 +6,7 @@ import {
   intervals,
   MINUTE,
   parseStored,
+  ruleMeters,
   toCsv,
   windowStats,
   type Contraction,
@@ -72,6 +73,30 @@ describe("checkRule", () => {
   it("respects the chosen rule", () => {
     expect(checkRule(steady, HOUR, "3-1-1").patternOk).toBe(false);
     expect(checkRule(steady, HOUR, "5-1-1").patternOk).toBe(true);
+  });
+});
+
+describe("ruleMeters", () => {
+  const steady = Array.from({ length: 13 }, (_, i) => mk(i * 5, 65));
+  it("maps each digit of the rule to its own meter", () => {
+    const m = ruleMeters(steady, HOUR, "5-1-1");
+    expect(m.apart).toMatchObject({ goal: 5 * MINUTE, ok: true, fill: 1 });
+    expect(m.length).toMatchObject({ goal: MINUTE, ok: true, fill: 1 });
+    expect(m.hour.ok).toBe(true);
+    expect(m.met).toBe(true);
+  });
+  it("shows 3-1-1 against the same data as not yet reached", () => {
+    const m = ruleMeters(steady, HOUR, "3-1-1");
+    expect(m.apart.ok).toBe(false);
+    expect(m.apart.fill).toBeCloseTo(0.6);
+    expect(m.length.ok).toBe(true);
+    expect(m.met).toBe(false);
+  });
+  it("is empty with no data", () => {
+    const m = ruleMeters([], 0);
+    expect(m.apart.value).toBeNull();
+    expect(m.apart.fill).toBe(0);
+    expect(m.hour.fill).toBe(0);
   });
 });
 

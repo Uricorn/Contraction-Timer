@@ -115,6 +115,58 @@ export function checkRule(
   return { patternOk, met: patternOk && progress >= 1, progress };
 }
 
+export interface Meter {
+  /** Measured value in ms, or null when there is not enough data yet. */
+  value: number | null;
+  /** The rule's target in ms. */
+  goal: number;
+  /** 0..1 fullness for a progress bar. */
+  fill: number;
+  ok: boolean;
+}
+
+export interface RuleMeters {
+  /** Average start-to-start gap vs "at most N minutes apart". */
+  apart: Meter;
+  /** Average length vs "at least 1 minute". */
+  length: Meter;
+  /** How long both goals have held vs one hour. */
+  hour: Meter;
+  met: boolean;
+}
+
+/** Everything the guideline panel shows, one meter per digit of "5-1-1". */
+export function ruleMeters(
+  list: Contraction[],
+  now: number,
+  rule: RuleKey = "5-1-1",
+  breaks: Break[] = [],
+): RuleMeters {
+  const { interval, duration } = RULES[rule];
+  const stats = windowStats(list, now, HOUR, breaks);
+  const r = checkRule(list, now, rule, breaks);
+  const apartGoal = interval * MINUTE;
+  const lengthGoal = duration * MINUTE;
+  const a = stats.avgInterval;
+  const l = stats.avgDuration;
+  return {
+    apart: {
+      value: a,
+      goal: apartGoal,
+      fill: a === null ? 0 : Math.min(1, apartGoal / a),
+      ok: a !== null && a <= apartGoal,
+    },
+    length: {
+      value: l,
+      goal: lengthGoal,
+      fill: l === null ? 0 : Math.min(1, l / lengthGoal),
+      ok: l !== null && l >= lengthGoal,
+    },
+    hour: { value: r.progress * HOUR, goal: HOUR, fill: r.progress, ok: r.met },
+    met: r.met,
+  };
+}
+
 /** Format ms as m:ss (or h:mm:ss from one hour). Truncates, like a stopwatch. */
 export function formatDuration(ms: number): string {
   const total = Math.max(0, Math.floor(ms / 1000));

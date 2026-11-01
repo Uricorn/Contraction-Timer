@@ -15,58 +15,273 @@
   </head>
   <body data-state="idle">
     <main>
-      <section class="timer">
-        <p id="state-label" class="label">Ready</p>
-        <p id="clock" class="clock" role="timer">0:00</p>
-        <p id="clock-sub" class="sub">&nbsp;</p>
-        <div class="orb-wrap">
-          <button id="toggle" class="orb" type="button">Start</button>
-        </div>
-        <button id="pause" class="soft" type="button">Pause</button>
-      </section>
-
-      <section class="stats" aria-label="Last hour averages">
-        <div><span id="stat-count">–</span><small>last hour</small></div>
-        <div><span id="stat-duration">–</span><small>avg length</small></div>
-        <div><span id="stat-interval">–</span><small>avg apart</small></div>
-      </section>
-
-      <p id="rule" class="rule" hidden></p>
-
-      <section class="card">
-        <label for="rule-select">Call-me guideline</label>
-        <select id="rule-select">
-          <option value="5-1-1">5-1-1 (first baby, usual)</option>
-          <option value="4-1-1">4-1-1</option>
-          <option value="3-1-1">3-1-1 (fast labours)</option>
-        </select>
-        <small>Apart / minute long / for an hour. Ask your midwife which suits you.</small>
-      </section>
-
-      <details class="card">
-        <summary>When to call right away</summary>
-        <ul>
-          <li>Your waters break, or you have fluid leaking</li>
-          <li>Any bleeding</li>
-          <li>Baby is moving less than usual</li>
-          <li>Under 37 weeks, or you feel worried or unwell</li>
-          <li>Contractions last over 2 minutes, or come very fast</li>
-          <li>Strong urge to push: call emergency services</li>
-        </ul>
-        <small>General guidance only. Follow your own care team's advice.</small>
-      </details>
-
-      <section class="history">
-        <header>
-          <h2>History</h2>
-          <div class="actions">
-            <button id="export" type="button" class="link">Export CSV</button>
-            <button id="clear" type="button" class="link">Clear all</button>
+      <!-- TIMER -->
+      <div id="view-timer" class="view">
+        <section class="timer">
+          <p id="state-label" class="label">Ready</p>
+          <p id="clock" class="clock" role="timer">0:00</p>
+          <p id="clock-sub" class="sub">&nbsp;</p>
+          <div class="orb-wrap">
+            <button id="toggle" class="orb" type="button">Start</button>
           </div>
-        </header>
-        <ol id="list"></ol>
-        <p id="empty" class="empty">Nothing yet. Tap the circle when one begins.</p>
-      </section>
+          <button id="pause" class="soft" type="button">Pause</button>
+        </section>
+
+        <section class="card guide" aria-labelledby="guide-title">
+          <div class="guide-head">
+            <h2 id="guide-title">When to call</h2>
+            <div class="seg" role="radiogroup" aria-label="Guideline">
+              <button type="button" role="radio" data-rule="5-1-1">5-1-1</button>
+              <button type="button" role="radio" data-rule="4-1-1">4-1-1</button>
+              <button type="button" role="radio" data-rule="3-1-1">3-1-1</button>
+            </div>
+          </div>
+          <p id="guide-sub" class="guide-sub">Based on your last hour.</p>
+
+          <div class="meter" id="m-apart">
+            <span class="digit" id="d-apart">5</span>
+            <div class="meter-body">
+              <div class="meter-line">
+                <span id="t-apart">minutes apart or less</span>
+                <strong id="v-apart">–</strong>
+              </div>
+              <div class="bar"><i id="b-apart"></i></div>
+            </div>
+          </div>
+          <div class="meter" id="m-length">
+            <span class="digit">1</span>
+            <div class="meter-body">
+              <div class="meter-line">
+                <span>minute long or more</span>
+                <strong id="v-length">–</strong>
+              </div>
+              <div class="bar"><i id="b-length"></i></div>
+            </div>
+          </div>
+          <div class="meter" id="m-hour">
+            <span class="digit">1</span>
+            <div class="meter-body">
+              <div class="meter-line">
+                <span>hour of both</span>
+                <strong id="v-hour">–</strong>
+              </div>
+              <div class="bar"><i id="b-hour"></i></div>
+            </div>
+          </div>
+
+          <p id="rule" class="rule">Start timing to see how you're tracking.</p>
+          <p class="guide-foot">
+            <span id="stat-count">0</span> in the last hour ·
+            <button type="button" class="link inline" data-goto="tips">
+              Other reasons to call
+            </button>
+          </p>
+        </section>
+      </div>
+
+      <!-- TIPS -->
+      <div id="view-tips" class="view" hidden>
+        <h1>Tips &amp; support</h1>
+        <p class="lead">
+          Things you and your partner can do. Evidence notes come from published reviews, with links
+          below. Ask your midwife what suits you.
+        </p>
+
+        <section class="card urgent" id="when-to-call">
+          <h2>Call your midwife or maternity unit now if</h2>
+          <ul>
+            <li>your waters break</li>
+            <li>you have vaginal bleeding</li>
+            <li>baby is moving less than usual</li>
+            <li>you are under 37 weeks and think you may be in labour</li>
+            <li>a contraction lasts longer than 2 minutes</li>
+            <li>you have 6 or more contractions in 10 minutes</li>
+            <li>you are unsure or worried about anything</li>
+          </ul>
+          <p>
+            Strong urge to push, or baby is coming: call emergency services (999 in the UK, 911 in
+            the US).
+          </p>
+          <a
+            href="https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >NHS: signs that labour has begun</a
+          >
+        </section>
+
+        <section class="card breathe">
+          <h2>Breathe together</h2>
+          <p class="small">
+            Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but
+            studies are small, so use what feels good.
+          </p>
+          <div id="pacer" class="pacer" aria-hidden="true"><span id="pacer-text">Ready</span></div>
+          <button id="pacer-btn" class="soft" type="button">Start breathing guide</button>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD009514/PREG_relaxation-techniques-pain-management-labour"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane: relaxation techniques</a
+          >
+        </section>
+
+        <section class="card words">
+          <h2>Words to say</h2>
+          <blockquote id="phrase">You are doing it. I am right here.</blockquote>
+          <button id="phrase-btn" class="soft" type="button">Another one</button>
+          <p class="small">
+            Constant, calm support is linked to shorter labours and better birth experiences.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD003766/PREG_continuous-support-women-during-childbirth"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane: continuous support</a
+          >
+        </section>
+
+        <h2 class="section">How a partner can help</h2>
+
+        <article class="card tip">
+          <h3>Stay close <span class="tag some">Some evidence</span></h3>
+          <p>
+            Be present for the whole labour, don't leave her alone for long, and speak up for her
+            wishes. In 27 trials, continuous support meant more spontaneous births, around 40
+            minutes shorter labour on average, and fewer negative feelings about the birth.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD003766/PREG_continuous-support-women-during-childbirth"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Move and stay upright <span class="tag some">Some evidence</span></h3>
+          <p>
+            Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with
+            lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with
+            fewer caesareans. Quality was mixed, so follow what feels right.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD003934/PREG_maternal-position-during-first-stage-labour"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Massage <span class="tag some">Some evidence</span></h3>
+          <p>
+            Firm strokes or pressure on the lower back, shoulders or hands. Massage lowered reported
+            pain in the first stage in small trials. Ask what pressure and where, and check often,
+            because it changes.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD009290/PREG_massage-reflexology-and-other-manual-methods-pain-management-labour"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Warm water <span class="tag limited">Limited evidence</span></h3>
+          <p>
+            A warm shower or bath is a common comfort. Reviews of birth pools found fewer epidurals
+            and no clear harm to mothers or babies. Showers are less studied. Keep the water warm,
+            not hot, and ask your midwife before using a bath or pool.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD000111/PREG_immersion-water-during-labour-and-birth"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Pain relief options <span class="tag info">Know your options</span></h3>
+          <p>
+            Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember
+            what she decided in advance, and that she can change her mind.
+          </p>
+          <a
+            class="src"
+            href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/pain-relief-in-labour/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >NHS: pain relief in labour</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Practical comforts <span class="tag info">Common sense</span></h3>
+          <p>
+            Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone
+            calls and the bag, so she can focus. Time each contraction from the start, and take
+            breaks yourself too.
+          </p>
+        </article>
+
+        <section class="card sources">
+          <h2>Sources</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NHS: signs that labour has begun</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nice.org.uk/guidance/ng235"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NICE NG235: intrapartum care</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.acog.org/womens-health/faqs/how-to-tell-when-labor-begins"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ACOG: how to tell when labor begins</a
+              >
+            </li>
+          </ul>
+          <p class="small">
+            Links need an internet connection. Everything else in this app works offline. The 5-1-1
+            family of rules is a widely used rule of thumb, not an official clinical standard.
+          </p>
+        </section>
+      </div>
+
+      <!-- HISTORY -->
+      <div id="view-history" class="view" hidden>
+        <section class="history">
+          <header>
+            <h1>History</h1>
+            <div class="actions">
+              <button id="export" type="button" class="link">Export CSV</button>
+              <button id="clear" type="button" class="link">Clear all</button>
+            </div>
+          </header>
+          <ol id="list"></ol>
+          <p id="empty" class="empty">Nothing yet. Tap the circle when one begins.</p>
+        </section>
+      </div>
 
       <footer>
         <p>
@@ -75,6 +290,14 @@
         <p><a href="https://github.com/Uricorn/Contraction-Timer">Source code</a></p>
       </footer>
     </main>
+
+    <nav class="tabs" aria-label="Sections">
+      <button type="button" data-view="timer" aria-current="page">
+        <span aria-hidden="true">⏱️</span>Timer
+      </button>
+      <button type="button" data-view="tips"><span aria-hidden="true">💜</span>Tips</button>
+      <button type="button" data-view="history"><span aria-hidden="true">📋</span>History</button>
+    </nav>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

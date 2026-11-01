@@ -1,12 +1,16 @@
 import "./style.css";
+import { initTips } from "./tips";
+import { initViews } from "./views";
 import {
-  checkRule,
   formatDuration,
   parseStored,
   RULES,
+  MINUTE,
   sortByStart,
   toCsv,
   windowStats,
+  ruleMeters,
+  type Meter,
   type Contraction,
   type RuleKey,
 } from "./logic";
@@ -98,7 +102,7 @@ const pauseBtn = $<HTMLButtonElement>("pause");
 const list = $("list");
 const empty = $("empty");
 const rule = $("rule");
-const ruleSelect = $<HTMLSelectElement>("rule-select");
+const segButtons = document.querySelectorAll<HTMLButtonElement>(".seg button");
 const time = (t: number) =>
   new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
@@ -142,19 +146,30 @@ function tick() {
   }
 
   const s = windowStats(data.contractions, now, undefined, data.breaks);
-  $("stat-count").textContent = String(s.count || "–");
-  $("stat-duration").textContent = s.avgDuration === null ? "–" : formatDuration(s.avgDuration);
-  $("stat-interval").textContent = s.avgInterval === null ? "–" : formatDuration(s.avgInterval);
+  $("stat-count").textContent = String(s.count);
+  const m = ruleMeters(data.contractions, now, data.rule, data.breaks);
+  $("d-apart").textContent = data.rule.split("-")[0];
+  setMeter("apart", m.apart, (v) => `avg ${formatDuration(v)}`);
+  setMeter("length", m.length, (v) => `avg ${formatDuration(v)}`);
+  setMeter("hour", m.hour, (v) => `${Math.floor(v / MINUTE)} of 60 min`, true);
 
-  const r = checkRule(data.contractions, now, data.rule, data.breaks);
-  rule.hidden = s.count < 3;
-  if (r.met) {
-    rule.textContent = `For the past hour contractions have matched ${data.rule}. Consider calling your midwife or hospital.`;
-  } else if (r.patternOk) {
-    rule.textContent = `Matching ${data.rule} for ${Math.max(1, Math.floor(r.progress * 60))} of 60 minutes.`;
+  rule.className = m.met ? "rule go" : "rule";
+  if (m.met) {
+    rule.textContent = `Contractions have matched ${data.rule} for a full hour. Consider calling your midwife or hospital.`;
+  } else if (s.count < 3) {
+    rule.textContent = "Keep timing. A few more contractions will show your pattern.";
+  } else if (m.apart.ok && m.length.ok) {
+    rule.textContent = `Matching ${data.rule}. Keep going until all three are ticked.`;
   } else {
     rule.textContent = `Not at ${data.rule} yet. Keep going, you're doing great.`;
   }
+}
+
+function setMeter(name: string, m: Meter, label: (v: number) => string, always = false) {
+  $(`m-${name}`).classList.toggle("ok", m.ok);
+  $(`b-${name}`).style.width = `${Math.round(m.fill * 100)}%`;
+  $(`v-${name}`).textContent =
+    m.value === null ? "–" : `${m.ok ? "✓ " : ""}${always || m.value > 0 ? label(m.value) : "–"}`;
 }
 
 /** Heavier rebuild of the history list, only when data changes. */
@@ -198,7 +213,7 @@ function remove(c: Contraction) {
 }
 
 function render() {
-  ruleSelect.value = data.rule;
+  segButtons.forEach((b) => b.setAttribute("aria-checked", String(b.dataset.rule === data.rule)));
   renderList();
   tick();
 }
@@ -206,11 +221,14 @@ function render() {
 button.addEventListener("click", toggle);
 pauseBtn.addEventListener("click", togglePause);
 
-ruleSelect.addEventListener("change", () => {
-  if (ruleSelect.value in RULES) data.rule = ruleSelect.value as RuleKey;
-  save();
-  tick();
-});
+segButtons.forEach((b) =>
+  b.addEventListener("click", () => {
+    const key = b.dataset.rule ?? "";
+    if (key in RULES) data.rule = key as RuleKey;
+    save();
+    render();
+  }),
+);
 
 $("clear").addEventListener("click", () => {
   if (data.contractions.length && confirm("Delete all contractions? This cannot be undone.")) {
@@ -244,6 +262,8 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
+initViews();
+initTips();
 render();
 setInterval(tick, 1000);
 if (activeContraction()) void holdScreen(true);

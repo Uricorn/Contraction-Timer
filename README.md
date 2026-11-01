@@ -15,6 +15,8 @@ or as an Android app. No account, no ads, no analytics; data never leaves your d
 - One-hour averages: number of contractions, average length, average time apart
 - Pause and resume (paused gaps are left out of the averages)
 - 5-1-1 / 4-1-1 / 3-1-1 guideline alert (your choice), plus a "when to call right away" card
+- A "When to call" panel where each digit of 5-1-1 / 4-1-1 / 3-1-1 has its own progress meter
+- Tips tab: breathing pacer, words to say, evidence-rated partner tips with links to Cochrane, NHS and NICE
 - Calm, soft design with light and dark modes; the button gently breathes during a contraction
 - History with delete, CSV export, and "clear all"
 - Screen stays awake while a contraction is running; state survives closing the app or restarts
