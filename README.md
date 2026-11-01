@@ -13,7 +13,9 @@ or as an Android app. No account, no ads, no analytics; data never leaves your d
 - One big start/stop button; the background colour shows contracting / resting at a glance
 - Live timer for the current contraction and the rest since the last one
 - One-hour averages: number of contractions, average length, average time apart
-- 5-1-1 guideline alert (about 5 min apart, about 1 min long, for an hour)
+- Pause and resume (paused gaps are left out of the averages)
+- 5-1-1 / 4-1-1 / 3-1-1 guideline alert (your choice), plus a "when to call right away" card
+- Calm, soft design with light and dark modes; the button gently breathes during a contraction
 - History with delete, CSV export, and "clear all"
 - Screen stays awake while a contraction is running; state survives closing the app or restarts
 - Works offline (service worker on the web, bundled assets on Android)
@@ -76,4 +78,4 @@ Feature inspiration: [petewritescode/contraction-timer](https://github.com/petew
 Kept deliberately small: two runtime packages (Capacitor) and a modern, current toolchain
 (Vite, TypeScript, Vitest, ESLint flat config). `npm audit` is clean; `overrides` in
 `package.json` pin patched `minimatch`/`glob` for the Capacitor CLI and can be dropped once it
-updates. Dependabot runs monthly with grouped PRs.
+updates. Dependabot runs weekly with grouped PRs (we start on the latest versions).

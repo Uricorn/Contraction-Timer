@@ -1,24 +1,22 @@
-# Monthly, grouped updates: one PR per ecosystem instead of one per package.
-# Security alerts still open PRs immediately, regardless of this schedule.
+# Weekly updates, grouped per ecosystem so related bumps arrive as one PR.
+# We start on the latest versions, so day-one noise should be minimal.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: /
-    schedule: { interval: monthly }
-    open-pull-requests-limit: 2
+    schedule: { interval: weekly }
     groups:
       npm:
         patterns: ["*"]
   - package-ecosystem: github-actions
     directory: /
-    schedule: { interval: monthly }
+    schedule: { interval: weekly }
     groups:
       actions:
         patterns: ["*"]
   - package-ecosystem: gradle
     directory: /android
-    schedule: { interval: monthly }
-    open-pull-requests-limit: 2
+    schedule: { interval: weekly }
     groups:
       gradle:
         patterns: ["*"]

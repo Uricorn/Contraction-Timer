@@ -6,8 +6,31 @@ export interface Contraction {
   end: number | null;
 }
 
+/** A pause: the timer is deliberately stopped (e.g. a nap or a shower). */
+export interface Break {
+  start: number;
+  end: number | null;
+}
+
+export type RuleKey = "5-1-1" | "4-1-1" | "3-1-1";
+
 export const MINUTE = 60_000;
 export const HOUR = 60 * MINUTE;
+
+/** Common "call your midwife/hospital" guidelines: apart (min), length (min), for an hour. */
+export const RULES: Record<RuleKey, { interval: number; duration: number }> = {
+  "5-1-1": { interval: 5, duration: 1 },
+  "4-1-1": { interval: 4, duration: 1 },
+  "3-1-1": { interval: 3, duration: 1 },
+};
+
+export interface Data {
+  contractions: Contraction[];
+  breaks: Break[];
+  rule: RuleKey;
+}
+
+export const emptyData = (): Data => ({ contractions: [], breaks: [], rule: "5-1-1" });
 
 export interface Stats {
   count: number;
@@ -20,72 +43,93 @@ export interface Stats {
 export const sortByStart = (list: Contraction[]): Contraction[] =>
   [...list].sort((a, b) => a.start - b.start);
 
-/** Start-to-start gaps (ms) between consecutive contractions. */
-export function intervals(list: Contraction[]): number[] {
+/** True if any break overlaps the span between two contraction starts. */
+function crossesBreak(from: number, to: number, breaks: Break[]): boolean {
+  return breaks.some((b) => b.start < to && (b.end ?? Infinity) > from);
+}
+
+/**
+ * Start-to-start gaps (ms) between consecutive contractions. Gaps that span
+ * a pause are left out, since they would wrongly inflate the average.
+ */
+export function intervals(list: Contraction[], breaks: Break[] = []): number[] {
   const s = sortByStart(list);
-  return s.slice(1).map((c, i) => c.start - s[i].start);
+  const gaps: number[] = [];
+  for (let i = 1; i < s.length; i++) {
+    if (!crossesBreak(s[i - 1].start, s[i].start, breaks)) {
+      gaps.push(s[i].start - s[i - 1].start);
+    }
+  }
+  return gaps;
 }
 
 const mean = (xs: number[]): number | null =>
   xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
 
 /** Stats for contractions that started within `windowMs` before `now`. */
-export function windowStats(list: Contraction[], now: number, windowMs = HOUR): Stats {
+export function windowStats(
+  list: Contraction[],
+  now: number,
+  windowMs = HOUR,
+  breaks: Break[] = [],
+): Stats {
   const inWindow = sortByStart(list).filter((c) => c.start >= now - windowMs && c.start <= now);
   const durations = inWindow.filter((c) => c.end !== null).map((c) => (c.end as number) - c.start);
   return {
     count: inWindow.length,
     avgDuration: mean(durations),
-    avgInterval: mean(intervals(inWindow)),
+    avgInterval: mean(intervals(inWindow, breaks)),
   };
 }
 
 export interface RuleResult {
+  /** The last hour's averages currently match the rule. */
+  patternOk: boolean;
+  /** Pattern matches AND has held for the full hour. */
   met: boolean;
-  /** 0..1 progress towards the rule being sustained for the full hour. */
+  /** 0..1 of the hour for which the pattern has held. */
   progress: number;
 }
 
 /**
- * The common "5-1-1" guidance: contractions about every 5 minutes, lasting
- * about 1 minute, for at least 1 hour. This is a prompt to call your
+ * "5-1-1"-style guidance: contractions at most `interval` minutes apart, at
+ * least `duration` minutes long, sustained for an hour. A prompt to call your
  * midwife/hospital, not medical advice.
  */
-export function fiveOneOne(
+export function checkRule(
   list: Contraction[],
   now: number,
-  maxInterval = 5 * MINUTE,
-  minDuration = MINUTE,
+  rule: RuleKey = "5-1-1",
+  breaks: Break[] = [],
 ): RuleResult {
-  const stats = windowStats(list, now);
-  const inWindow = sortByStart(list).filter((c) => c.start >= now - HOUR);
-  const span = inWindow.length ? now - inWindow[0].start : 0;
+  const { interval, duration } = RULES[rule];
+  const stats = windowStats(list, now, HOUR, breaks);
+  const first = sortByStart(list).find((c) => c.start >= now - HOUR && c.start <= now);
+  const span = first ? now - first.start : 0;
   const patternOk =
     stats.avgInterval !== null &&
     stats.avgDuration !== null &&
-    stats.avgInterval <= maxInterval &&
-    stats.avgDuration >= minDuration;
-  // Allow a little slack: data covering ~55 min of the hour counts.
-  const progress = patternOk ? Math.min(1, span / (55 * MINUTE)) : 0;
-  return { met: patternOk && progress >= 1, progress };
+    stats.avgInterval <= interval * MINUTE &&
+    stats.avgDuration >= duration * MINUTE;
+  const progress = patternOk ? Math.min(1, span / HOUR) : 0;
+  return { patternOk, met: patternOk && progress >= 1, progress };
 }
 
-/** Format ms as m:ss (or h:mm:ss from one hour). */
+/** Format ms as m:ss (or h:mm:ss from one hour). Truncates, like a stopwatch. */
 export function formatDuration(ms: number): string {
-  const total = Math.max(0, Math.round(ms / 1000));
+  const total = Math.max(0, Math.floor(ms / 1000));
   const h = Math.floor(total / 3600);
   const m = Math.floor((total % 3600) / 60);
-  const s = total % 60;
-  const ss = String(s).padStart(2, "0");
+  const ss = String(total % 60).padStart(2, "0");
   return h > 0 ? `${h}:${String(m).padStart(2, "0")}:${ss}` : `${m}:${ss}`;
 }
 
 export function toCsv(list: Contraction[]): string {
   const rows = sortByStart(list);
-  const lines = ["start,end,duration_seconds,interval_seconds"];
+  const lines = ["start_utc,end_utc,duration_seconds,interval_seconds"];
   rows.forEach((c, i) => {
-    const dur = c.end === null ? "" : Math.round((c.end - c.start) / 1000);
-    const gap = i === 0 ? "" : Math.round((c.start - rows[i - 1].start) / 1000);
+    const dur = c.end === null ? "" : Math.floor((c.end - c.start) / 1000);
+    const gap = i === 0 ? "" : Math.floor((c.start - rows[i - 1].start) / 1000);
     lines.push(
       [
         new Date(c.start).toISOString(),
@@ -98,21 +142,52 @@ export function toCsv(list: Contraction[]): string {
   return lines.join("\n") + "\n";
 }
 
-/** Defensively parse stored JSON; drops anything malformed. */
-export function parseStored(raw: string | null): Contraction[] {
-  if (!raw) return [];
+const isTime = (n: unknown): n is number => typeof n === "number" && Number.isFinite(n);
+
+/**
+ * Defensively parse stored JSON (current object format, or the original
+ * plain array). Drops malformed rows and keeps at most one in-progress
+ * contraction and one open break (the latest).
+ */
+export function parseStored(raw: string | null): Data {
+  const out = emptyData();
+  if (!raw) return out;
+  let data: unknown;
   try {
-    const data: unknown = JSON.parse(raw);
-    if (!Array.isArray(data)) return [];
-    return data.filter(
-      (c): c is Contraction =>
-        typeof c === "object" &&
-        c !== null &&
-        typeof c.id === "string" &&
-        Number.isFinite(c.start) &&
-        (c.end === null || (Number.isFinite(c.end) && c.end >= c.start)),
-    );
+    data = JSON.parse(raw);
   } catch {
-    return [];
+    return out;
   }
+  const obj = (Array.isArray(data) ? { contractions: data } : data) as Record<string, unknown>;
+  if (typeof obj !== "object" || obj === null) return out;
+
+  const rawC = Array.isArray(obj.contractions) ? obj.contractions : [];
+  const cs = rawC.filter(
+    (c): c is Contraction =>
+      typeof c === "object" &&
+      c !== null &&
+      typeof c.id === "string" &&
+      isTime(c.start) &&
+      (c.end === null || (isTime(c.end) && c.end >= c.start)),
+  );
+  const open = sortByStart(cs).filter((c) => c.end === null);
+  const keep = open.at(-1);
+  out.contractions = cs.filter((c) => c.end !== null || c === keep);
+
+  const rawB = Array.isArray(obj.breaks) ? obj.breaks : [];
+  const bs = rawB.filter(
+    (b): b is Break =>
+      typeof b === "object" &&
+      b !== null &&
+      isTime(b.start) &&
+      (b.end === null || (isTime(b.end) && b.end >= b.start)),
+  );
+  const openB = [...bs]
+    .sort((a, b) => a.start - b.start)
+    .filter((b) => b.end === null)
+    .at(-1);
+  out.breaks = bs.filter((b) => b.end !== null || b === openB);
+
+  if (typeof obj.rule === "string" && obj.rule in RULES) out.rule = obj.rule as RuleKey;
+  return out;
 }

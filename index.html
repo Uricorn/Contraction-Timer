@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#1f2937" />
+    <meta name="theme-color" content="#fdf6f0" />
     <meta
       name="description"
       content="Offline contraction timer for labour. No account, no tracking."
@@ -15,11 +15,14 @@
   </head>
   <body data-state="idle">
     <main>
-      <section class="timer" aria-live="off">
+      <section class="timer">
         <p id="state-label" class="label">Ready</p>
         <p id="clock" class="clock" role="timer">0:00</p>
         <p id="clock-sub" class="sub">&nbsp;</p>
-        <button id="toggle" class="big" type="button">Start contraction</button>
+        <div class="orb-wrap">
+          <button id="toggle" class="orb" type="button">Start</button>
+        </div>
+        <button id="pause" class="soft" type="button">Pause</button>
       </section>
 
       <section class="stats" aria-label="Last hour averages">
@@ -30,22 +33,44 @@
 
       <p id="rule" class="rule" hidden></p>
 
+      <section class="card">
+        <label for="rule-select">Call-me guideline</label>
+        <select id="rule-select">
+          <option value="5-1-1">5-1-1 (first baby, usual)</option>
+          <option value="4-1-1">4-1-1</option>
+          <option value="3-1-1">3-1-1 (fast labours)</option>
+        </select>
+        <small>Apart / minute long / for an hour. Ask your midwife which suits you.</small>
+      </section>
+
+      <details class="card">
+        <summary>When to call right away</summary>
+        <ul>
+          <li>Your waters break, or you have fluid leaking</li>
+          <li>Any bleeding</li>
+          <li>Baby is moving less than usual</li>
+          <li>Under 37 weeks, or you feel worried or unwell</li>
+          <li>Contractions last over 2 minutes, or come very fast</li>
+          <li>Strong urge to push: call emergency services</li>
+        </ul>
+        <small>General guidance only. Follow your own care team's advice.</small>
+      </details>
+
       <section class="history">
         <header>
           <h2>History</h2>
           <div class="actions">
             <button id="export" type="button" class="link">Export CSV</button>
-            <button id="clear" type="button" class="link danger">Clear all</button>
+            <button id="clear" type="button" class="link">Clear all</button>
           </div>
         </header>
         <ol id="list"></ol>
-        <p id="empty" class="empty">No contractions yet. Tap start when one begins.</p>
+        <p id="empty" class="empty">Nothing yet. Tap the circle when one begins.</p>
       </section>
 
       <footer>
         <p>
-          Not medical advice. Always follow your midwife or doctor, and call them if you are
-          worried. Data stays on this device.
+          Not medical advice. Always follow your midwife or doctor. Everything stays on this device.
         </p>
         <p><a href="https://github.com/Uricorn/Contraction-Timer">Source code</a></p>
       </footer>
