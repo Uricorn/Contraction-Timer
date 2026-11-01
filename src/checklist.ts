@@ -33,6 +33,7 @@ const DEFAULTS = [
   "Light snacks: dates, nuts, fruit, crackers",
   "Comfort items: small lamp, fan, heat pack, massage ball, playlist",
   "Partner: change of clothes, snacks, charger",
+  "Partner: zip-up hoodie or button shirt for skin-to-skin",
   // Hospital stay bag
   "Loose comfy clothes and slippers",
   "Absorbent underwear or pads",
