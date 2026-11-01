@@ -155,7 +155,7 @@ function tick() {
 
   rule.className = m.met ? "rule go" : "rule";
   if (m.met) {
-    rule.textContent = `Contractions have matched ${data.rule} for a full hour. Consider calling your midwife or hospital.`;
+    rule.textContent = `Contractions have matched ${data.rule} for a full hour. It may be time to head to the hospital or birth centre. Call ahead to let them know you are coming.`;
   } else if (s.count < 3) {
     rule.textContent = "Keep timing. A few more contractions will show your pattern.";
   } else if (m.apart.ok && m.length.ok) {
