@@ -87,20 +87,33 @@
           below. Ask your midwife what suits you.
         </p>
 
-        <section class="card urgent" id="when-to-call">
-          <h2>Call your midwife or maternity unit now if</h2>
+        <section class="card urgent go-now" id="go-now">
+          <h2>Go to the hospital now if</h2>
           <ul>
-            <li>your waters break</li>
-            <li>you have vaginal bleeding</li>
-            <li>baby is moving less than usual</li>
-            <li>you are under 37 weeks and think you may be in labour</li>
+            <li>you have bleeding heavier than a period, or any bleeding with pain</li>
+            <li>baby is moving much less than usual</li>
+            <li>your waters break and the fluid is green, brown or bloody</li>
             <li>a contraction lasts longer than 2 minutes</li>
             <li>you have 6 or more contractions in 10 minutes</li>
-            <li>you are unsure or worried about anything</li>
+            <li>contractions match your 3-1-1 or 4-1-1 guideline</li>
           </ul>
           <p>
             Strong urge to push, or baby is coming: call emergency services (999 in the UK, 911 in
             the US).
+          </p>
+        </section>
+
+        <section class="card urgent" id="when-to-call">
+          <h2>Call your midwife or maternity unit first if</h2>
+          <ul>
+            <li>your waters break and the fluid is clear</li>
+            <li>contractions begin to be regular, or match 5-1-1</li>
+            <li>you are under 37 weeks and think you may be in labour</li>
+            <li>you are unsure or worried about anything</li>
+          </ul>
+          <p>
+            They will tell you whether to come in, and can prepare for you. Save their number now.
+            If in doubt, go.
           </p>
           <a
             href="https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
@@ -268,6 +281,57 @@
         </section>
       </div>
 
+      <!-- BAG CHECKLIST -->
+      <div id="view-list" class="view" hidden>
+        <h1>Hospital bag</h1>
+        <p class="lead">
+          A starting list. Tick things off, delete what you don't need, and add your own.
+        </p>
+        <section class="card">
+          <p id="check-count" class="small count">0 of 0 packed</p>
+          <ul id="check-list" class="editable"></ul>
+          <form id="check-form" class="add">
+            <input
+              id="check-input"
+              type="text"
+              placeholder="Add an item"
+              aria-label="Add an item"
+              maxlength="80"
+            />
+            <button class="soft" type="submit">Add</button>
+          </form>
+          <div class="row-links">
+            <button id="check-untick" type="button" class="link">Untick all</button>
+            <button id="check-reset" type="button" class="link">Restore defaults</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- HOSPITAL NOTES -->
+      <div id="view-notes" class="view" hidden>
+        <h1>Hospital notes</h1>
+        <p class="lead">
+          Answers staff often ask for. Fill in ahead of time so you don't have to think
+          mid-contraction. Saved on this device only.
+        </p>
+        <section class="card">
+          <div id="notes-list"></div>
+          <form id="notes-form" class="add">
+            <input
+              id="notes-input"
+              type="text"
+              placeholder="Add your own question"
+              aria-label="Add your own question"
+              maxlength="80"
+            />
+            <button class="soft" type="submit">Add</button>
+          </form>
+          <div class="row-links">
+            <button id="notes-reset" type="button" class="link">Restore defaults</button>
+          </div>
+        </section>
+      </div>
+
       <!-- HISTORY -->
       <div id="view-history" class="view" hidden>
         <section class="history">
@@ -296,6 +360,8 @@
         <span aria-hidden="true">⏱️</span>Timer
       </button>
       <button type="button" data-view="tips"><span aria-hidden="true">💜</span>Tips</button>
+      <button type="button" data-view="list"><span aria-hidden="true">🎒</span>Bag</button>
+      <button type="button" data-view="notes"><span aria-hidden="true">📝</span>Notes</button>
       <button type="button" data-view="history"><span aria-hidden="true">📋</span>History</button>
     </nav>
     <script type="module" src="/src/main.ts"></script>

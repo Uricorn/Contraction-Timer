@@ -1,6 +1,6 @@
 /** Bottom tab navigation between Timer / Tips / History. */
 
-const views = ["timer", "tips", "history"] as const;
+const views = ["timer", "tips", "list", "notes", "history"] as const;
 export type View = (typeof views)[number];
 
 export function showView(name: View): void {

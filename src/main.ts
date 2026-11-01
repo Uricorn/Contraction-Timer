@@ -1,6 +1,8 @@
 import "./style.css";
 import { initTips } from "./tips";
 import { initViews } from "./views";
+import { initChecklist } from "./checklist";
+import { initNotes } from "./notes";
 import {
   formatDuration,
   parseStored,
@@ -264,6 +266,8 @@ document.addEventListener("visibilitychange", () => {
 
 initViews();
 initTips();
+initChecklist();
+initNotes();
 render();
 setInterval(tick, 1000);
 if (activeContraction()) void holdScreen(true);

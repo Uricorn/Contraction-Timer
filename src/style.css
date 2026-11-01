@@ -536,9 +536,9 @@ blockquote {
   padding: 0.25rem 0;
 }
 @media (prefers-reduced-motion: reduce) {
+  /* Still show the size change (instantly) so the guide works with animations off. */
   .pacer {
     transition: none;
-    transform: none;
   }
   .bar i {
     transition: none;
@@ -550,4 +550,123 @@ blockquote {
 }
 .guide-head h2 {
   white-space: nowrap;
+}
+
+/* ---- Tips layout fixes ---- */
+.breathe .soft,
+.words .soft {
+  display: block;
+  margin: 0.4rem auto 0.6rem;
+}
+.breathe .src,
+.words .src,
+.tip .src {
+  display: block;
+  margin-top: 0.4rem;
+}
+.pacer {
+  width: 11rem;
+  height: 11rem;
+  margin: 1.2rem auto;
+}
+.go-now {
+  border-left-color: #d98a8a;
+}
+
+/* ---- Bag checklist and hospital notes ---- */
+.tabs button {
+  font-size: 0.72rem;
+  padding-inline: 0.1rem;
+}
+.editable {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0;
+}
+.editable li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 18%, transparent);
+}
+.editable label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  font-weight: 600;
+}
+.editable li.done span {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+input[type="checkbox"] {
+  width: 1.4rem;
+  height: 1.4rem;
+  accent-color: var(--accent);
+  flex: none;
+}
+.editable .del,
+.field .del {
+  flex: none;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  background: none;
+  border: 0;
+  color: var(--muted);
+}
+.add {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+.card input[type="text"],
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg-idle);
+  border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+  border-radius: 0.8rem;
+  padding: 0.65rem;
+  min-height: 2.75rem;
+}
+.add input {
+  flex: 1;
+  min-width: 0;
+}
+.add .soft {
+  padding-inline: 1.1rem;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.field {
+  margin-bottom: 0.9rem;
+}
+.field-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.field-head label {
+  font-weight: 700;
+}
+.field .del {
+  min-height: 2rem;
+}
+.field textarea {
+  resize: vertical;
+}
+.row-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+}
+.count {
+  margin: 0;
+}
+.card .editable {
+  padding-left: 0;
 }
