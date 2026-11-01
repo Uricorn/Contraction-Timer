@@ -685,3 +685,19 @@ input[type="checkbox"] {
   color: var(--muted);
   line-height: 1.5;
 }
+
+.info {
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 18%, transparent);
+  padding: 0.2rem 0;
+}
+.info summary {
+  padding: 0.6rem 0;
+  min-height: 2.75rem;
+}
+.info p {
+  color: var(--muted);
+}
+.info .src {
+  display: block;
+  margin: 0.2rem 0 0.6rem;
+}

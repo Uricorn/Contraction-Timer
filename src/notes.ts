@@ -40,7 +40,10 @@ const DEFAULTS: Field[] = [
   ],
   ["Pain relief wishes", "e.g. natural, epidural, open to options"],
   ["Birth preferences", "e.g. movement, music, delayed cord clamping"],
-  ["Newborn choices", "vitamin K, vaccines, cord blood, rooming-in"],
+  [
+    "Newborn choices",
+    "first bath, delayed cord clamping, vitamin K, vaccines, cord blood, rooming-in",
+  ],
   ["Feeding plan", "breast, bottle, not sure"],
   ["Emergency contact", "name and phone"],
 ].map(([label, hint], i) => ({
@@ -69,6 +72,8 @@ export function initNotes(): void {
   const form = document.getElementById("notes-form") as HTMLFormElement;
   const input = document.getElementById("notes-input") as HTMLInputElement;
   let fields = load(KEY, migrate, valid);
+  // Keep placeholder hints current for default questions (answers are untouched).
+  for (const f of fields) f.hint = DEFAULTS.find((d) => d.label === f.label)?.hint ?? f.hint;
 
   const render = () =>
     host.replaceChildren(
