@@ -69,8 +69,8 @@ export const ar: Record<string, string> = {
   "a contraction lasts longer than 2 minutes": "استمر انقباض أكثر من دقيقتين",
   "you have 6 or more contractions in 10 minutes": "حدثت 6 انقباضات أو أكثر خلال 10 دقائق",
   "contractions match your 3-1-1 or 4-1-1 guideline": "تطابقت الانقباضات مع قاعدة 3-1-1 أو 4-1-1",
-  "Strong urge to push, or baby is coming: call emergency services (999 in the UK, 911 in the US).":
-    "رغبة قوية في الدفع، أو أن الطفل قادم: اتصلي بالإسعاف، نجمة داوود الحمراء 101 (999 في بريطانيا، 911 في أمريكا).",
+  "Strong urge to push, or baby is coming: call your local emergency number.":
+    "رغبة قوية في الدفع، أو أن الطفل قادم: اتصلي برقم الطوارئ المحلي.",
   "Call your midwife or maternity unit first if": "اتصلي أولًا بالقابلة أو بقسم الولادة إذا",
   "your waters break and the fluid is clear": "انفجر كيس الماء وكان السائل صافيًا",
   "contractions begin to be regular, or match 5-1-1":

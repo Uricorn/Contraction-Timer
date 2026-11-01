@@ -66,8 +66,8 @@ export const he: Record<string, string> = {
   "a contraction lasts longer than 2 minutes": "צירים נמשכים יותר מ-2 דקות",
   "you have 6 or more contractions in 10 minutes": "יש 6 צירים או יותר ב-10 דקות",
   "contractions match your 3-1-1 or 4-1-1 guideline": "הצירים תואמים להנחיית 3-1-1 או 4-1-1",
-  "Strong urge to push, or baby is coming: call emergency services (999 in the UK, 911 in the US).":
-    "דחף חזק ללחוץ, או שהתינוק בדרך: התקשרי למד״א 101 (999 בבריטניה, 911 בארה״ב).",
+  "Strong urge to push, or baby is coming: call your local emergency number.":
+    "דחף חזק ללחוץ, או שהתינוק בדרך: התקשרי למספר החירום המקומי.",
   "Call your midwife or maternity unit first if": "קודם להתקשר למיילדת או למחלקת יולדות אם",
   "your waters break and the fluid is clear": "המים ירדו והנוזל צלול",
   "contractions begin to be regular, or match 5-1-1":
