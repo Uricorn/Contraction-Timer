@@ -3,6 +3,7 @@ import { initTips } from "./tips";
 import { initViews } from "./views";
 import { initChecklist } from "./checklist";
 import { initNotes } from "./notes";
+import { getLocale, initI18n, t } from "./i18n";
 import {
   formatDuration,
   parseStored,
@@ -105,8 +106,8 @@ const list = $("list");
 const empty = $("empty");
 const rule = $("rule");
 const segButtons = document.querySelectorAll<HTMLButtonElement>(".seg button");
-const time = (t: number) =>
-  new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+const time = (ms: number) =>
+  new Date(ms).toLocaleTimeString(getLocale(), { hour: "2-digit", minute: "2-digit" });
 
 function setState(state: string, text: string, btn: string) {
   document.body.dataset.state = state;
@@ -122,27 +123,29 @@ function tick() {
   const last = lastFinished();
 
   pauseBtn.hidden = !!cur;
-  pauseBtn.textContent = pause ? "Resume" : "Pause";
+  pauseBtn.textContent = pause ? t("Resume") : t("Pause");
 
   if (cur) {
-    setState("contracting", "🫧 Contraction", "Stop");
+    setState("contracting", t("🫧 Contraction"), t("Stop"));
     clock.textContent = formatDuration(now - cur.start);
     const prev = sortByStart(data.contractions)
       .filter((c) => c !== cur)
       .at(-1);
     sub.textContent = prev
-      ? `${formatDuration(cur.start - prev.start)} since the last one began`
+      ? t("{time} since the last one began", { time: formatDuration(cur.start - prev.start) })
       : "\u00a0";
   } else if (pause) {
-    setState("paused", "☁️ Paused", "Start");
+    setState("paused", t("☁️ Paused"), t("Start"));
     clock.textContent = formatDuration(last?.end ? pause.start - last.end : 0);
-    sub.textContent = `paused for ${formatDuration(now - pause.start)}`;
+    sub.textContent = t("paused for {time}", { time: formatDuration(now - pause.start) });
   } else if (last?.end) {
-    setState("resting", "🌿 Resting", "Start");
+    setState("resting", t("🌿 Resting"), t("Start"));
     clock.textContent = formatDuration(now - last.end);
-    sub.textContent = `${formatDuration(now - last.start)} since the last one began`;
+    sub.textContent = t("{time} since the last one began", {
+      time: formatDuration(now - last.start),
+    });
   } else {
-    setState("idle", "Ready when you are", "Start");
+    setState("idle", t("Ready when you are"), t("Start"));
     clock.textContent = "0:00";
     sub.textContent = "\u00a0";
   }
@@ -151,19 +154,24 @@ function tick() {
   $("stat-count").textContent = String(s.count);
   const m = ruleMeters(data.contractions, now, data.rule, data.breaks);
   $("d-apart").textContent = data.rule.split("-")[0];
-  setMeter("apart", m.apart, (v) => `avg ${formatDuration(v)}`);
-  setMeter("length", m.length, (v) => `avg ${formatDuration(v)}`);
-  setMeter("hour", m.hour, (v) => `${Math.floor(v / MINUTE)} of 60 min`, true);
+  setMeter("apart", m.apart, (v) => t("avg {time}", { time: formatDuration(v) }));
+  setMeter("length", m.length, (v) => t("avg {time}", { time: formatDuration(v) }));
+  setMeter("hour", m.hour, (v) => t("{n} of 60 min", { n: Math.floor(v / MINUTE) }), true);
 
   rule.className = m.met ? "rule go" : "rule";
   if (m.met) {
-    rule.textContent = `Contractions have matched ${data.rule} for a full hour. It may be time to head to the hospital or birth centre. Call ahead to let them know you are coming.`;
+    rule.textContent = t(
+      "Contractions have matched {rule} for a full hour. It may be time to head to the hospital or birth centre. Call ahead to let them know you are coming.",
+      { rule: data.rule },
+    );
   } else if (s.count < 3) {
-    rule.textContent = "Keep timing. A few more contractions will show your pattern.";
+    rule.textContent = t("Keep timing. A few more contractions will show your pattern.");
   } else if (m.apart.ok && m.length.ok) {
-    rule.textContent = `Matching ${data.rule}. Keep going until all three are ticked.`;
+    rule.textContent = t("Matching {rule}. Keep going until all three are ticked.", {
+      rule: data.rule,
+    });
   } else {
-    rule.textContent = `Not at ${data.rule} yet. Keep going, you're doing great.`;
+    rule.textContent = t("Not at {rule} yet. Keep going, you're doing great.", { rule: data.rule });
   }
 }
 
@@ -184,21 +192,24 @@ function renderList() {
         const gap = i > 0 ? c.start - asc[i - 1].start : null;
         const li = document.createElement("li");
         const when = document.createElement("div");
-        const t = document.createElement("div");
-        t.className = "t";
-        t.textContent =
+        const when1 = document.createElement("div");
+        when1.className = "t";
+        when1.textContent =
           c.end === null
-            ? `${time(c.start)} · in progress`
+            ? `${time(c.start)} · ${t("in progress")}`
             : `${time(c.start)} · ${formatDuration(c.end - c.start)}`;
         const m = document.createElement("div");
         m.className = "m";
-        m.textContent = gap === null ? "first" : `${formatDuration(gap)} after the previous began`;
-        when.append(t, m);
+        m.textContent =
+          gap === null
+            ? t("first")
+            : t("{time} after the previous began", { time: formatDuration(gap) });
+        when.append(when1, m);
         const del = document.createElement("button");
         del.className = "del";
         del.type = "button";
         del.textContent = "✕";
-        del.setAttribute("aria-label", `Delete contraction at ${time(c.start)}`);
+        del.setAttribute("aria-label", t("Delete contraction at {time}", { time: time(c.start) }));
         del.addEventListener("click", () => remove(c));
         li.append(when, del);
         return li;
@@ -233,7 +244,7 @@ segButtons.forEach((b) =>
 );
 
 $("clear").addEventListener("click", () => {
-  if (data.contractions.length && confirm("Delete all contractions? This cannot be undone.")) {
+  if (data.contractions.length && confirm(t("Delete all contractions? This cannot be undone."))) {
     data.contractions = [];
     data.breaks = [];
     save();
@@ -248,6 +259,8 @@ $("export").addEventListener("click", () => {
   a.click();
   URL.revokeObjectURL(url);
 });
+
+document.addEventListener("langchange", render);
 
 // Stay in sync if the app is open in another tab/window.
 addEventListener("storage", (e) => {
@@ -264,6 +277,7 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
+initI18n();
 initViews();
 initTips();
 initChecklist();

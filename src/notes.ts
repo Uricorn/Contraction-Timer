@@ -1,5 +1,6 @@
 /** Hospital notes tab: answers to questions staff ask, with fill-in spots. */
 import { isArrayOf, load, save } from "./store";
+import { t } from "./i18n";
 
 type Field = { id: string; label: string; hint: string; value: string; long?: boolean };
 
@@ -15,7 +16,7 @@ const LONG = [
   "Companions allowed in the delivery room",
 ];
 
-const DEFAULTS: Field[] = [
+export const DEFAULT_FIELDS: Field[] = [
   ["Full name", ""],
   ["ID number", ""],
   ["Date of birth", ""],
@@ -63,8 +64,10 @@ function migrate(): Field[] {
   const typed = load<Field[]>(OLD_KEY, () => [], valid).filter(
     (f) => f.value && f.label !== "Baby's name ideas",
   );
-  const merged = structuredClone(DEFAULTS).map((d) => typed.find((f) => f.label === d.label) ?? d);
-  return merged.concat(typed.filter((f) => !DEFAULTS.some((d) => d.label === f.label)));
+  const merged = structuredClone(DEFAULT_FIELDS).map(
+    (d) => typed.find((f) => f.label === d.label) ?? d,
+  );
+  return merged.concat(typed.filter((f) => !DEFAULT_FIELDS.some((d) => d.label === f.label)));
 }
 
 export function initNotes(): void {
@@ -73,7 +76,7 @@ export function initNotes(): void {
   const input = document.getElementById("notes-input") as HTMLInputElement;
   let fields = load(KEY, migrate, valid);
   // Keep placeholder hints current for default questions (answers are untouched).
-  for (const f of fields) f.hint = DEFAULTS.find((d) => d.label === f.label)?.hint ?? f.hint;
+  for (const f of fields) f.hint = DEFAULT_FIELDS.find((d) => d.label === f.label)?.hint ?? f.hint;
 
   const render = () =>
     host.replaceChildren(
@@ -83,14 +86,14 @@ export function initNotes(): void {
         const head = document.createElement("div");
         head.className = "field-head";
         const label = document.createElement("label");
-        label.textContent = f.label;
+        label.textContent = t(f.label);
         const id = `note-${f.id}`;
         label.htmlFor = id;
         const del = document.createElement("button");
         del.type = "button";
         del.className = "del";
         del.textContent = "✕";
-        del.setAttribute("aria-label", `Delete ${f.label}`);
+        del.setAttribute("aria-label", t("Delete {name}", { name: t(f.label) }));
         del.addEventListener("click", () => {
           fields = fields.filter((x) => x.id !== f.id);
           save(KEY, fields);
@@ -100,7 +103,7 @@ export function initNotes(): void {
         const el = f.long ? document.createElement("textarea") : document.createElement("input");
         el.id = id;
         el.value = f.value;
-        el.placeholder = f.hint ?? "";
+        el.placeholder = t(f.hint ?? "");
         if (el instanceof HTMLTextAreaElement) el.rows = 3;
         el.addEventListener("input", () => {
           f.value = el.value;
@@ -122,12 +125,13 @@ export function initNotes(): void {
   });
 
   document.getElementById("notes-reset")?.addEventListener("click", () => {
-    if (confirm("Restore the default questions? Your answers will be cleared.")) {
-      fields = structuredClone(DEFAULTS);
+    if (confirm(t("Restore the default questions? Your answers will be cleared."))) {
+      fields = structuredClone(DEFAULT_FIELDS);
       save(KEY, fields);
       render();
     }
   });
 
+  document.addEventListener("langchange", render);
   render();
 }

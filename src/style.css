@@ -193,7 +193,7 @@ ol > li .m {
 }
 .card ul {
   margin: 0.6rem 0;
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
   line-height: 1.6;
 }
 .history header {
@@ -229,7 +229,8 @@ ol > li {
   gap: 0.75rem;
   background: var(--panel);
   border-radius: 1rem;
-  padding: 0.4rem 0.4rem 0.4rem 1rem;
+  padding: 0.4rem;
+  padding-inline-start: 1rem;
   margin-bottom: 0.45rem;
   font-variant-numeric: tabular-nums;
 }
@@ -459,11 +460,11 @@ a {
 }
 
 .urgent {
-  border-left: 0.35rem solid #e8b86d;
+  border-inline-start: 0.35rem solid #e8b86d;
 }
 .card ul {
   margin: 0.4rem 0;
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
   line-height: 1.6;
 }
 .tag {
@@ -473,7 +474,7 @@ a {
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
   vertical-align: middle;
-  margin-left: 0.3rem;
+  margin-inline-start: 0.3rem;
 }
 .tag.some {
   background: #d9efe3;
@@ -570,7 +571,7 @@ blockquote {
   margin: 1.2rem auto;
 }
 .go-now {
-  border-left-color: #d98a8a;
+  border-inline-start-color: #d98a8a;
 }
 
 /* ---- Bag checklist and hospital notes ---- */
@@ -668,7 +669,7 @@ input[type="checkbox"] {
   margin: 0;
 }
 .card .editable {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .which {
@@ -700,4 +701,28 @@ input[type="checkbox"] {
 .info .src {
   display: block;
   margin: 0.2rem 0 0.6rem;
+}
+
+/* Language picker (footer) */
+.lang {
+  margin: 0.6rem 0;
+}
+.lang select {
+  font: inherit;
+  color: inherit;
+  background: var(--panel);
+  border: 1px solid rgb(0 0 0 / 12%);
+  border-radius: 0.6rem;
+  padding: 0.3rem 0.6rem;
+}
+
+/* Keep numerals and timer-style values left-to-right inside right-to-left text. */
+.clock,
+.seg,
+.digit {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+html[dir="rtl"] .seg {
+  text-align: center;
 }

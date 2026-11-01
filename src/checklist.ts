@@ -1,11 +1,12 @@
 /** Checklist tab: default items users can tick, delete, and add to. */
 import { isArrayOf, load, save } from "./store";
+import { t } from "./i18n";
 
 type Item = { id: string; text: string; done: boolean };
 
 const KEY = "contraction-timer:checklist:v2";
 
-const DEFAULTS = [
+export const DEFAULT_ITEMS = [
   // Documents
   "ID for you and your partner",
   "Pregnancy tracking card, complete and in order",
@@ -53,10 +54,13 @@ export function initChecklist(): void {
   const count = document.getElementById("check-count") as HTMLElement;
   const form = document.getElementById("check-form") as HTMLFormElement;
   const input = document.getElementById("check-input") as HTMLInputElement;
-  let items = load(KEY, () => structuredClone(DEFAULTS), valid);
+  let items = load(KEY, () => structuredClone(DEFAULT_ITEMS), valid);
 
   const render = () => {
-    count.textContent = `${items.filter((i) => i.done).length} of ${items.length} packed`;
+    count.textContent = t("{n} of {total} packed", {
+      n: items.filter((i) => i.done).length,
+      total: items.length,
+    });
     list.replaceChildren(
       ...items.map((item) => {
         const li = document.createElement("li");
@@ -71,13 +75,13 @@ export function initChecklist(): void {
           render();
         });
         const text = document.createElement("span");
-        text.textContent = item.text;
+        text.textContent = t(item.text);
         label.append(box, text);
         const del = document.createElement("button");
         del.type = "button";
         del.className = "del";
         del.textContent = "✕";
-        del.setAttribute("aria-label", `Delete ${item.text}`);
+        del.setAttribute("aria-label", t("Delete {name}", { name: t(item.text) }));
         del.addEventListener("click", () => {
           items = items.filter((i) => i.id !== item.id);
           save(KEY, items);
@@ -106,12 +110,13 @@ export function initChecklist(): void {
   });
 
   document.getElementById("check-reset")?.addEventListener("click", () => {
-    if (confirm("Restore the default list? Your own items will be removed.")) {
-      items = structuredClone(DEFAULTS);
+    if (confirm(t("Restore the default list? Your own items will be removed."))) {
+      items = structuredClone(DEFAULT_ITEMS);
       save(KEY, items);
       render();
     }
   });
 
+  document.addEventListener("langchange", render);
   render();
 }
