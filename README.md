@@ -70,3 +70,10 @@ Feature inspiration: [petewritescode/contraction-timer](https://github.com/petew
 ## License
 
 [MIT](LICENSE)
+
+## Dependencies
+
+Kept deliberately small: two runtime packages (Capacitor) and a modern, current toolchain
+(Vite, TypeScript, Vitest, ESLint flat config). `npm audit` is clean; `overrides` in
+`package.json` pin patched `minimatch`/`glob` for the Capacitor CLI and can be dropped once it
+updates. Dependabot runs monthly with grouped PRs.
