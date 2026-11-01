@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Contraction Timer</string>
+    <string name="title_activity_main">Contraction Timer</string>
+    <string name="package_name">io.github.uricorn.contractiontimer</string>
+    <string name="custom_url_scheme">io.github.uricorn.contractiontimer</string>
+</resources>

@@ -1,0 +1,10 @@
+A minimal contraction timer for labour that works completely offline.
+
+• One big button to start and stop each contraction
+• Live timers for the current contraction and the rest period
+• One-hour averages for length and spacing, plus a 5-1-1 guideline alert
+• Full history, with delete and CSV export
+• Screen stays awake while timing; data survives restarts
+• No account, no ads, no analytics, no network access needed
+
+Not medical advice. Always follow guidance from your midwife or doctor.

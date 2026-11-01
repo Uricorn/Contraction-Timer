@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1f2937" />
+    <meta
+      name="description"
+      content="Offline contraction timer for labour. No account, no tracking."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <title>Contraction Timer</title>
+  </head>
+  <body data-state="idle">
+    <main>
+      <section class="timer" aria-live="off">
+        <p id="state-label" class="label">Ready</p>
+        <p id="clock" class="clock" role="timer">0:00</p>
+        <p id="clock-sub" class="sub">&nbsp;</p>
+        <button id="toggle" class="big" type="button">Start contraction</button>
+      </section>
+
+      <section class="stats" aria-label="Last hour averages">
+        <div><span id="stat-count">–</span><small>last hour</small></div>
+        <div><span id="stat-duration">–</span><small>avg length</small></div>
+        <div><span id="stat-interval">–</span><small>avg apart</small></div>
+      </section>
+
+      <p id="rule" class="rule" hidden></p>
+
+      <section class="history">
+        <header>
+          <h2>History</h2>
+          <div class="actions">
+            <button id="export" type="button" class="link">Export CSV</button>
+            <button id="clear" type="button" class="link danger">Clear all</button>
+          </div>
+        </header>
+        <ol id="list"></ol>
+        <p id="empty" class="empty">No contractions yet. Tap start when one begins.</p>
+      </section>
+
+      <footer>
+        <p>
+          Not medical advice. Always follow your midwife or doctor, and call them if you are
+          worried. Data stays on this device.
+        </p>
+        <p><a href="https://github.com/Uricorn/Contraction-Timer">Source code</a></p>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
