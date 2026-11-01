@@ -106,7 +106,14 @@ export function checkRule(
   const stats = windowStats(list, now, HOUR, breaks);
   const first = sortByStart(list).find((c) => c.start >= now - HOUR && c.start <= now);
   const span = first ? now - first.start : 0;
+  const gaps = intervals(
+    sortByStart(list).filter((c) => c.start >= now - HOUR && c.start <= now),
+    breaks,
+  );
+  // An average alone can hide a very uneven pattern (2 min, 8 min, 2 min...).
+  const steady = gaps.every((g) => g <= interval * MINUTE * 1.5);
   const patternOk =
+    steady &&
     stats.avgInterval !== null &&
     stats.avgDuration !== null &&
     stats.avgInterval <= interval * MINUTE &&

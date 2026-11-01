@@ -5,9 +5,10 @@
   --bg-resting: #dff3ea;
   --bg-paused: #f6ecd9;
   --ink: #3d3552;
-  --muted: #7a7191;
+  --muted: #6a6180;
+  --orb-ink: #2b2440;
   --panel: rgba(255, 255, 255, 0.65);
-  --accent: #9b82d6;
+  --accent: #6a53ad;
   --orb-a: #c9b6f0;
   --orb-b: #9b82d6;
   font-family: ui-rounded, "Nunito", "Quicksand", "Segoe UI", system-ui, sans-serif;
@@ -24,6 +25,16 @@
     --accent: #b9a3ee;
     --orb-a: #8f78d0;
     --orb-b: #6a53ad;
+    --orb-ink: #fff;
+    --accent: #8f78d0;
+  }
+  body[data-state="resting"] {
+    --orb-a: #3f8a6d;
+    --orb-b: #2d6b52;
+  }
+  body[data-state="paused"] {
+    --orb-a: #a07a35;
+    --orb-b: #7a5a22;
   }
 }
 * {
@@ -97,18 +108,17 @@ select {
   border: 0;
   font-size: 1.6rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--orb-ink);
   background: radial-gradient(circle at 35% 30%, var(--orb-a), var(--orb-b));
   box-shadow:
     0 0.6rem 2rem color-mix(in srgb, var(--orb-b) 45%, transparent),
     inset 0 -0.4rem 1rem rgba(0, 0, 0, 0.08);
   transition: transform 0.15s;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 .orb:active {
   transform: scale(0.96);
 }
-body[data-state="contracting"] .orb {
+body[data-state="contracting"] .orb-wrap {
   animation: breathe 5s ease-in-out infinite;
 }
 body[data-state="resting"] {
@@ -213,7 +223,8 @@ ol > li .m {
 .link {
   background: none;
   border: 0;
-  padding: 0.6rem 0;
+  padding: 0.6rem 0.4rem;
+  min-height: 2.75rem;
   text-decoration: underline;
   color: var(--muted);
 }
@@ -372,7 +383,7 @@ a {
   border: 0;
   border-radius: 999px;
   padding: 0.4rem 0.7rem;
-  min-height: 2.5rem;
+  min-height: 2.75rem;
   font-weight: 800;
   font-size: 0.85rem;
   color: var(--muted);
@@ -571,7 +582,7 @@ blockquote {
   margin: 1.2rem auto;
 }
 .go-now {
-  border-inline-start-color: #d98a8a;
+  border-inline-start-color: #e8b86d;
 }
 
 /* ---- Bag checklist and hospital notes ---- */
@@ -655,7 +666,7 @@ input[type="checkbox"] {
   font-weight: 700;
 }
 .field .del {
-  min-height: 2rem;
+  min-height: 2.75rem;
 }
 .field textarea {
   resize: vertical;
@@ -725,4 +736,40 @@ input[type="checkbox"] {
 }
 html[dir="rtl"] .seg {
   text-align: center;
+}
+
+/* ---- Notices (storage warning, undo toast) ---- */
+.notice {
+  margin: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  background: var(--panel);
+  border-inline-start: 0.3rem solid #e8b86d;
+  font-size: 0.9rem;
+}
+.toast {
+  position: fixed;
+  inset-inline: 1rem;
+  bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  background: var(--ink);
+  color: var(--bg-idle);
+  z-index: 10;
+}
+.toast button {
+  background: none;
+  border: 0;
+  min-height: 2.75rem;
+  padding: 0 0.5rem;
+  font-weight: 800;
+  color: inherit;
+  text-decoration: underline;
+}
+.view:focus {
+  outline: none;
 }

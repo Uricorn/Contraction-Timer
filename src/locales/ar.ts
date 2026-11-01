@@ -1,5 +1,8 @@
 /** Arabic translations. Keys are the exact English strings used in the app. */
 export const ar: Record<string, string> = {
+  "Timing isn't being saved. Your browser is blocking storage, so keep this page open.": "لا يتم حفظ التوقيت. المتصفح يحجب التخزين، لذا أبقي هذه الصفحة مفتوحة.",
+  "Contraction deleted": "تم حذف الانقباض",
+  "Undo": "تراجع",
   "Contraction Timer": "مؤقّت الانقباضات",
   "Offline contraction timer for labour. No account, no tracking.":
     "مؤقّت انقباضات المخاض يعمل بدون إنترنت. بلا حساب وبلا تتبّع.",

@@ -1,5 +1,8 @@
 /** Hebrew translations. Keys are the exact English strings used in the app. */
 export const he: Record<string, string> = {
+  "Timing isn't being saved. Your browser is blocking storage, so keep this page open.": "התזמון לא נשמר. הדפדפן חוסם אחסון, אז השאירי את הדף הזה פתוח.",
+  "Contraction deleted": "הציר נמחק",
+  "Undo": "ביטול",
   "Contraction Timer": "טיימר צירים",
   "Offline contraction timer for labour. No account, no tracking.":
     "טיימר צירים ללא חיבור לאינטרנט. בלי חשבון ובלי מעקב.",

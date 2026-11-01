@@ -55,6 +55,11 @@ describe("checkRule", () => {
   it("is met after a full hour of 5-minute, 1-minute contractions", () => {
     expect(checkRule(steady, 60 * MINUTE).met).toBe(true);
   });
+  it("is not met when gaps alternate 2 and 8 minutes despite a 5-minute average", () => {
+    const starts = [0, 2, 10, 12, 20, 22, 30, 32, 40, 42, 50, 52, 60];
+    const uneven = starts.map((m) => mk(m, 65));
+    expect(checkRule(uneven, 61 * MINUTE).patternOk).toBe(false);
+  });
   it("is not met at 54 minutes (no hidden slack)", () => {
     const r = checkRule(steady.slice(0, 11), 54 * MINUTE);
     expect(r.patternOk).toBe(true);

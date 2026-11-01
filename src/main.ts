@@ -37,7 +37,7 @@ const save = () => {
   try {
     localStorage.setItem(KEY, JSON.stringify(data));
   } catch {
-    /* storage full or blocked: keep running in memory */
+    document.dispatchEvent(new CustomEvent("savefail"));
   }
 };
 
@@ -53,7 +53,10 @@ async function holdScreen(on: boolean) {
   try {
     if (on && "wakeLock" in navigator && !wakeLock) {
       wakeLock = await navigator.wakeLock.request("screen");
-      wakeLock.addEventListener("release", () => (wakeLock = null));
+      wakeLock.addEventListener("release", () => {
+        wakeLock = null;
+        if (activeContraction() && document.visibilityState === "visible") void holdScreen(true);
+      });
     } else if (!on && wakeLock) {
       await wakeLock.release();
       wakeLock = null;
@@ -122,7 +125,7 @@ function tick() {
   const pause = openBreak();
   const last = lastFinished();
 
-  pauseBtn.hidden = !!cur;
+  pauseBtn.hidden = !!cur || data.contractions.length === 0;
   pauseBtn.textContent = pause ? t("Resume") : t("Pause");
 
   if (cur) {
@@ -218,11 +221,35 @@ function renderList() {
   );
 }
 
+let toastTimer: ReturnType<typeof setTimeout> | undefined;
+function showUndo(c: Contraction) {
+  document.querySelector(".toast")?.remove();
+  clearTimeout(toastTimer);
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.setAttribute("role", "status");
+  const msg = document.createElement("span");
+  msg.textContent = t("Contraction deleted");
+  const undo = document.createElement("button");
+  undo.type = "button";
+  undo.textContent = t("Undo");
+  undo.addEventListener("click", () => {
+    if (!data.contractions.some((x) => x.id === c.id)) data.contractions.push(c);
+    toast.remove();
+    save();
+    render();
+  });
+  toast.append(msg, undo);
+  document.body.append(toast);
+  toastTimer = setTimeout(() => toast.remove(), 8000);
+}
+
 function remove(c: Contraction) {
-  if (c.end === null) void holdScreen(false);
   data.contractions = data.contractions.filter((x) => x.id !== c.id);
+  if (c.end === null) void holdScreen(false);
   save();
   render();
+  showUndo(c);
 }
 
 function render() {
@@ -261,6 +288,9 @@ $("export").addEventListener("click", () => {
 });
 
 document.addEventListener("langchange", render);
+document.addEventListener("savefail", () => {
+  $("save-warning").hidden = false;
+});
 
 // Stay in sync if the app is open in another tab/window.
 addEventListener("storage", (e) => {
@@ -288,6 +318,11 @@ if (activeContraction()) void holdScreen(true);
 
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
   addEventListener("load", () => {
+    const hadController = !!navigator.serviceWorker.controller;
     navigator.serviceWorker.register("./sw.js").catch(() => undefined);
+    // A new version took over: reload onto it, but never mid-contraction.
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (hadController && !activeContraction()) location.reload();
+    });
   });
 }

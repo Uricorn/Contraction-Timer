@@ -5,6 +5,7 @@ import { t } from "./i18n";
 type Field = { id: string; label: string; hint: string; value: string; long?: boolean };
 
 const KEY = "contraction-timer:notes:v2";
+let saveTimer: ReturnType<typeof setTimeout> | undefined;
 const OLD_KEY = "contraction-timer:notes:v1";
 
 const LONG = [
@@ -107,7 +108,8 @@ export function initNotes(): void {
         if (el instanceof HTMLTextAreaElement) el.rows = 3;
         el.addEventListener("input", () => {
           f.value = el.value;
-          save(KEY, fields);
+          clearTimeout(saveTimer);
+          saveTimer = setTimeout(() => save(KEY, fields), 300);
         });
         wrap.append(head, el);
         return wrap;

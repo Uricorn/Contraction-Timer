@@ -13,11 +13,12 @@ export function load<T>(key: string, fallback: () => T, valid: (v: unknown) => v
   return fallback();
 }
 
+/** Fires "savefail" on the document when storage is full or blocked. */
 export function save(key: string, value: unknown): void {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
-    /* storage full or blocked: keep running in memory */
+    document.dispatchEvent(new CustomEvent("savefail"));
   }
 }
 

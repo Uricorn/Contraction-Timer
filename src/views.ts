@@ -13,6 +13,9 @@ export function showView(name: View): void {
     else b.removeAttribute("aria-current");
   });
   window.scrollTo({ top: 0 });
+  const shown = document.getElementById(`view-${name}`);
+  shown?.setAttribute("tabindex", "-1");
+  shown?.focus({ preventScroll: true });
   document.dispatchEvent(new CustomEvent("viewchange", { detail: name }));
 }
 
