@@ -3,25 +3,44 @@ import { isArrayOf, load, save } from "./store";
 
 type Item = { id: string; text: string; done: boolean };
 
-const KEY = "contraction-timer:checklist:v1";
+const KEY = "contraction-timer:checklist:v2";
 
 const DEFAULTS = [
-  "ID and insurance or health card",
-  "Birth plan / preferences (a few copies)",
-  "Phone and charger (long cable)",
-  "Comfy loose clothes or nightdress",
-  "Dressing gown and slippers",
-  "Socks and a warm layer",
-  "Toiletries, lip balm, hair ties",
-  "Snacks and drinks for you both",
-  "Maternity pads",
-  "Nursing bra",
-  "Going-home outfit for you",
-  "Baby clothes, hat and blanket",
-  "Newborn nappies",
-  "Car seat installed",
-  "Pillow from home",
+  // Documents
+  "ID for you and your partner",
+  "Pregnancy tracking card, complete and in order",
+  "Folder with pregnancy test results and scans",
+  "Health fund / insurance card and any forms the hospital needs",
+  "Birth plan (a few copies)",
+  // Medicines
+  "Medicines you take regularly, with doses",
+  "Any medicines or supplements your doctor said to bring",
+  "List of drug allergies",
+  // Arrangements
+  "Babysitter or family lined up for other children",
+  "Pet sitter or someone to feed and walk pets",
+  "Car fuelled, route to hospital known, car seat installed",
+  "Phone numbers saved: midwife, hospital, partner, family",
+  // Labour bag
+  "Phone, long charger, headphones or speaker",
+  "Pillow and spare pillowcase",
+  "Towel or robe",
+  "Warm socks for you and your partner",
+  "Flip-flops for the shower",
+  "Bags for dirty clothes",
+  "Toiletries, toothbrush, hair ties, lip balm, wipes",
+  "Water bottle with a straw",
+  "Light snacks: dates, nuts, fruit, crackers",
+  "Comfort items: small lamp, fan, heat pack, massage ball, playlist",
   "Partner: change of clothes, snacks, charger",
+  // Hospital stay bag
+  "Loose comfy clothes and slippers",
+  "Absorbent underwear or pads",
+  "Nursing bra and breast pads",
+  "Going-home outfit for you",
+  "Baby going-home outfit: two layers, hat, blanket, cloth nappy",
+  "Newborn nappies and wipes",
+  "Leave valuables and jewellery at home",
 ].map((text, i) => ({ id: `d${i}`, text, done: false }));
 
 const valid = isArrayOf<Item>(

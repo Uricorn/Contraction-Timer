@@ -3,11 +3,23 @@ import { isArrayOf, load, save } from "./store";
 
 type Field = { id: string; label: string; hint: string; value: string; long?: boolean };
 
-const KEY = "contraction-timer:notes:v1";
+const KEY = "contraction-timer:notes:v2";
+const OLD_KEY = "contraction-timer:notes:v1";
+
+const LONG = [
+  "Birth preferences",
+  "Pain relief wishes",
+  "Medical conditions",
+  "Problems this pregnancy",
+  "Newborn choices",
+  "Companions allowed in the delivery room",
+];
 
 const DEFAULTS: Field[] = [
   ["Full name", ""],
+  ["ID number", ""],
   ["Date of birth", ""],
+  ["Health fund and member number", ""],
   ["Due date and weeks pregnant", "e.g. 14 Nov, 39 weeks"],
   ["Doctor or midwife", "name and phone"],
   ["Contractions started", "time they began"],
@@ -15,34 +27,48 @@ const DEFAULTS: Field[] = [
   ["Baby's movements", "normal, or less than usual"],
   ["Any bleeding?", ""],
   ["Last ate or drank", "time and what"],
-  ["Previous births", "how many, how they went"],
+  ["Previous births", "how many, how they went, any caesarean"],
+  ["Problems this pregnancy", "e.g. diabetes, blood pressure, low placenta"],
   ["Allergies", "medicines, latex, food"],
   ["Medicines and supplements", ""],
-  ["Medical conditions", "e.g. diabetes, blood pressure"],
+  ["Medical conditions and past surgeries", ""],
   ["Blood type", ""],
   ["Group B strep result", "positive, negative or unknown"],
-  ["Pain relief wishes", "what you want to try first"],
-  ["Birth preferences", "e.g. movement, who is present, delayed cord clamping"],
+  [
+    "Companions allowed in the delivery room",
+    "names, ID numbers, relationship (hospitals limit how many)",
+  ],
+  ["Pain relief wishes", "e.g. natural, epidural, open to options"],
+  ["Birth preferences", "e.g. movement, music, delayed cord clamping"],
+  ["Newborn choices", "vitamin K, vaccines, cord blood, rooming-in"],
   ["Feeding plan", "breast, bottle, not sure"],
   ["Emergency contact", "name and phone"],
-  ["Baby's name ideas", ""],
 ].map(([label, hint], i) => ({
   id: `d${i}`,
   label,
   hint,
   value: "",
-  long: ["Birth preferences", "Pain relief wishes", "Medical conditions"].includes(label),
+  long: LONG.includes(label),
 }));
 
 const valid = isArrayOf<Field>(
   (r) => typeof r.id === "string" && typeof r.label === "string" && typeof r.value === "string",
 );
 
+/** First run of v2: keep anything typed in v1, drop the retired field, add new defaults. */
+function migrate(): Field[] {
+  const typed = load<Field[]>(OLD_KEY, () => [], valid).filter(
+    (f) => f.value && f.label !== "Baby's name ideas",
+  );
+  const merged = structuredClone(DEFAULTS).map((d) => typed.find((f) => f.label === d.label) ?? d);
+  return merged.concat(typed.filter((f) => !DEFAULTS.some((d) => d.label === f.label)));
+}
+
 export function initNotes(): void {
   const host = document.getElementById("notes-list") as HTMLElement;
   const form = document.getElementById("notes-form") as HTMLFormElement;
   const input = document.getElementById("notes-input") as HTMLInputElement;
-  let fields = load(KEY, () => structuredClone(DEFAULTS), valid);
+  let fields = load(KEY, migrate, valid);
 
   const render = () =>
     host.replaceChildren(
