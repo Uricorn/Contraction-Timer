@@ -19,14 +19,12 @@ export const uk: Record<string, string> = {
   "Edit contraction": "Змінити перейму",
   "Start time": "Час початку",
   "End time": "Час закінчення",
-  "Pain (1–5)": "Біль (1–5)",
   Note: "Нотатка",
   "Check the times: the end must come after the start.":
     "Перевірте час: закінчення має бути пізніше за початок.",
   Save: "Зберегти",
   Cancel: "Скасувати",
   Delete: "Видалити",
-  "pain {n}/5": "біль {n}/5",
   "Minutes between contractions": "Хвилини між переймами",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Проміжки між переймами (пунктир = ціль {n} хв)",

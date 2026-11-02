@@ -19,14 +19,12 @@ export const ar: Record<string, string> = {
   "Edit contraction": "تعديل الانقباض",
   "Start time": "وقت البدء",
   "End time": "وقت الانتهاء",
-  "Pain (1–5)": "الألم (1–5)",
   Note: "ملاحظة",
   "Check the times: the end must come after the start.":
     "تحققي من الأوقات: يجب أن يكون الانتهاء بعد البدء.",
   Save: "حفظ",
   Cancel: "إلغاء",
   Delete: "حذف",
-  "pain {n}/5": "ألم {n}/5",
   "Minutes between contractions": "الدقائق بين الانقباضات",
   "Gaps between contractions (dashed line = {n} min goal)":
     "الفواصل بين الانقباضات (الخط المتقطع = الهدف {n} د)",

@@ -19,14 +19,12 @@ export const ru: Record<string, string> = {
   "Edit contraction": "Изменить схватку",
   "Start time": "Время начала",
   "End time": "Время окончания",
-  "Pain (1–5)": "Боль (1–5)",
   Note: "Заметка",
   "Check the times: the end must come after the start.":
     "Проверьте время: окончание должно быть позже начала.",
   Save: "Сохранить",
   Cancel: "Отмена",
   Delete: "Удалить",
-  "pain {n}/5": "боль {n}/5",
   "Minutes between contractions": "Минуты между схватками",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Промежутки между схватками (пунктир = цель {n} мин)",

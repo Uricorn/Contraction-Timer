@@ -19,14 +19,12 @@ export const de: Record<string, string> = {
   "Edit contraction": "Wehe bearbeiten",
   "Start time": "Startzeit",
   "End time": "Endzeit",
-  "Pain (1–5)": "Schmerz (1–5)",
   Note: "Notiz",
   "Check the times: the end must come after the start.":
     "Prüfe die Zeiten: Das Ende muss nach dem Beginn liegen.",
   Save: "Speichern",
   Cancel: "Abbrechen",
   Delete: "Löschen",
-  "pain {n}/5": "Schmerz {n}/5",
   "Minutes between contractions": "Minuten zwischen den Wehen",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Abstände zwischen den Wehen (gestrichelte Linie = Ziel von {n} Min.)",

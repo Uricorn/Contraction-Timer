@@ -19,14 +19,12 @@ export const he: Record<string, string> = {
   "Edit contraction": "עריכת ציר",
   "Start time": "שעת התחלה",
   "End time": "שעת סיום",
-  "Pain (1–5)": "כאב (1–5)",
   Note: "הערה",
   "Check the times: the end must come after the start.":
     "כדאי לבדוק את השעות: הסיום חייב להיות אחרי ההתחלה.",
   Save: "שמירה",
   Cancel: "ביטול",
   Delete: "מחיקה",
-  "pain {n}/5": "כאב {n}/5",
   "Minutes between contractions": "דקות בין צירים",
   "Gaps between contractions (dashed line = {n} min goal)":
     "הפרשים בין צירים (קו מקווקו = יעד של {n} דק׳)",

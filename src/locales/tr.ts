@@ -19,14 +19,12 @@ export const tr: Record<string, string> = {
   "Edit contraction": "Kasılmayı düzenle",
   "Start time": "Başlangıç saati",
   "End time": "Bitiş saati",
-  "Pain (1–5)": "Ağrı (1–5)",
   Note: "Not",
   "Check the times: the end must come after the start.":
     "Saatleri kontrol edin: bitiş, başlangıçtan sonra olmalı.",
   Save: "Kaydet",
   Cancel: "İptal",
   Delete: "Sil",
-  "pain {n}/5": "ağrı {n}/5",
   "Minutes between contractions": "Kasılmalar arası dakika",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Kasılmalar arasındaki aralıklar (kesikli çizgi = {n} dk hedef)",

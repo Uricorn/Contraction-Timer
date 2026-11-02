@@ -245,12 +245,10 @@ function renderList() {
             ? t("first")
             : t("{time} after the previous began", { time: formatDuration(gap) });
         when.append(when1, m);
-        if (c.pain || c.note) {
+        if (c.note) {
           const extra = document.createElement("div");
           extra.className = "m";
-          extra.textContent = [c.pain ? t("pain {n}/5", { n: c.pain }) : "", c.note ?? ""]
-            .filter(Boolean)
-            .join(" · ");
+          extra.textContent = c.note;
           when.append(extra);
         }
         const del = document.createElement("button");

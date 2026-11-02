@@ -19,14 +19,12 @@ export const pt: Record<string, string> = {
   "Edit contraction": "Editar contração",
   "Start time": "Hora de início",
   "End time": "Hora de fim",
-  "Pain (1–5)": "Dor (1–5)",
   Note: "Nota",
   "Check the times: the end must come after the start.":
     "Verifique as horas: o fim tem de ser depois do início.",
   Save: "Guardar",
   Cancel: "Cancelar",
   Delete: "Eliminar",
-  "pain {n}/5": "dor {n}/5",
   "Minutes between contractions": "Minutos entre contrações",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Intervalos entre contrações (linha tracejada = meta de {n} min)",

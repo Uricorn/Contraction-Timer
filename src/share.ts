@@ -25,7 +25,6 @@ export function summaryText(data: Data, now: number, t: Translate, locale: strin
   lines.push("");
   for (const c of rows.slice(-30)) {
     const parts = [time(c.start), c.end === null ? "…" : formatDuration(c.end - c.start)];
-    if (c.pain) parts.push(t("pain {n}/5", { n: c.pain }));
     if (c.note) parts.push(c.note);
     lines.push(parts.join(" · "));
   }

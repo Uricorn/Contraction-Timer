@@ -178,17 +178,17 @@ describe("dangerSigns", () => {
 });
 
 describe("parseStored extras", () => {
-  it("keeps valid pain, note and waters; drops invalid ones", () => {
+  it("keeps valid note and waters; drops invalid ones and old pain values", () => {
     const raw = JSON.stringify({
       contractions: [
         { id: "a", start: 1, end: 2, pain: 3, note: "ok" },
-        { id: "b", start: 3, end: 4, pain: 9, note: 5 },
+        { id: "b", start: 3, end: 4, note: 5 },
       ],
       watersBroke: 100,
     });
     const d = parseStored(raw);
-    expect(d.contractions[0]).toMatchObject({ pain: 3, note: "ok" });
-    expect(d.contractions[1].pain).toBeUndefined();
+    expect(d.contractions[0]).toMatchObject({ note: "ok" });
+    expect(d.contractions[0]).not.toHaveProperty("pain");
     expect(d.contractions[1].note).toBeUndefined();
     expect(d.watersBroke).toBe(100);
   });
