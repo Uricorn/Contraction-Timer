@@ -30,18 +30,25 @@ const segDist = (px, py, ax, ay, bx, by) => {
   const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy || 1)));
   return Math.hypot(px - ax - t * dx, py - ay - t * dy);
 };
-const disc = (cx, cy, r, color) => ({ color: hex(color), hit: (x, y) => Math.hypot(x - cx, y - cy) <= r });
+const disc = (cx, cy, r, color) => ({
+  color: hex(color),
+  hit: (x, y) => Math.hypot(x - cx, y - cy) <= r,
+});
 const ring = (cx, cy, r, w, color) => ({
   color: hex(color),
   hit: (x, y) => Math.abs(Math.hypot(x - cx, y - cy) - r) <= w / 2,
 });
 const stroke = (pts, w, color) => ({
   color: hex(color),
-  hit: (x, y) => pts.some((p, i) => i && segDist(x, y, pts[i - 1][0], pts[i - 1][1], p[0], p[1]) <= w / 2),
+  hit: (x, y) =>
+    pts.some((p, i) => i && segDist(x, y, pts[i - 1][0], pts[i - 1][1], p[0], p[1]) <= w / 2),
 });
 const smile = Array.from({ length: 13 }, (_, i) => {
   const t = i / 12;
-  return [(1 - t) ** 2 * 226 + 2 * t * (1 - t) * 256 + t * t * 286, (1 - t) ** 2 * 318 + 2 * t * (1 - t) * 356 + t * t * 318];
+  return [
+    (1 - t) ** 2 * 226 + 2 * t * (1 - t) * 256 + t * t * 286,
+    (1 - t) ** 2 * 318 + 2 * t * (1 - t) * 356 + t * t * 318,
+  ];
 });
 const layers = [
   { color: hex("#ffd9c9"), hit: () => true },
@@ -54,7 +61,14 @@ const layers = [
   disc(160, 316, 26, "#ffb3c1"),
   disc(352, 316, 26, "#ffb3c1"),
   stroke(smile, 14, "#5b3a3a"),
-  stroke([[256, 120], [256, 156]], 14, "#ff8fa3"),
+  stroke(
+    [
+      [256, 120],
+      [256, 156],
+    ],
+    14,
+    "#ff8fa3",
+  ),
 ];
 
 function png(size) {
