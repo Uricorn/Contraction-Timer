@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   checkRule,
+  dangerSigns,
   formatDuration,
   HOUR,
   intervals,
@@ -157,5 +158,38 @@ describe("parseStored", () => {
     expect(d.contractions.map((c) => c.id).sort()).toEqual(["b", "c"]);
     expect(d.breaks).toEqual([{ start: 5, end: null }]);
     expect(d.rule).toBe("3-1-1");
+  });
+});
+
+describe("dangerSigns", () => {
+  it("flags a contraction longer than 2 minutes", () => {
+    expect(dangerSigns([mk(0, 130)], 5 * MINUTE).long).toBe(true);
+    expect(dangerSigns([mk(0, 90)], 5 * MINUTE).long).toBe(false);
+  });
+  it("flags an ongoing contraction once it passes 2 minutes", () => {
+    expect(dangerSigns([mk(0, null)], 3 * MINUTE).long).toBe(true);
+    expect(dangerSigns([mk(0, null)], 1 * MINUTE).long).toBe(false);
+  });
+  it("flags 6 contractions in 10 minutes but not 5", () => {
+    const six = [0, 1, 2, 3, 4, 5].map((m) => mk(m, 30));
+    expect(dangerSigns(six, 6 * MINUTE).frequent).toBe(true);
+    expect(dangerSigns(six.slice(1), 6 * MINUTE).frequent).toBe(false);
+  });
+});
+
+describe("parseStored extras", () => {
+  it("keeps valid pain, note and waters; drops invalid ones", () => {
+    const raw = JSON.stringify({
+      contractions: [
+        { id: "a", start: 1, end: 2, pain: 3, note: "ok" },
+        { id: "b", start: 3, end: 4, pain: 9, note: 5 },
+      ],
+      watersBroke: 100,
+    });
+    const d = parseStored(raw);
+    expect(d.contractions[0]).toMatchObject({ pain: 3, note: "ok" });
+    expect(d.contractions[1].pain).toBeUndefined();
+    expect(d.contractions[1].note).toBeUndefined();
+    expect(d.watersBroke).toBe(100);
   });
 });

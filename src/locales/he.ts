@@ -1,8 +1,49 @@
 /** Hebrew translations. Keys are the exact English strings used in the app. */
 export const he: Record<string, string> = {
-  "Timing isn't being saved. Your browser is blocking storage, so keep this page open.": "התזמון לא נשמר. הדפדפן חוסם אחסון, אז השאירי את הדף הזה פתוח.",
+  Welcome: "ברוכים הבאים",
+  "Tap the big circle when a contraction starts and again when it ends. Everything stays on this device and works offline.":
+    "הקישי על העיגול הגדול כשציר מתחיל ושוב כשהוא מסתיים. הכול נשאר במכשיר ועובד גם בלי אינטרנט.",
+  "Got it": "הבנתי",
+  "Notify me when it's time to go": "להתריע כשהגיע הזמן לצאת",
+  "A contraction has lasted over 2 minutes. Call your midwife or hospital.":
+    "ציר נמשך יותר מ-2 דקות. התקשרי למיילדת או לבית החולים.",
+  "6 or more contractions in 10 minutes. Call your midwife or hospital.":
+    "6 צירים או יותר ב-10 דקות. התקשרי למיילדת או לבית החולים.",
+  "Add a missed one": "הוספת ציר שהוחמץ",
+  "Waters broke now": "המים ירדו עכשיו",
+  "Waters broke at {time}": "המים ירדו ב-{time}",
+  "Share summary": "שיתוף סיכום",
+  "Back up": "גיבוי",
+  Restore: "שחזור",
+  Trend: "מגמה",
+  "Edit contraction": "עריכת ציר",
+  "Start time": "שעת התחלה",
+  "End time": "שעת סיום",
+  "Pain (1–5)": "כאב (1–5)",
+  Note: "הערה",
+  "Check the times: the end must come after the start.":
+    "בדקי את השעות: הסיום חייב להיות אחרי ההתחלה.",
+  Save: "שמירה",
+  Cancel: "ביטול",
+  Delete: "מחיקה",
+  "pain {n}/5": "כאב {n}/5",
+  "Minutes between contractions": "דקות בין צירים",
+  "Gaps between contractions (dashed line = {n} min goal)":
+    "הפרשים בין צירים (קו מקווקו = יעד של {n} דק׳)",
+  "Contraction summary": "סיכום צירים",
+  "No contractions recorded yet": "עדיין לא נרשמו צירים",
+  "{count} contractions in the last hour, about {gap} apart, about {len} long.":
+    "{count} צירים בשעה האחרונה, בהפרשים של כ-{gap}, באורך של כ-{len}.",
+  "Copied to clipboard": "הועתק ללוח",
+  "That file is not a valid backup": "הקובץ אינו גיבוי תקין",
+  "Replace your current timing with this backup?": "להחליף את התזמון הנוכחי בגיבוי הזה?",
+  "Backup restored": "הגיבוי שוחזר",
+  "Notifications are blocked. Allow them in your browser or phone settings.":
+    "ההתראות חסומות. אפשרי אותן בהגדרות הדפדפן או הטלפון.",
+  "Timing isn't being saved. Your browser is blocking storage, so keep this page open.":
+    "התזמון לא נשמר. הדפדפן חוסם אחסון, אז השאירי את הדף הזה פתוח.",
   "Contraction deleted": "הציר נמחק",
-  "Undo": "ביטול",
+  Undo: "ביטול",
   "Contraction Timer": "טיימר צירים",
   "Offline contraction timer for labour. No account, no tracking.":
     "טיימר צירים ללא חיבור לאינטרנט. בלי חשבון ובלי מעקב.",

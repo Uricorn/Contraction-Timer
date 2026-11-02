@@ -18,7 +18,9 @@
       <!-- TIMER -->
       <div id="view-timer" class="view">
         <section class="timer">
-          <p id="save-warning" class="notice" role="alert" hidden>Timing isn't being saved. Your browser is blocking storage, so keep this page open.</p>
+          <p id="save-warning" class="notice" role="alert" hidden>
+            Timing isn't being saved. Your browser is blocking storage, so keep this page open.
+          </p>
           <p id="state-label" class="label" role="status" aria-live="polite">Ready</p>
           <p id="clock" class="clock" role="timer">0:00</p>
           <p id="clock-sub" class="sub">&nbsp;</p>
@@ -26,6 +28,20 @@
             <button id="toggle" class="orb" type="button">Start</button>
           </div>
           <button id="pause" class="soft" type="button" hidden>Pause</button>
+          <p id="danger" class="notice" role="alert" hidden></p>
+          <label class="check-row"
+            ><input id="alerts" type="checkbox" /> Notify me when it's time to go</label
+          >
+          <p id="alerts-note" class="small" role="status" hidden></p>
+        </section>
+
+        <section id="welcome" class="card" hidden>
+          <h2>Welcome</h2>
+          <p>
+            Tap the big circle when a contraction starts and again when it ends. Everything stays on
+            this device and works offline.
+          </p>
+          <button id="welcome-ok" class="soft" type="button">Got it</button>
         </section>
 
         <section class="card guide" aria-labelledby="guide-title">
@@ -91,7 +107,9 @@
             </div>
           </div>
 
-          <p id="rule" class="rule" role="status" aria-live="polite">Start timing to see how you're tracking.</p>
+          <p id="rule" class="rule" role="status" aria-live="polite">
+            Start timing to see how you're tracking.
+          </p>
           <p class="guide-foot">
             <span id="stat-count">0</span> in the last hour ·
             <button type="button" class="link inline" data-goto="tips">Other reasons to go</button>
@@ -117,9 +135,7 @@
             <li>you have 6 or more contractions in 10 minutes</li>
             <li>contractions match your 3-1-1 or 4-1-1 guideline</li>
           </ul>
-          <p>
-            Strong urge to push, or baby is coming: call your local emergency number.
-          </p>
+          <p>Strong urge to push, or baby is coming: call your local emergency number.</p>
         </section>
 
         <section class="card urgent" id="when-to-call">
@@ -745,9 +761,53 @@
               <button id="clear" type="button" class="link">Clear all</button>
             </div>
           </header>
+          <div class="actions wrap">
+            <button id="add-missed" type="button" class="soft">Add a missed one</button>
+            <button id="waters" type="button" class="soft">Waters broke now</button>
+          </div>
+          <p id="waters-note" class="small" hidden></p>
           <ol id="list"></ol>
           <p id="empty" class="empty">Nothing yet. Tap the circle when one begins.</p>
+          <div id="trend" class="card" hidden>
+            <h2>Trend</h2>
+            <svg id="trend-svg" viewBox="0 0 300 100" role="img" preserveAspectRatio="none"></svg>
+            <p id="trend-cap" class="small"></p>
+          </div>
+          <div class="actions wrap">
+            <button id="share" type="button" class="link">Share summary</button>
+            <button id="backup" type="button" class="link">Back up</button>
+            <button id="restore" type="button" class="link">Restore</button>
+            <input id="restore-file" type="file" accept="application/json" hidden />
+          </div>
         </section>
+
+        <dialog id="editor" aria-labelledby="editor-title">
+          <form id="editor-form">
+            <h2 id="editor-title">Edit contraction</h2>
+            <label>Start time <input id="ed-start" type="datetime-local" required /></label>
+            <label>End time <input id="ed-end" type="datetime-local" /></label>
+            <label
+              >Pain (1–5)
+              <select id="ed-pain">
+                <option value="">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select></label
+            >
+            <label>Note <textarea id="ed-note" rows="2" maxlength="200"></textarea></label>
+            <p id="ed-error" class="notice" role="alert" hidden>
+              Check the times: the end must come after the start.
+            </p>
+            <div class="actions wrap">
+              <button class="soft" type="submit">Save</button>
+              <button id="ed-cancel" class="link" type="button">Cancel</button>
+              <button id="ed-delete" class="link" type="button">Delete</button>
+            </div>
+          </form>
+        </dialog>
       </div>
 
       <footer>

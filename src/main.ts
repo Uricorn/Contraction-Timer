@@ -4,10 +4,16 @@ import { initViews } from "./views";
 import { initChecklist } from "./checklist";
 import { initNotes } from "./notes";
 import { getLocale, initI18n, t } from "./i18n";
+import { alertsEnabled, disableAlerts, enableAlerts, notify } from "./alerts";
+import { drawTrend } from "./chart";
+import { openEditor } from "./editor";
+import { downloadJson, summaryText } from "./share";
+import { showToast } from "./toast";
 import {
   formatDuration,
   parseStored,
   RULES,
+  dangerSigns,
   MINUTE,
   sortByStart,
   toCsv,
@@ -118,6 +124,9 @@ function setState(state: string, text: string, btn: string) {
   button.textContent = btn;
 }
 
+/** Last seen alert conditions, so a notification fires once when one turns on. */
+let prevAlert: { met: boolean; long: boolean; frequent: boolean } | null = null;
+
 /** Cheap per-second update: clock, label and stats. */
 function tick() {
   const now = Date.now();
@@ -161,12 +170,29 @@ function tick() {
   setMeter("length", m.length, (v) => t("avg {time}", { time: formatDuration(v) }));
   setMeter("hour", m.hour, (v) => t("{n} of 60 min", { n: Math.floor(v / MINUTE) }), true);
 
+  const danger = dangerSigns(data.contractions, now);
+  const dangerBox = $("danger");
+  const warnings = [
+    danger.long && t("A contraction has lasted over 2 minutes. Call your midwife or hospital."),
+    danger.frequent && t("6 or more contractions in 10 minutes. Call your midwife or hospital."),
+  ].filter((w): w is string => !!w);
+  dangerBox.hidden = warnings.length === 0;
+  dangerBox.textContent = warnings.join(" ");
+  const metText = t(
+    "Contractions have matched {rule} for a full hour. It may be time to head to the hospital or birth centre. Call ahead to let them know you are coming.",
+    { rule: data.rule },
+  );
+  if (prevAlert) {
+    if (m.met && !prevAlert.met) void notify(t("Contraction Timer"), metText);
+    if (danger.long && !prevAlert.long) void notify(t("Contraction Timer"), warnings[0]);
+    else if (danger.frequent && !prevAlert.frequent)
+      void notify(t("Contraction Timer"), warnings.at(-1) ?? "");
+  }
+  prevAlert = { met: m.met, ...danger };
+
   rule.className = m.met ? "rule go" : "rule";
   if (m.met) {
-    rule.textContent = t(
-      "Contractions have matched {rule} for a full hour. It may be time to head to the hospital or birth centre. Call ahead to let them know you are coming.",
-      { rule: data.rule },
-    );
+    rule.textContent = metText;
   } else if (s.count < 3) {
     rule.textContent = t("Keep timing. A few more contractions will show your pattern.");
   } else if (m.apart.ok && m.length.ok) {
@@ -194,7 +220,10 @@ function renderList() {
       .map((c, i) => {
         const gap = i > 0 ? c.start - asc[i - 1].start : null;
         const li = document.createElement("li");
-        const when = document.createElement("div");
+        const when = document.createElement("button");
+        when.type = "button";
+        when.className = "row-main";
+        when.addEventListener("click", () => edit(c));
         const when1 = document.createElement("div");
         when1.className = "t";
         when1.textContent =
@@ -208,6 +237,14 @@ function renderList() {
             ? t("first")
             : t("{time} after the previous began", { time: formatDuration(gap) });
         when.append(when1, m);
+        if (c.pain || c.note) {
+          const extra = document.createElement("div");
+          extra.className = "m";
+          extra.textContent = [c.pain ? t("pain {n}/5", { n: c.pain }) : "", c.note ?? ""]
+            .filter(Boolean)
+            .join(" · ");
+          when.append(extra);
+        }
         const del = document.createElement("button");
         del.className = "del";
         del.type = "button";
@@ -219,29 +256,36 @@ function renderList() {
       })
       .reverse(),
   );
+  renderHistoryExtras();
 }
 
-let toastTimer: ReturnType<typeof setTimeout> | undefined;
-function showUndo(c: Contraction) {
-  document.querySelector(".toast")?.remove();
-  clearTimeout(toastTimer);
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.setAttribute("role", "status");
-  const msg = document.createElement("span");
-  msg.textContent = t("Contraction deleted");
-  const undo = document.createElement("button");
-  undo.type = "button";
-  undo.textContent = t("Undo");
-  undo.addEventListener("click", () => {
-    if (!data.contractions.some((x) => x.id === c.id)) data.contractions.push(c);
-    toast.remove();
-    save();
-    render();
+const watersNote = $("waters-note");
+function renderHistoryExtras() {
+  watersNote.hidden = data.watersBroke === null;
+  if (data.watersBroke !== null) {
+    watersNote.textContent = t("Waters broke at {time}", { time: time(data.watersBroke) });
+  }
+  const goal = Number(data.rule.split("-")[0]);
+  const svg = $("trend-svg") as unknown as SVGSVGElement;
+  const bars = drawTrend(svg, data.contractions, data.breaks, goal);
+  $("trend").hidden = bars === 0;
+  svg.setAttribute("aria-label", t("Minutes between contractions"));
+  $("trend-cap").textContent = t("Gaps between contractions (dashed line = {n} min goal)", {
+    n: goal,
   });
-  toast.append(msg, undo);
-  document.body.append(toast);
-  toastTimer = setTimeout(() => toast.remove(), 8000);
+}
+
+function edit(c: Contraction | null) {
+  openEditor(c, {
+    onSave: (next) => {
+      const i = data.contractions.findIndex((x) => x.id === next.id);
+      if (i >= 0) data.contractions[i] = next;
+      else data.contractions.push(next);
+      save();
+      render();
+    },
+    onDelete: remove,
+  });
 }
 
 function remove(c: Contraction) {
@@ -249,7 +293,14 @@ function remove(c: Contraction) {
   if (c.end === null) void holdScreen(false);
   save();
   render();
-  showUndo(c);
+  showToast(t("Contraction deleted"), {
+    label: t("Undo"),
+    run: () => {
+      if (!data.contractions.some((x) => x.id === c.id)) data.contractions.push(c);
+      save();
+      render();
+    },
+  });
 }
 
 function render() {
@@ -285,6 +336,90 @@ $("export").addEventListener("click", () => {
   const a = Object.assign(document.createElement("a"), { href: url, download: "contractions.csv" });
   a.click();
   URL.revokeObjectURL(url);
+});
+
+$("add-missed").addEventListener("click", () => edit(null));
+
+$("waters").addEventListener("click", () => {
+  data.watersBroke = Date.now();
+  save();
+  render();
+});
+
+$("share").addEventListener("click", async () => {
+  const text = summaryText(data, Date.now(), t, getLocale());
+  try {
+    if (navigator.share) await navigator.share({ title: t("Contraction Timer"), text });
+    else {
+      await navigator.clipboard.writeText(text);
+      showToast(t("Copied to clipboard"));
+    }
+  } catch {
+    /* share cancelled */
+  }
+});
+
+$("backup").addEventListener("click", () => downloadJson(data));
+
+const restoreFile = $<HTMLInputElement>("restore-file");
+$("restore").addEventListener("click", () => restoreFile.click());
+restoreFile.addEventListener("change", async () => {
+  const file = restoreFile.files?.[0];
+  restoreFile.value = "";
+  if (!file) return;
+  const text = await file.text();
+  let valid = false;
+  try {
+    const raw: unknown = JSON.parse(text);
+    valid =
+      Array.isArray(raw) || (typeof raw === "object" && raw !== null && "contractions" in raw);
+  } catch {
+    /* not JSON */
+  }
+  if (!valid) {
+    showToast(t("That file is not a valid backup"));
+    return;
+  }
+  const restored = parseStored(text);
+  if (!confirm(t("Replace your current timing with this backup?"))) return;
+  data = restored;
+  save();
+  render();
+  showToast(t("Backup restored"));
+});
+
+// Alerts opt-in (local, silent notifications only).
+const alertsBox = $<HTMLInputElement>("alerts");
+const alertsNote = $("alerts-note");
+alertsBox.checked = alertsEnabled();
+alertsBox.addEventListener("change", async () => {
+  alertsNote.hidden = true;
+  if (alertsBox.checked) {
+    alertsBox.checked = await enableAlerts();
+    if (!alertsBox.checked) {
+      alertsNote.textContent = t(
+        "Notifications are blocked. Allow them in your browser or phone settings.",
+      );
+      alertsNote.hidden = false;
+    }
+  } else disableAlerts();
+});
+
+// First-run welcome card.
+const WELCOME_KEY = "contraction-timer:welcome";
+const welcome = $("welcome");
+try {
+  welcome.hidden = localStorage.getItem(WELCOME_KEY) === "1";
+} catch {
+  welcome.hidden = true;
+}
+$("welcome-ok").addEventListener("click", () => {
+  welcome.hidden = true;
+  try {
+    localStorage.setItem(WELCOME_KEY, "1");
+  } catch {
+    /* ignore */
+  }
 });
 
 document.addEventListener("langchange", render);

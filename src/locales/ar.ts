@@ -1,8 +1,50 @@
 /** Arabic translations. Keys are the exact English strings used in the app. */
 export const ar: Record<string, string> = {
-  "Timing isn't being saved. Your browser is blocking storage, so keep this page open.": "لا يتم حفظ التوقيت. المتصفح يحجب التخزين، لذا أبقي هذه الصفحة مفتوحة.",
+  Welcome: "أهلًا بك",
+  "Tap the big circle when a contraction starts and again when it ends. Everything stays on this device and works offline.":
+    "اضغطي على الدائرة الكبيرة عند بدء الانقباض ومرة أخرى عند انتهائه. كل شيء يبقى على جهازك ويعمل بدون إنترنت.",
+  "Got it": "حسنًا",
+  "Notify me when it's time to go": "نبّهيني عندما يحين وقت الذهاب",
+  "A contraction has lasted over 2 minutes. Call your midwife or hospital.":
+    "استمر انقباض أكثر من دقيقتين. اتصلي بالقابلة أو المستشفى.",
+  "6 or more contractions in 10 minutes. Call your midwife or hospital.":
+    "6 انقباضات أو أكثر خلال 10 دقائق. اتصلي بالقابلة أو المستشفى.",
+  "Add a missed one": "إضافة انقباض فاتني",
+  "Waters broke now": "انفجر كيس الماء الآن",
+  "Waters broke at {time}": "انفجر كيس الماء في {time}",
+  "Share summary": "مشاركة الملخص",
+  "Back up": "نسخ احتياطي",
+  Restore: "استعادة",
+  Trend: "الاتجاه",
+  "Edit contraction": "تعديل الانقباض",
+  "Start time": "وقت البدء",
+  "End time": "وقت الانتهاء",
+  "Pain (1–5)": "الألم (1–5)",
+  Note: "ملاحظة",
+  "Check the times: the end must come after the start.":
+    "تحققي من الأوقات: يجب أن يكون الانتهاء بعد البدء.",
+  Save: "حفظ",
+  Cancel: "إلغاء",
+  Delete: "حذف",
+  "pain {n}/5": "ألم {n}/5",
+  "Minutes between contractions": "الدقائق بين الانقباضات",
+  "Gaps between contractions (dashed line = {n} min goal)":
+    "الفواصل بين الانقباضات (الخط المتقطع = الهدف {n} د)",
+  "Contraction summary": "ملخص الانقباضات",
+  "No contractions recorded yet": "لم تُسجَّل انقباضات بعد",
+  "{count} contractions in the last hour, about {gap} apart, about {len} long.":
+    "{count} انقباضات في الساعة الأخيرة، بفاصل حوالي {gap}، ومدة حوالي {len}.",
+  "Copied to clipboard": "تم النسخ إلى الحافظ",
+  "That file is not a valid backup": "هذا الملف ليس نسخة احتياطية صالحة",
+  "Replace your current timing with this backup?":
+    "هل تريدين استبدال التوقيت الحالي بهذه النسخة الاحتياطية؟",
+  "Backup restored": "تمت استعادة النسخة الاحتياطية",
+  "Notifications are blocked. Allow them in your browser or phone settings.":
+    "الإشعارات محظورة. اسمحي بها من إعدادات المتصفح أو الهاتف.",
+  "Timing isn't being saved. Your browser is blocking storage, so keep this page open.":
+    "لا يتم حفظ التوقيت. المتصفح يحجب التخزين، لذا أبقي هذه الصفحة مفتوحة.",
   "Contraction deleted": "تم حذف الانقباض",
-  "Undo": "تراجع",
+  Undo: "تراجع",
   "Contraction Timer": "مؤقّت الانقباضات",
   "Offline contraction timer for labour. No account, no tracking.":
     "مؤقّت انقباضات المخاض يعمل بدون إنترنت. بلا حساب وبلا تتبّع.",

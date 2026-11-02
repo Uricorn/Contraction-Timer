@@ -4,6 +4,10 @@ export interface Contraction {
   start: number;
   /** Epoch ms when it ended, or null while in progress. */
   end: number | null;
+  /** Optional pain rating, 1 to 5. */
+  pain?: number;
+  /** Optional free-text note. */
+  note?: string;
 }
 
 /** A pause: the timer is deliberately stopped (e.g. a nap or a shower). */
@@ -28,9 +32,32 @@ export interface Data {
   contractions: Contraction[];
   breaks: Break[];
   rule: RuleKey;
+  /** Epoch ms when the waters broke, or null. */
+  watersBroke: number | null;
 }
 
-export const emptyData = (): Data => ({ contractions: [], breaks: [], rule: "5-1-1" });
+export const emptyData = (): Data => ({
+  contractions: [],
+  breaks: [],
+  rule: "5-1-1",
+  watersBroke: null,
+});
+
+export interface DangerSigns {
+  /** A contraction (finished or ongoing) has lasted over 2 minutes. */
+  long: boolean;
+  /** 6 or more contractions started within the last 10 minutes. */
+  frequent: boolean;
+}
+
+/** Warning signs that mean "call now", whatever the 5-1-1 pattern says. */
+export function dangerSigns(list: Contraction[], now: number): DangerSigns {
+  const recent = list.filter((c) => c.start >= now - HOUR && c.start <= now);
+  return {
+    long: recent.some((c) => (c.end ?? now) - c.start > 2 * MINUTE),
+    frequent: list.filter((c) => c.start >= now - 10 * MINUTE && c.start <= now).length >= 6,
+  };
+}
 
 export interface Stats {
   count: number;
@@ -229,6 +256,13 @@ export function parseStored(raw: string | null): Data {
       isTime(c.start) &&
       (c.end === null || (isTime(c.end) && c.end >= c.start)),
   );
+  for (const c of cs) {
+    if (!(Number.isInteger(c.pain) && (c.pain as number) >= 1 && (c.pain as number) <= 5)) {
+      delete c.pain;
+    }
+    if (typeof c.note !== "string" || !c.note) delete c.note;
+    else c.note = c.note.slice(0, 200);
+  }
   const open = sortByStart(cs).filter((c) => c.end === null);
   const keep = open.at(-1);
   out.contractions = cs.filter((c) => c.end !== null || c === keep);
@@ -247,6 +281,7 @@ export function parseStored(raw: string | null): Data {
     .at(-1);
   out.breaks = bs.filter((b) => b.end !== null || b === openB);
 
+  if (isTime(obj.watersBroke)) out.watersBroke = obj.watersBroke;
   if (typeof obj.rule === "string" && obj.rule in RULES) out.rule = obj.rule as RuleKey;
   return out;
 }
