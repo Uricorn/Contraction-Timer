@@ -185,7 +185,6 @@ export const ar: Record<string, string> = {
   History: "السجل",
   Sections: "الأقسام",
   Language: "اللغة",
-  "Export CSV": "تصدير CSV",
   "Clear all": "حذف الكل",
   "Nothing yet. Tap the circle when one begins.": "لا شيء بعد. اضغطي على الدائرة عند بدء انقباض.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":

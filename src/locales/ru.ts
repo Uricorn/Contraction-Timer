@@ -189,7 +189,6 @@ export const ru: Record<string, string> = {
   History: "История",
   Sections: "Разделы",
   Language: "Язык",
-  "Export CSV": "Экспорт CSV",
   "Clear all": "Очистить всё",
   "Nothing yet. Tap the circle when one begins.":
     "Пока ничего нет. Нажмите на круг, когда начнётся схватка.",

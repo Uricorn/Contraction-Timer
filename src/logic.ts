@@ -208,24 +208,6 @@ export function formatDuration(ms: number): string {
   return h > 0 ? `${h}:${String(m).padStart(2, "0")}:${ss}` : `${m}:${ss}`;
 }
 
-export function toCsv(list: Contraction[]): string {
-  const rows = sortByStart(list);
-  const lines = ["start_utc,end_utc,duration_seconds,interval_seconds"];
-  rows.forEach((c, i) => {
-    const dur = c.end === null ? "" : Math.floor((c.end - c.start) / 1000);
-    const gap = i === 0 ? "" : Math.floor((c.start - rows[i - 1].start) / 1000);
-    lines.push(
-      [
-        new Date(c.start).toISOString(),
-        c.end === null ? "" : new Date(c.end).toISOString(),
-        dur,
-        gap,
-      ].join(","),
-    );
-  });
-  return lines.join("\n") + "\n";
-}
-
 const isTime = (n: unknown): n is number => typeof n === "number" && Number.isFinite(n);
 
 /**
