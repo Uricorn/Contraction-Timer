@@ -120,17 +120,14 @@ export const he: Record<string, string> = {
   "you are unsure or worried about anything": "יש חוסר ודאות או דאגה מכל דבר",
   "They will tell you whether to come in, and can prepare for you. Save their number now. If in doubt, go.":
     "הם יגידו אם להגיע, ויוכלו להתכונן לקראתכם. כדאי לשמור את המספר שלהם כבר עכשיו. במקרה של ספק, לצאת.",
-  "NHS: signs that labour has begun": "NHS: סימנים לתחילת לידה",
   "Breathe together": "לנשום יחד",
   "Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but studies are small, so use what feels good.":
     "נשימה איטית עם נשיפה ארוכה יותר. שיטות הרפיה עשויות להפחית מעט את הכאב, אבל המחקרים קטנים, אז לבחור במה שנעים.",
   "Start breathing guide": "הפעלת מדריך נשימה",
-  "Cochrane: relaxation techniques": "Cochrane: טכניקות הרפיה",
   "Words to say": "מילים לומר",
   "Another one": "עוד אחת",
   "Constant, calm support is linked to shorter labours and better birth experiences.":
     "תמיכה רציפה ורגועה קשורה ללידות קצרות יותר ולחוויית לידה טובה יותר.",
-  "Cochrane: continuous support": "Cochrane: תמיכה רציפה",
   "How a partner can help": "איך בן או בת הזוג יכולים לעזור",
   "Stay close": "להישאר קרוב",
   "Some evidence": "יש מעט ראיות",
@@ -142,7 +139,6 @@ export const he: Record<string, string> = {
   "Only if needed": "רק במקרה הצורך",
   "Be present for the whole labour, don't leave her alone for long, and speak up for her wishes. In 27 trials, continuous support meant more spontaneous births, around 40 minutes shorter labour on average, and fewer negative feelings about the birth.":
     "להיות נוכחים לאורך כל הלידה, לא להשאיר את היולדת לבד לזמן ארוך, ולהשמיע את רצונותיה. ב-27 ניסויים, תמיכה רציפה הביאה ליותר לידות ספונטניות, ללידה קצרה בכ-40 דקות בממוצע, ולפחות רגשות שליליים כלפי הלידה.",
-  "Cochrane review": "סקירת Cochrane",
   "Move and stay upright": "לנוע ולהישאר זקופה",
   "Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with fewer caesareans. Quality was mixed, so follow what feels right.":
     "ללכת, להתנדנד, להישען על מיטה או כדור לידה, לכרוע או להתנדנד על ארבע. בהשוואה לשכיבה, תנוחות זקופות קיצרו את השלב הראשון בכשעה ו-20 דקות, עם פחות ניתוחים קיסריים. איכות המחקרים מעורבת, אז לעשות מה שמרגיש נכון.",
@@ -155,17 +151,10 @@ export const he: Record<string, string> = {
   "Pain relief options": "אפשרויות להקלת כאב",
   "Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember what she decided in advance, and that she can change her mind.":
     "לגז צחוק, לזריקות, לאפידורל ול-TENS יש יתרונות וחסרונות. כדאי לעזור לזכור מה הוחלט מראש, ושאפשר לשנות את הדעת.",
-  "NHS: pain relief in labour": "NHS: הקלת כאב בלידה",
   "Practical comforts": "נוחות מעשית",
   "Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone calls and the bag, so she can focus. Time each contraction from the start, and take breaks yourself too.":
     "להציע לגימות מים, מטלית קרירה, תאורה עמומה, שקט וקול רגוע. לטפל בשיחות הטלפון ובתיק, כדי שהיא תוכל להתרכז. למדוד כל ציר מתחילתו, ולקחת הפסקות גם בעצמכם.",
   Sources: "מקורות",
-  "NICE NG235: intrapartum care": "NICE NG235: טיפול בלידה",
-  "ACOG: how to tell when labor begins": "ACOG: איך מזהים שהלידה התחילה",
-  "Kaiser Permanente: when to go to the hospital": "Kaiser Permanente: מתי לנסוע לבית החולים",
-  "Ichilov Lis: when to come to the delivery room": "איכילוב ליס: מתי להגיע לחדר לידה",
-  "Ministry of Health: stages of labour": "משרד הבריאות: שלבי הלידה",
-  "Maccabi: labour and when to come in": "מכבי: לידה ומתי להגיע",
   "Links need an internet connection. Everything else in this app works offline. The 5-1-1 family of rules is a widely used rule of thumb, not an official clinical standard.":
     "הקישורים דורשים חיבור לאינטרנט. כל שאר חלקי האפליקציה פועלים גם ללא חיבור. משפחת הכללים 5-1-1 היא כלל אצבע נפוץ ולא תקן קליני רשמי.",
   "Links need an internet connection. General information, not medical advice.":
@@ -192,7 +181,6 @@ export const he: Record<string, string> = {
   "Nothing yet. Tap the circle when one begins.": "עדיין אין כלום. להקיש על העיגול כשציר מתחיל.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":
     "זה לא ייעוץ רפואי. תמיד לפעול לפי המיילדת או הרופא. הכול נשמר במכשיר הזה בלבד.",
-  "Source code": "קוד מקור",
   "Hospital bag": "תיק לבית החולים",
   "A starting list. Tick things off, delete what you don't need, and add your own.":
     "רשימת פתיחה. לסמן מה שנארז, למחוק מה שלא צריך ולהוסיף פריטים משלכם.",
@@ -200,11 +188,6 @@ export const he: Record<string, string> = {
   "Add an item": "הוספת פריט",
   "Untick all": "ביטול כל הסימונים",
   "Restore defaults": "שחזור ברירת מחדל",
-  "Ministry of Health: preparing a labour bag": "משרד הבריאות: הכנת תיק ללידה",
-  "Ichilov Lis: admission and what to bring": "איכילוב ליס: קבלה ומה להביא",
-  "Clalit: delivery room bag": "כללית: תיק לחדר לידה",
-  "Meuhedet: when and what to pack": "מאוחדת: מתי ומה לארוז",
-  "Similac: hospital bag checklist": "Similac: רשימת תיק לבית החולים",
   "ID for you and your partner": "תעודות זהות של שני בני הזוג",
   "Pregnancy tracking card, complete and in order": "תיק מעקב הריון, מלא ומסודר",
   "Folder with pregnancy test results and scans": "תיקייה עם תוצאות בדיקות ההריון והאולטרסאונד",
@@ -294,25 +277,18 @@ export const he: Record<string, string> = {
   "Vitamin K injection": "זריקת ויטמין K",
   "A single dose given to the newborn soon after birth. Newborns have low vitamin K, which helps blood clot, and the injection prevents a rare but serious bleeding problem. Oral drops exist but need repeated doses.":
     "מנה בודדת הניתנת ליילוד זמן קצר אחרי הלידה. ליילודים רמות נמוכות של ויטמין K, שמסייע לקרישת דם, והזריקה מונעת בעיית דימום נדירה אך חמורה. קיימות גם טיפות דרך הפה, אך הן דורשות מנות חוזרות.",
-  "NHS: what happens straight after the birth": "NHS: מה קורה מיד אחרי הלידה",
   "Eye ointment": "משחת עיניים",
   "Antibiotic ointment in the baby’s eyes to prevent infection from bacteria passed on in birth. Policies differ between hospitals and countries, and some now give it only when infection risk is higher, so ask if it is routine where you are.":
     "משחה אנטיביוטית בעיני התינוק למניעת זיהום מחיידקים שעוברים בלידה. המדיניות שונה בין בתי חולים ומדינות, וחלקם נותנים אותה כיום רק כשהסיכון לזיהום גבוה יותר, אז כדאי לשאול אם זה נהוג.",
-  "AAO: erythromycin to prevent newborn eye infection":
-    "AAO: אריתרומיצין למניעת זיהום עיניים ביילוד",
-  "CDC: preventing newborn eye infection": "CDC: מניעת זיהום עיניים ביילוד",
   "Hepatitis B vaccine": "חיסון הפטיטיס B",
   "Often offered in the first days. Protects against a liver infection that can be passed on at birth and is more serious in babies. Recommendations differ by country and by the mother’s test result, so ask what your hospital gives and when.":
     "מוצע לרוב בימים הראשונים. מגן מפני זיהום בכבד שיכול לעבור בלידה וחמור יותר אצל תינוקות. ההמלצות שונות בין מדינות ולפי תוצאת הבדיקה של האם, אז כדאי לשאול מה בית החולים נותן ומתי.",
-  "CDC: hepatitis B vaccine for newborns": "CDC: חיסון הפטיטיס B ליילודים",
   "Newborn checks and screening": "בדיקות וסקר ליילוד",
   "Weight and Apgar scores in the first minutes, then a full exam, a heel-prick blood test for rare treatable conditions, a hearing test, and often a heart oxygen check. They find problems early, when treatment works best.":
     "שקילה וציוני אפגר בדקות הראשונות, אחר כך בדיקה מלאה, בדיקת דם מדקירה בעקב למצבים נדירים שניתנים לטיפול, בדיקת שמיעה, ולעתים קרובות בדיקת חמצון הלב. הן מגלות בעיות מוקדם, כשהטיפול יעיל ביותר.",
-  "NHS: newborn screening": "NHS: סקר ילודים",
   "Group B strep antibiotics": "אנטיביוטיקה לסטרפטוקוק קבוצה B",
   "If your GBS test was positive, antibiotics through a drip during labour lower the chance of passing it to baby. Tell staff your result when you arrive.":
     "אם בדיקת ה-GBS הייתה חיובית, אנטיביוטיקה דרך עירוי במהלך הלידה מורידה את הסיכוי להעביר זאת לתינוק. כדאי לספר לצוות מה התוצאה בהגעה.",
-  "ACOG: group B strep and pregnancy": "ACOG: סטרפטוקוק קבוצה B והריון",
   "Monitoring the baby’s heartbeat": "ניטור דופק התינוק",
   "Staff listen to baby’s heart on admission, by a monitor belt or hand-held device. If all is well, you can often ask for intermittent monitoring so you can move around.":
     "הצוות מאזין ללב התינוק בקבלה, בחגורת ניטור או במכשיר כף יד. אם הכול תקין, אפשר לרוב לבקש ניטור לסירוגין כדי שאפשר יהיה לנוע.",
@@ -322,24 +298,18 @@ export const he: Record<string, string> = {
   "Injection after birth to help the womb contract": "זריקה אחרי הלידה שעוזרת לרחם להתכווץ",
   "Often offered as the placenta comes out. It lowers the risk of heavy bleeding after the birth. You can ask about waiting for the placenta naturally if you are low risk, and discuss it in advance.":
     "מוצעת לרוב עם יציאת השליה. היא מורידה את הסיכון לדימום חזק אחרי הלידה. אם הסיכון שלך נמוך אפשר לשאול על המתנה ליציאה טבעית של השליה, ומומלץ לדון בכך מראש.",
-  "AAFP: summary of the Cochrane review on the third stage of labour":
-    "AAFP: סיכום סקירת Cochrane על השלב השלישי של הלידה",
   "Induction and cutting (episiotomy)": "השראת לידה וחתך (אפיזיוטומיה)",
   "Induction is offered when waiting is riskier than starting labour, and an episiotomy only when baby needs to be born quickly. Ask your care team to explain why if they are suggested.":
     "השראת לידה מוצעת כשההמתנה מסוכנת יותר מהתחלת הלידה, ואפיזיוטומיה רק כשהתינוק צריך להיוולד מהר. כדאי לבקש מהצוות להסביר מדוע אם הם מציעים זאת.",
-  "NICE NG207: inducing labour": "NICE NG207: השראת לידה",
-  "Cochrane: episiotomy": "Cochrane: אפיזיוטומיה",
   "Special requests to consider": "בקשות מיוחדות לשקול",
   "You can ask. Staff will agree when it is safe for you and baby. Decide in advance, write it under newborn choices or birth preferences, and tell the team on arrival.":
     "אפשר לבקש. הצוות יסכים כשזה בטוח ליולדת ולתינוק. כדאי להחליט מראש, לכתוב זאת תחת בחירות לגבי הילוד או העדפות ללידה, ולעדכן את הצוות בהגעה.",
   "Delayed cord clamping": "השהיית חיתוך חבל הטבור",
   "Wait at least 30 to 60 seconds (or until the cord stops pulsing) before clamping, if baby is well. More blood passes to the baby, which raises iron stores in the first months. ACOG and WHO both recommend it for healthy babies. Not suitable if baby needs help right away.":
     "להמתין לפחות 30 עד 60 שניות (או עד שהחבל מפסיק לפעום) לפני הידוק, אם התינוק במצב טוב. יותר דם עובר לתינוק, מה שמעלה את מאגרי הברזל בחודשים הראשונים. ACOG ו-WHO ממליצים על כך לתינוקות בריאים. לא מתאים אם התינוק צריך עזרה מיידית.",
-  ACOG: "ACOG",
   "Delay the first bath": "דחיית הרחצה הראשונה",
   "WHO suggests waiting at least 24 hours (or at least 6 hours if that is not possible). Waiting helps keep baby warm and steady, and supports breastfeeding. Ask staff to wipe off blood and leave the white coating (vernix) on.":
     "WHO ממליץ להמתין לפחות 24 שעות (או לפחות 6 שעות אם זה לא אפשרי). ההמתנה עוזרת לשמור על חום ויציבות התינוק, ותומכת בהנקה. כדאי לבקש מהצוות לנגב את הדם ולהשאיר את הציפוי הלבן (ורניקס).",
-  "WHO recommendations": "המלצות WHO",
   "Skin-to-skin straight after birth": "מגע עור לעור מיד אחרי הלידה",
   "Baby is placed on your chest, dried and covered, for the first hour or more. Linked to steadier temperature and heart rate, and more breastfeeding success. A partner can do it if you cannot.":
     "התינוק מונח על החזה, מיובש ומכוסה, בשעה הראשונה או יותר. קשור לטמפרטורה ולקצב לב יציבים יותר ולהצלחה גבוהה יותר בהנקה. בן או בת הזוג יכולים לעשות זאת אם היולדת לא יכולה.",
@@ -349,11 +319,4 @@ export const he: Record<string, string> = {
   "Your own wishes": "הרצונות שלך",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "דוגמאות: מוזיקה או תאורה עמומה, תנועה חופשית, מי חותך את חבל הטבור, אילו מלווים נשארים, ואיך ומתי רוצים לשמוע על אפשרויות. לכתוב אותם תחת העדפות ללידה ולשאול את הצוות מה אפשרי.",
-  "Ichilov Lis: admission process and questions": "איכילוב ליס: תהליך קבלה ושאלות",
-  "Clalit: group B strep in pregnancy": "כללית: סטרפטוקוק קבוצה B בהריון",
-  "ACOG: delayed umbilical cord clamping": "ACOG: השהיית חיתוך חבל הטבור",
-  "Cochrane: timing of cord clamping": "Cochrane: עיתוי חיתוך חבל הטבור",
-  "Cochrane: early skin-to-skin contact": "Cochrane: מגע עור לעור מוקדם",
-  "WHO: maternal and newborn care for a positive postnatal experience":
-    "WHO: טיפול באם וביילוד לחוויה חיובית אחרי הלידה",
 };

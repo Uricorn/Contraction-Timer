@@ -126,17 +126,14 @@ export const ru: Record<string, string> = {
   "you are unsure or worried about anything": "вы не уверены или чем-то обеспокоены",
   "They will tell you whether to come in, and can prepare for you. Save their number now. If in doubt, go.":
     "Вам скажут, ехать ли, и смогут подготовиться. Сохраните их номер заранее. Если сомневаетесь, поезжайте.",
-  "NHS: signs that labour has begun": "NHS: признаки начала родов",
   "Breathe together": "Дышим вместе",
   "Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but studies are small, so use what feels good.":
     "Медленное дыхание с более долгим выдохом. Методы расслабления могут немного снизить боль, но исследования небольшие, поэтому выбирайте то, что приносит облегчение.",
   "Start breathing guide": "Запустить дыхательное упражнение",
-  "Cochrane: relaxation techniques": "Cochrane: техники расслабления",
   "Words to say": "Что сказать",
   "Another one": "Ещё одну",
   "Constant, calm support is linked to shorter labours and better birth experiences.":
     "Постоянная спокойная поддержка связана с более короткими родами и лучшим опытом родов.",
-  "Cochrane: continuous support": "Cochrane: непрерывная поддержка",
   "How a partner can help": "Как партнёр может помочь",
   "Stay close": "Быть рядом",
   "Some evidence": "Есть некоторые данные",
@@ -148,7 +145,6 @@ export const ru: Record<string, string> = {
   "Only if needed": "Только при необходимости",
   "Be present for the whole labour, don't leave her alone for long, and speak up for her wishes. In 27 trials, continuous support meant more spontaneous births, around 40 minutes shorter labour on average, and fewer negative feelings about the birth.":
     "Быть рядом на протяжении всех родов, не оставлять роженицу надолго одну и отстаивать её пожелания. В 27 исследованиях непрерывная поддержка означала больше самостоятельных родов, в среднем на 40 минут короче роды и меньше негативных чувств о родах.",
-  "Cochrane review": "Обзор Cochrane",
   "Move and stay upright": "Двигаться и оставаться в вертикальном положении",
   "Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with fewer caesareans. Quality was mixed, so follow what feels right.":
     "Ходить, раскачиваться, опираться на кровать или фитбол, стоять на коленях или на четвереньках. По сравнению с лежанием вертикальные положения сокращали первый период примерно на 1 час 20 минут, с меньшим числом кесаревых. Качество данных смешанное, поэтому ориентируйтесь на ощущения.",
@@ -161,17 +157,10 @@ export const ru: Record<string, string> = {
   "Pain relief options": "Варианты обезболивания",
   "Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember what she decided in advance, and that she can change her mind.":
     "У закиси азота, уколов, эпидуральной анестезии и ЧЭНС есть плюсы и минусы. Помогите роженице вспомнить, что она решила заранее, и что она может передумать.",
-  "NHS: pain relief in labour": "NHS: обезболивание в родах",
   "Practical comforts": "Практичный комфорт",
   "Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone calls and the bag, so she can focus. Time each contraction from the start, and take breaks yourself too.":
     "Предлагайте глоточки воды, прохладную ткань, приглушённый свет, тишину и спокойный голос. Берите на себя звонки и сумку, чтобы роженица могла сосредоточиться. Засекайте каждую схватку с начала и делайте перерывы сами.",
   Sources: "Источники",
-  "NICE NG235: intrapartum care": "NICE NG235: помощь в родах",
-  "ACOG: how to tell when labor begins": "ACOG: как понять, что начались роды",
-  "Kaiser Permanente: when to go to the hospital": "Kaiser Permanente: когда ехать в больницу",
-  "Ichilov Lis: when to come to the delivery room": "Ихилов Лис: когда приезжать в родильный зал",
-  "Ministry of Health: stages of labour": "Министерство здравоохранения: периоды родов",
-  "Maccabi: labour and when to come in": "Маккаби: роды и когда приезжать",
   "Links need an internet connection. Everything else in this app works offline. The 5-1-1 family of rules is a widely used rule of thumb, not an official clinical standard.":
     "Для ссылок нужен интернет. Всё остальное в приложении работает без сети. Семейство правил 5-1-1 — широко используемое эмпирическое правило, а не официальный клинический стандарт.",
   "Links need an internet connection. General information, not medical advice.":
@@ -202,7 +191,6 @@ export const ru: Record<string, string> = {
     "Пока ничего нет. Нажмите на круг, когда начнётся схватка.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":
     "Не медицинский совет. Всегда следуйте указаниям акушерки или врача. Всё хранится только на этом устройстве.",
-  "Source code": "Исходный код",
   "Hospital bag": "Сумка в роддом",
   "A starting list. Tick things off, delete what you don't need, and add your own.":
     "Базовый список. Отмечайте собранное, удаляйте лишнее и добавляйте своё.",
@@ -210,11 +198,6 @@ export const ru: Record<string, string> = {
   "Add an item": "Добавить пункт",
   "Untick all": "Снять все отметки",
   "Restore defaults": "Восстановить по умолчанию",
-  "Ministry of Health: preparing a labour bag": "Министерство здравоохранения: сборы в роддом",
-  "Ichilov Lis: admission and what to bring": "Ихилов Лис: поступление и что взять",
-  "Clalit: delivery room bag": "Клалит: сумка в родильный зал",
-  "Meuhedet: when and what to pack": "Меухедет: когда и что собирать",
-  "Similac: hospital bag checklist": "Similac: список для сумки в роддом",
   "ID for you and your partner": "Документы, удостоверяющие личность, для вас и партнёра",
   "Pregnancy tracking card, complete and in order":
     "Обменная карта беременной, заполненная и в порядке",
@@ -308,25 +291,18 @@ export const ru: Record<string, string> = {
   "Vitamin K injection": "Укол витамина K",
   "A single dose given to the newborn soon after birth. Newborns have low vitamin K, which helps blood clot, and the injection prevents a rare but serious bleeding problem. Oral drops exist but need repeated doses.":
     "Одна доза новорождённому вскоре после рождения. У новорождённых мало витамина K, помогающего свёртыванию крови, а укол предотвращает редкую, но серьёзную проблему с кровотечением. Есть капли внутрь, но их нужно давать повторно.",
-  "NHS: what happens straight after the birth": "NHS: что происходит сразу после родов",
   "Eye ointment": "Глазная мазь",
   "Antibiotic ointment in the baby’s eyes to prevent infection from bacteria passed on in birth. Policies differ between hospitals and countries, and some now give it only when infection risk is higher, so ask if it is routine where you are.":
     "Антибиотическая мазь в глаза малыша для профилактики инфекции от бактерий, передающихся при родах. Правила различаются в больницах и странах, и некоторые теперь применяют её только при повышенном риске инфекции, поэтому спросите, обязательна ли она у вас.",
-  "AAO: erythromycin to prevent newborn eye infection":
-    "AAO: эритромицин для профилактики глазной инфекции новорождённых",
-  "CDC: preventing newborn eye infection": "CDC: профилактика глазной инфекции новорождённых",
   "Hepatitis B vaccine": "Прививка от гепатита B",
   "Often offered in the first days. Protects against a liver infection that can be passed on at birth and is more serious in babies. Recommendations differ by country and by the mother’s test result, so ask what your hospital gives and when.":
     "Часто предлагается в первые дни. Защищает от инфекции печени, которая может передаваться при родах и тяжелее протекает у детей. Рекомендации различаются по странам и по результатам анализа матери, поэтому спросите, что и когда делает ваша больница.",
-  "CDC: hepatitis B vaccine for newborns": "CDC: прививка от гепатита B для новорождённых",
   "Newborn checks and screening": "Осмотры и скрининг новорождённого",
   "Weight and Apgar scores in the first minutes, then a full exam, a heel-prick blood test for rare treatable conditions, a hearing test, and often a heart oxygen check. They find problems early, when treatment works best.":
     "Вес и оценка по шкале Апгар в первые минуты, затем полный осмотр, анализ крови из пятки на редкие излечимые состояния, проверка слуха и часто проверка кислорода сердца. Они выявляют проблемы рано, когда лечение работает лучше всего.",
-  "NHS: newborn screening": "NHS: скрининг новорождённых",
   "Group B strep antibiotics": "Антибиотики при стрептококке группы B",
   "If your GBS test was positive, antibiotics through a drip during labour lower the chance of passing it to baby. Tell staff your result when you arrive.":
     "Если анализ на GBS был положительным, антибиотики через капельницу в родах снижают вероятность передачи ребёнку. Сообщите персоналу свой результат при поступлении.",
-  "ACOG: group B strep and pregnancy": "ACOG: стрептококк группы B и беременность",
   "Monitoring the baby’s heartbeat": "Контроль сердцебиения ребёнка",
   "Staff listen to baby’s heart on admission, by a monitor belt or hand-held device. If all is well, you can often ask for intermittent monitoring so you can move around.":
     "Персонал слушает сердце ребёнка при поступлении с помощью пояса-монитора или ручного прибора. Если всё в порядке, часто можно попросить периодический контроль, чтобы свободно двигаться.",
@@ -336,24 +312,18 @@ export const ru: Record<string, string> = {
   "Injection after birth to help the womb contract": "Укол после родов для сокращения матки",
   "Often offered as the placenta comes out. It lowers the risk of heavy bleeding after the birth. You can ask about waiting for the placenta naturally if you are low risk, and discuss it in advance.":
     "Часто предлагается, когда выходит плацента. Снижает риск сильного кровотечения после родов. При низком риске можно спросить об ожидании естественного выхода плаценты и обсудить это заранее.",
-  "AAFP: summary of the Cochrane review on the third stage of labour":
-    "AAFP: краткое изложение обзора Cochrane о третьем периоде родов",
   "Induction and cutting (episiotomy)": "Стимуляция родов и разрез (эпизиотомия)",
   "Induction is offered when waiting is riskier than starting labour, and an episiotomy only when baby needs to be born quickly. Ask your care team to explain why if they are suggested.":
     "Стимуляцию предлагают, когда ожидание опаснее начала родов, а эпизиотомию — только если ребёнку нужно родиться быстро. Попросите медицинскую команду объяснить причину, если это предлагают.",
-  "NICE NG207: inducing labour": "NICE NG207: стимуляция родов",
-  "Cochrane: episiotomy": "Cochrane: эпизиотомия",
   "Special requests to consider": "Особые просьбы, которые стоит рассмотреть",
   "You can ask. Staff will agree when it is safe for you and baby. Decide in advance, write it under newborn choices or birth preferences, and tell the team on arrival.":
     "Можно попросить. Персонал согласится, если это безопасно для вас и ребёнка. Решите заранее, запишите в разделе выбора для новорождённого или пожеланий к родам и сообщите команде при поступлении.",
   "Delayed cord clamping": "Отсроченное пережатие пуповины",
   "Wait at least 30 to 60 seconds (or until the cord stops pulsing) before clamping, if baby is well. More blood passes to the baby, which raises iron stores in the first months. ACOG and WHO both recommend it for healthy babies. Not suitable if baby needs help right away.":
     "Подождать не менее 30–60 секунд (или пока пуповина не перестанет пульсировать) перед пережатием, если ребёнок в порядке. К ребёнку поступает больше крови, что повышает запасы железа в первые месяцы. ACOG и ВОЗ рекомендуют это для здоровых детей. Не подходит, если ребёнку сразу нужна помощь.",
-  ACOG: "ACOG",
   "Delay the first bath": "Отложить первое купание",
   "WHO suggests waiting at least 24 hours (or at least 6 hours if that is not possible). Waiting helps keep baby warm and steady, and supports breastfeeding. Ask staff to wipe off blood and leave the white coating (vernix) on.":
     "ВОЗ советует подождать не менее 24 часов (или хотя бы 6 часов, если это невозможно). Ожидание помогает сохранять тепло и стабильность малыша и поддерживает грудное вскармливание. Попросите персонал стереть кровь и оставить белую смазку (верникс).",
-  "WHO recommendations": "Рекомендации ВОЗ",
   "Skin-to-skin straight after birth": "Контакт кожа к коже сразу после рождения",
   "Baby is placed on your chest, dried and covered, for the first hour or more. Linked to steadier temperature and heart rate, and more breastfeeding success. A partner can do it if you cannot.":
     "Ребёнка кладут на грудь, обсушивают и накрывают на первый час или дольше. Связано с более стабильной температурой и пульсом и с успешным грудным вскармливанием. Партнёр может сделать это, если вы не можете.",
@@ -363,11 +333,4 @@ export const ru: Record<string, string> = {
   "Your own wishes": "Ваши собственные пожелания",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Примеры: музыка или приглушённый свет, свободное движение, кто перережет пуповину, какие сопровождающие остаются, как и когда вы хотите узнавать о вариантах. Запишите их в пожеланиях к родам и спросите персонал, что возможно.",
-  "Ichilov Lis: admission process and questions": "Ихилов Лис: порядок поступления и вопросы",
-  "Clalit: group B strep in pregnancy": "Клалит: стрептококк группы B при беременности",
-  "ACOG: delayed umbilical cord clamping": "ACOG: отсроченное пережатие пуповины",
-  "Cochrane: timing of cord clamping": "Cochrane: время пережатия пуповины",
-  "Cochrane: early skin-to-skin contact": "Cochrane: ранний контакт кожа к коже",
-  "WHO: maternal and newborn care for a positive postnatal experience":
-    "ВОЗ: помощь матери и новорождённому для позитивного послеродового опыта",
 };

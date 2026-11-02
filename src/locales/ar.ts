@@ -125,17 +125,14 @@ export const ar: Record<string, string> = {
   "you are unsure or worried about anything": "كنتِ غير متأكدة أو قلقة من أي شيء",
   "They will tell you whether to come in, and can prepare for you. Save their number now. If in doubt, go.":
     "سيخبرونكِ إن كان عليكِ القدوم، ويمكنهم الاستعداد لاستقبالكِ. احفظي رقمهم الآن. وإن ساورك شك، فاذهبي.",
-  "NHS: signs that labour has begun": "NHS: علامات بدء المخاض",
   "Breathe together": "تنفّسا معًا",
   "Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but studies are small, so use what feels good.":
     "تنفّس بطيء مع زفير أطول. قد تخفّف طرق الاسترخاء الألم قليلًا، لكن الدراسات صغيرة، فاعتمدي على ما يريحكِ.",
   "Start breathing guide": "ابدأ دليل التنفّس",
-  "Cochrane: relaxation techniques": "Cochrane: تقنيات الاسترخاء",
   "Words to say": "كلمات تُقال",
   "Another one": "جملة أخرى",
   "Constant, calm support is linked to shorter labours and better birth experiences.":
     "الدعم المستمر والهادئ مرتبط بمخاض أقصر وتجربة ولادة أفضل.",
-  "Cochrane: continuous support": "Cochrane: الدعم المستمر",
   "How a partner can help": "كيف يمكن للشريك أن يساعد",
   "Stay close": "ابقَ قريبًا",
   "Some evidence": "بعض الأدلّة",
@@ -147,7 +144,6 @@ export const ar: Record<string, string> = {
   "Only if needed": "عند الحاجة فقط",
   "Be present for the whole labour, don't leave her alone for long, and speak up for her wishes. In 27 trials, continuous support meant more spontaneous births, around 40 minutes shorter labour on average, and fewer negative feelings about the birth.":
     "كن حاضرًا طوال المخاض، ولا تتركها وحدها وقتًا طويلًا، وعبّر عن رغباتها. في 27 تجربة، أدّى الدعم المستمر إلى ولادات طبيعية أكثر، ومخاض أقصر بنحو 40 دقيقة في المتوسط، ومشاعر سلبية أقل تجاه الولادة.",
-  "Cochrane review": "مراجعة Cochrane",
   "Move and stay upright": "الحركة والبقاء منتصبة",
   "Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with fewer caesareans. Quality was mixed, so follow what feels right.":
     "المشي، التمايل، الانحناء على سرير أو كرة الولادة، الجثو، أو التأرجح على اليدين والركبتين. مقارنةً بالاستلقاء، قصّرت الأوضاع المنتصبة المرحلة الأولى بنحو ساعة و20 دقيقة مع عمليات قيصرية أقل. جودة الدراسات متفاوتة، فاتّبعي ما تشعرين أنه مناسب.",
@@ -160,17 +156,10 @@ export const ar: Record<string, string> = {
   "Pain relief options": "خيارات تسكين الألم",
   "Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember what she decided in advance, and that she can change her mind.":
     "للغاز المُضحك والحقن والإبرة الظهرية وجهاز TENS مزايا وعيوب. ساعدها على تذكّر ما قرّرته مسبقًا، وأن بإمكانها تغيير رأيها.",
-  "NHS: pain relief in labour": "NHS: تسكين الألم أثناء المخاض",
   "Practical comforts": "وسائل راحة عملية",
   "Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone calls and the bag, so she can focus. Time each contraction from the start, and take breaks yourself too.":
     "قدّم رشفات ماء، وقطعة قماش باردة، وإضاءة خافتة، وهدوءًا، وصوتًا مطمئنًا. تولَّ المكالمات والحقيبة لتتفرّغ هي. احسب وقت كل انقباض من بدايته، وخذ فترات راحة أنت أيضًا.",
   Sources: "المصادر",
-  "NICE NG235: intrapartum care": "NICE NG235: الرعاية أثناء الولادة",
-  "ACOG: how to tell when labor begins": "ACOG: كيف تعرفين أن المخاض بدأ",
-  "Kaiser Permanente: when to go to the hospital": "Kaiser Permanente: متى تذهبين إلى المستشفى",
-  "Ichilov Lis: when to come to the delivery room": "إخيلوف ليس: متى تأتين إلى غرفة الولادة",
-  "Ministry of Health: stages of labour": "وزارة الصحة: مراحل المخاض",
-  "Maccabi: labour and when to come in": "مكابي: الولادة ومتى تأتين",
   "Links need an internet connection. Everything else in this app works offline. The 5-1-1 family of rules is a widely used rule of thumb, not an official clinical standard.":
     "تحتاج الروابط إلى اتصال بالإنترنت. كل ما عداها في التطبيق يعمل بدون إنترنت. عائلة قواعد 5-1-1 قاعدة تقريبية شائعة وليست معيارًا سريريًا رسميًا.",
   "Links need an internet connection. General information, not medical advice.":
@@ -197,7 +186,6 @@ export const ar: Record<string, string> = {
   "Nothing yet. Tap the circle when one begins.": "لا شيء بعد. اضغطي على الدائرة عند بدء انقباض.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":
     "هذه ليست نصيحة طبية. اتّبعي دائمًا تعليمات القابلة أو الطبيب. كل شيء يبقى على هذا الجهاز.",
-  "Source code": "الشيفرة المصدرية",
   "Hospital bag": "حقيبة المستشفى",
   "A starting list. Tick things off, delete what you don't need, and add your own.":
     "قائمة للبدء. ضعي علامة على ما جهّزتِه، واحذفي ما لا تحتاجينه، وأضيفي ما يخصّكِ.",
@@ -205,11 +193,6 @@ export const ar: Record<string, string> = {
   "Add an item": "إضافة عنصر",
   "Untick all": "إلغاء كل العلامات",
   "Restore defaults": "استعادة الافتراضي",
-  "Ministry of Health: preparing a labour bag": "وزارة الصحة: تجهيز حقيبة الولادة",
-  "Ichilov Lis: admission and what to bring": "إخيلوف ليس: الاستقبال وما يجب إحضاره",
-  "Clalit: delivery room bag": "كلاليت: حقيبة غرفة الولادة",
-  "Meuhedet: when and what to pack": "ميؤحيدت: متى وماذا تحزمين",
-  "Similac: hospital bag checklist": "Similac: قائمة حقيبة المستشفى",
   "ID for you and your partner": "هويّتك وهويّة شريكك",
   "Pregnancy tracking card, complete and in order": "بطاقة متابعة الحمل، مكتملة ومرتّبة",
   "Folder with pregnancy test results and scans":
@@ -302,25 +285,18 @@ export const ar: Record<string, string> = {
   "Vitamin K injection": "حقنة فيتامين ك",
   "A single dose given to the newborn soon after birth. Newborns have low vitamin K, which helps blood clot, and the injection prevents a rare but serious bleeding problem. Oral drops exist but need repeated doses.":
     "جرعة واحدة تُعطى للمولود بعد الولادة بوقت قصير. مستوى فيتامين ك منخفض عند حديثي الولادة، وهو يساعد على تخثّر الدم، والحقنة تمنع مشكلة نزيف نادرة لكنها خطيرة. توجد قطرات بالفم أيضًا لكنها تحتاج إلى جرعات متكررة.",
-  "NHS: what happens straight after the birth": "NHS: ما يحدث مباشرة بعد الولادة",
   "Eye ointment": "مرهم العينين",
   "Antibiotic ointment in the baby’s eyes to prevent infection from bacteria passed on in birth. Policies differ between hospitals and countries, and some now give it only when infection risk is higher, so ask if it is routine where you are.":
     "مرهم مضاد حيوي في عيني الطفل للوقاية من عدوى بكتيرية تنتقل أثناء الولادة. تختلف السياسات بين المستشفيات والدول، وبعضها يعطيه الآن فقط عند ارتفاع خطر العدوى، فاسألي إن كان إجراءً روتينيًا عندكم.",
-  "AAO: erythromycin to prevent newborn eye infection":
-    "AAO: الإريثروميسين للوقاية من عدوى عين حديث الولادة",
-  "CDC: preventing newborn eye infection": "CDC: الوقاية من عدوى عين حديث الولادة",
   "Hepatitis B vaccine": "لقاح التهاب الكبد ب",
   "Often offered in the first days. Protects against a liver infection that can be passed on at birth and is more serious in babies. Recommendations differ by country and by the mother’s test result, so ask what your hospital gives and when.":
     "يُعرض غالبًا في الأيام الأولى. يحمي من عدوى الكبد التي قد تنتقل أثناء الولادة وتكون أخطر عند الرضّع. تختلف التوصيات بين الدول وحسب نتيجة فحص الأم، فاسألي عمّا يُعطيه مستشفاكِ ومتى.",
-  "CDC: hepatitis B vaccine for newborns": "CDC: لقاح التهاب الكبد ب لحديثي الولادة",
   "Newborn checks and screening": "فحوصات وفرز حديثي الولادة",
   "Weight and Apgar scores in the first minutes, then a full exam, a heel-prick blood test for rare treatable conditions, a hearing test, and often a heart oxygen check. They find problems early, when treatment works best.":
     "الوزن ودرجات أبغار في الدقائق الأولى، ثم فحص كامل، وفحص دم بوخز الكعب لحالات نادرة قابلة للعلاج، وفحص السمع، وغالبًا فحص أكسجة القلب. تكشف المشكلات مبكرًا حين يكون العلاج أنجع.",
-  "NHS: newborn screening": "NHS: فرز حديثي الولادة",
   "Group B strep antibiotics": "مضادات حيوية للمكوّرات العقدية من المجموعة ب",
   "If your GBS test was positive, antibiotics through a drip during labour lower the chance of passing it to baby. Tell staff your result when you arrive.":
     "إذا كان فحص GBS لديكِ إيجابيًا، فإن المضادات الحيوية عبر المحلول الوريدي أثناء المخاض تقلّل احتمال انتقالها إلى الطفل. أخبري الطاقم بنتيجتكِ عند وصولكِ.",
-  "ACOG: group B strep and pregnancy": "ACOG: المكوّرات العقدية ب والحمل",
   "Monitoring the baby’s heartbeat": "مراقبة نبض الجنين",
   "Staff listen to baby’s heart on admission, by a monitor belt or hand-held device. If all is well, you can often ask for intermittent monitoring so you can move around.":
     "يستمع الطاقم إلى قلب الجنين عند الاستقبال، بحزام مراقبة أو بجهاز يدوي. إذا كان كل شيء على ما يرام، يمكنكِ غالبًا طلب مراقبة متقطعة لتتمكّني من الحركة.",
@@ -330,24 +306,18 @@ export const ar: Record<string, string> = {
   "Injection after birth to help the womb contract": "حقنة بعد الولادة تساعد الرحم على الانقباض",
   "Often offered as the placenta comes out. It lowers the risk of heavy bleeding after the birth. You can ask about waiting for the placenta naturally if you are low risk, and discuss it in advance.":
     "تُعرض غالبًا عند خروج المشيمة. تقلّل خطر النزيف الغزير بعد الولادة. يمكنكِ السؤال عن انتظار خروج المشيمة طبيعيًا إن كان خطركِ منخفضًا، وناقشي ذلك مسبقًا.",
-  "AAFP: summary of the Cochrane review on the third stage of labour":
-    "AAFP: ملخّص مراجعة Cochrane عن المرحلة الثالثة من المخاض",
   "Induction and cutting (episiotomy)": "تحفيز المخاض والشق (بضع الفرج)",
   "Induction is offered when waiting is riskier than starting labour, and an episiotomy only when baby needs to be born quickly. Ask your care team to explain why if they are suggested.":
     "يُعرض تحفيز المخاض حين يكون الانتظار أخطر من بدء المخاض، ويُجرى بضع الفرج فقط حين يلزم أن يولد الطفل بسرعة. اطلبي من الفريق شرح السبب إذا اقترحوا ذلك.",
-  "NICE NG207: inducing labour": "NICE NG207: تحفيز المخاض",
-  "Cochrane: episiotomy": "Cochrane: بضع الفرج",
   "Special requests to consider": "طلبات خاصة يمكن التفكير فيها",
   "You can ask. Staff will agree when it is safe for you and baby. Decide in advance, write it under newborn choices or birth preferences, and tell the team on arrival.":
     "يمكنكِ الطلب. سيوافق الطاقم عندما يكون ذلك آمنًا لكِ وللطفل. قرّري مسبقًا، واكتبي ذلك ضمن خيارات حديث الولادة أو تفضيلات الولادة، وأخبري الفريق عند وصولكِ.",
   "Delayed cord clamping": "تأخير قطع الحبل السري",
   "Wait at least 30 to 60 seconds (or until the cord stops pulsing) before clamping, if baby is well. More blood passes to the baby, which raises iron stores in the first months. ACOG and WHO both recommend it for healthy babies. Not suitable if baby needs help right away.":
     "الانتظار 30 إلى 60 ثانية على الأقل (أو حتى يتوقف نبض الحبل) قبل الربط إذا كان الطفل بخير. ينتقل المزيد من الدم إلى الطفل فتزداد مخازن الحديد في الأشهر الأولى. توصي به ACOG وWHO للأطفال الأصحاء. غير مناسب إذا احتاج الطفل إلى مساعدة فورية.",
-  ACOG: "ACOG",
   "Delay the first bath": "تأخير الاستحمام الأول",
   "WHO suggests waiting at least 24 hours (or at least 6 hours if that is not possible). Waiting helps keep baby warm and steady, and supports breastfeeding. Ask staff to wipe off blood and leave the white coating (vernix) on.":
     "توصي WHO بالانتظار 24 ساعة على الأقل (أو 6 ساعات على الأقل إن تعذّر ذلك). يساعد الانتظار على إبقاء الطفل دافئًا ومستقرًا ويدعم الرضاعة. اطلبي من الطاقم مسح الدم وترك الطلاء الأبيض (فيرنكس).",
-  "WHO recommendations": "توصيات WHO",
   "Skin-to-skin straight after birth": "التلامس الجلدي المباشر فور الولادة",
   "Baby is placed on your chest, dried and covered, for the first hour or more. Linked to steadier temperature and heart rate, and more breastfeeding success. A partner can do it if you cannot.":
     "يوضع الطفل على صدركِ مجفّفًا ومغطّى خلال الساعة الأولى أو أكثر. يرتبط باستقرار أكبر في الحرارة ونبض القلب ونجاح أكبر في الرضاعة. يمكن للشريك القيام بذلك إن لم تستطيعي.",
@@ -357,11 +327,4 @@ export const ar: Record<string, string> = {
   "Your own wishes": "رغباتكِ الخاصة",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "أمثلة: الموسيقى أو الإضاءة الخافتة، حرية الحركة، من يقطع الحبل السري، أي المرافقين يبقون، وكيف ومتى تريدين أن تُخبَري بالخيارات. اكتبيها ضمن تفضيلات الولادة واسألي الطاقم عمّا هو ممكن.",
-  "Ichilov Lis: admission process and questions": "إخيلوف ليس: إجراءات الاستقبال والأسئلة",
-  "Clalit: group B strep in pregnancy": "كلاليت: المكوّرات العقدية ب أثناء الحمل",
-  "ACOG: delayed umbilical cord clamping": "ACOG: تأخير ربط الحبل السري",
-  "Cochrane: timing of cord clamping": "Cochrane: توقيت ربط الحبل السري",
-  "Cochrane: early skin-to-skin contact": "Cochrane: التلامس الجلدي المبكر",
-  "WHO: maternal and newborn care for a positive postnatal experience":
-    "WHO: رعاية الأم وحديث الولادة لتجربة إيجابية بعد الولادة",
 };

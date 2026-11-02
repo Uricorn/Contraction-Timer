@@ -128,17 +128,14 @@ export const es: Record<string, string> = {
   "you are unsure or worried about anything": "no estás segura o seguro, o te preocupa algo",
   "They will tell you whether to come in, and can prepare for you. Save their number now. If in doubt, go.":
     "Te dirán si debes ir y podrán prepararse. Guarda su número ahora. Si dudas, ve.",
-  "NHS: signs that labour has begun": "NHS: señales de que ha empezado el parto",
   "Breathe together": "Respiremos juntos",
   "Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but studies are small, so use what feels good.":
     "Respiración lenta con una espiración más larga. Los métodos de relajación pueden reducir un poco el dolor, pero los estudios son pequeños, así que usa lo que te siente bien.",
   "Start breathing guide": "Iniciar guía de respiración",
-  "Cochrane: relaxation techniques": "Cochrane: técnicas de relajación",
   "Words to say": "Palabras para decir",
   "Another one": "Otra más",
   "Constant, calm support is linked to shorter labours and better birth experiences.":
     "El apoyo constante y tranquilo se asocia con partos más cortos y mejores experiencias de parto.",
-  "Cochrane: continuous support": "Cochrane: apoyo continuo",
   "How a partner can help": "Cómo puede ayudar la pareja",
   "Stay close": "Estar cerca",
   "Some evidence": "Algo de evidencia",
@@ -150,7 +147,6 @@ export const es: Record<string, string> = {
   "Only if needed": "Solo si hace falta",
   "Be present for the whole labour, don't leave her alone for long, and speak up for her wishes. In 27 trials, continuous support meant more spontaneous births, around 40 minutes shorter labour on average, and fewer negative feelings about the birth.":
     "Estar presente durante todo el parto, no dejar sola a la parturienta mucho tiempo y defender sus deseos. En 27 ensayos, el apoyo continuo supuso más partos espontáneos, unos 40 minutos menos de parto de media y menos sentimientos negativos sobre el parto.",
-  "Cochrane review": "Revisión Cochrane",
   "Move and stay upright": "Moverse y mantenerse erguida",
   "Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with fewer caesareans. Quality was mixed, so follow what feels right.":
     "Caminar, balancearse, apoyarse en una cama o pelota de parto, arrodillarse o balancearse a cuatro patas. Frente a estar tumbada, las posturas erguidas acortaron la primera fase en cerca de 1 hora y 20 minutos, con menos cesáreas. La calidad fue variable, así que sigue lo que te parezca bien.",
@@ -163,18 +159,10 @@ export const es: Record<string, string> = {
   "Pain relief options": "Opciones para aliviar el dolor",
   "Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember what she decided in advance, and that she can change her mind.":
     "El óxido nitroso, las inyecciones, las epidurales y la TENS tienen ventajas e inconvenientes. Ayuda a recordar lo que se decidió de antemano, y que se puede cambiar de opinión.",
-  "NHS: pain relief in labour": "NHS: alivio del dolor en el parto",
   "Practical comforts": "Comodidades prácticas",
   "Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone calls and the bag, so she can focus. Time each contraction from the start, and take breaks yourself too.":
     "Ofrece sorbos de agua, un paño fresco, luces tenues, silencio y una voz tranquila. Ocúpate de las llamadas y la bolsa para que pueda concentrarse. Cronometra cada contracción desde el inicio y descansa tú también.",
   Sources: "Fuentes",
-  "NICE NG235: intrapartum care": "NICE NG235: atención durante el parto",
-  "ACOG: how to tell when labor begins": "ACOG: cómo saber cuándo empieza el parto",
-  "Kaiser Permanente: when to go to the hospital": "Kaiser Permanente: cuándo ir al hospital",
-  "Ichilov Lis: when to come to the delivery room":
-    "Ichilov Lis: cuándo acudir a la sala de partos",
-  "Ministry of Health: stages of labour": "Ministerio de Sanidad: fases del parto",
-  "Maccabi: labour and when to come in": "Maccabi: el parto y cuándo acudir",
   "Links need an internet connection. Everything else in this app works offline. The 5-1-1 family of rules is a widely used rule of thumb, not an official clinical standard.":
     "Los enlaces necesitan conexión a internet. Todo lo demás de esta app funciona sin conexión. La familia de reglas 5-1-1 es una norma práctica muy usada, no un estándar clínico oficial.",
   "Links need an internet connection. General information, not medical advice.":
@@ -205,7 +193,6 @@ export const es: Record<string, string> = {
     "Aún no hay nada. Toca el círculo cuando empiece una.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":
     "No es consejo médico. Sigue siempre las indicaciones de tu matrona o médico. Todo se queda en este dispositivo.",
-  "Source code": "Código fuente",
   "Hospital bag": "Bolsa del hospital",
   "A starting list. Tick things off, delete what you don't need, and add your own.":
     "Una lista para empezar. Marca lo que ya tienes, elimina lo que no necesites y añade lo tuyo.",
@@ -213,12 +200,6 @@ export const es: Record<string, string> = {
   "Add an item": "Añadir un elemento",
   "Untick all": "Desmarcar todo",
   "Restore defaults": "Restaurar valores predeterminados",
-  "Ministry of Health: preparing a labour bag":
-    "Ministerio de Sanidad: preparar la bolsa del parto",
-  "Ichilov Lis: admission and what to bring": "Ichilov Lis: ingreso y qué llevar",
-  "Clalit: delivery room bag": "Clalit: bolsa para la sala de partos",
-  "Meuhedet: when and what to pack": "Meuhedet: cuándo y qué empacar",
-  "Similac: hospital bag checklist": "Similac: lista de la bolsa del hospital",
   "ID for you and your partner": "Documento de identidad tuyo y de tu pareja",
   "Pregnancy tracking card, complete and in order": "Cartilla de embarazo, completa y ordenada",
   "Folder with pregnancy test results and scans":
@@ -314,26 +295,18 @@ export const es: Record<string, string> = {
   "Vitamin K injection": "Inyección de vitamina K",
   "A single dose given to the newborn soon after birth. Newborns have low vitamin K, which helps blood clot, and the injection prevents a rare but serious bleeding problem. Oral drops exist but need repeated doses.":
     "Una sola dosis que se da al recién nacido poco después del nacimiento. Los recién nacidos tienen poca vitamina K, que ayuda a coagular la sangre, y la inyección previene un problema de sangrado poco frecuente pero grave. Existen gotas orales, pero requieren dosis repetidas.",
-  "NHS: what happens straight after the birth": "NHS: qué pasa justo después del nacimiento",
   "Eye ointment": "Pomada para los ojos",
   "Antibiotic ointment in the baby’s eyes to prevent infection from bacteria passed on in birth. Policies differ between hospitals and countries, and some now give it only when infection risk is higher, so ask if it is routine where you are.":
     "Pomada antibiótica en los ojos del bebé para prevenir infecciones por bacterias transmitidas en el parto. Las políticas varían entre hospitales y países, y algunos solo la aplican ahora cuando el riesgo de infección es mayor, así que pregunta si es rutinaria donde estás.",
-  "AAO: erythromycin to prevent newborn eye infection":
-    "AAO: eritromicina para prevenir la infección ocular del recién nacido",
-  "CDC: preventing newborn eye infection":
-    "CDC: prevención de la infección ocular del recién nacido",
   "Hepatitis B vaccine": "Vacuna de la hepatitis B",
   "Often offered in the first days. Protects against a liver infection that can be passed on at birth and is more serious in babies. Recommendations differ by country and by the mother’s test result, so ask what your hospital gives and when.":
     "Suele ofrecerse en los primeros días. Protege contra una infección del hígado que puede transmitirse en el parto y es más grave en bebés. Las recomendaciones varían según el país y el resultado de la prueba de la madre, así que pregunta qué da tu hospital y cuándo.",
-  "CDC: hepatitis B vaccine for newborns": "CDC: vacuna de la hepatitis B para recién nacidos",
   "Newborn checks and screening": "Revisiones y cribado del recién nacido",
   "Weight and Apgar scores in the first minutes, then a full exam, a heel-prick blood test for rare treatable conditions, a hearing test, and often a heart oxygen check. They find problems early, when treatment works best.":
     "Peso y puntuación de Apgar en los primeros minutos, luego un examen completo, un análisis de sangre del talón para afecciones raras tratables, una prueba de audición y, a menudo, una comprobación de oxígeno del corazón. Detectan problemas pronto, cuando el tratamiento funciona mejor.",
-  "NHS: newborn screening": "NHS: cribado del recién nacido",
   "Group B strep antibiotics": "Antibióticos por estreptococo del grupo B",
   "If your GBS test was positive, antibiotics through a drip during labour lower the chance of passing it to baby. Tell staff your result when you arrive.":
     "Si tu prueba de GBS fue positiva, los antibióticos por goteo durante el parto reducen la probabilidad de transmitirlo al bebé. Dile al personal tu resultado al llegar.",
-  "ACOG: group B strep and pregnancy": "ACOG: estreptococo del grupo B y embarazo",
   "Monitoring the baby’s heartbeat": "Monitorización del latido del bebé",
   "Staff listen to baby’s heart on admission, by a monitor belt or hand-held device. If all is well, you can often ask for intermittent monitoring so you can move around.":
     "El personal escucha el corazón del bebé al ingresar, con un cinturón monitor o un aparato de mano. Si todo va bien, a menudo puedes pedir monitorización intermitente para poder moverte.",
@@ -344,24 +317,18 @@ export const es: Record<string, string> = {
     "Inyección tras el parto para ayudar a contraer el útero",
   "Often offered as the placenta comes out. It lowers the risk of heavy bleeding after the birth. You can ask about waiting for the placenta naturally if you are low risk, and discuss it in advance.":
     "Suele ofrecerse cuando sale la placenta. Reduce el riesgo de sangrado abundante después del parto. Si tu riesgo es bajo, puedes preguntar por esperar a que la placenta salga sola, y conviene hablarlo con antelación.",
-  "AAFP: summary of the Cochrane review on the third stage of labour":
-    "AAFP: resumen de la revisión Cochrane sobre el tercer período del parto",
   "Induction and cutting (episiotomy)": "Inducción e incisión (episiotomía)",
   "Induction is offered when waiting is riskier than starting labour, and an episiotomy only when baby needs to be born quickly. Ask your care team to explain why if they are suggested.":
     "La inducción se ofrece cuando esperar es más arriesgado que empezar el parto, y la episiotomía solo cuando el bebé necesita nacer rápido. Pide a tu equipo que explique por qué si te lo proponen.",
-  "NICE NG207: inducing labour": "NICE NG207: inducción del parto",
-  "Cochrane: episiotomy": "Cochrane: episiotomía",
   "Special requests to consider": "Peticiones especiales que considerar",
   "You can ask. Staff will agree when it is safe for you and baby. Decide in advance, write it under newborn choices or birth preferences, and tell the team on arrival.":
     "Puedes pedirlo. El personal aceptará cuando sea seguro para ti y el bebé. Decídelo con antelación, escríbelo en decisiones sobre el recién nacido o preferencias para el parto, y díselo al equipo al llegar.",
   "Delayed cord clamping": "Pinzamiento tardío del cordón",
   "Wait at least 30 to 60 seconds (or until the cord stops pulsing) before clamping, if baby is well. More blood passes to the baby, which raises iron stores in the first months. ACOG and WHO both recommend it for healthy babies. Not suitable if baby needs help right away.":
     "Esperar al menos 30 a 60 segundos (o hasta que el cordón deje de latir) antes de pinzar, si el bebé está bien. Pasa más sangre al bebé, lo que aumenta las reservas de hierro los primeros meses. ACOG y la OMS lo recomiendan para bebés sanos. No es adecuado si el bebé necesita ayuda de inmediato.",
-  ACOG: "ACOG",
   "Delay the first bath": "Retrasar el primer baño",
   "WHO suggests waiting at least 24 hours (or at least 6 hours if that is not possible). Waiting helps keep baby warm and steady, and supports breastfeeding. Ask staff to wipe off blood and leave the white coating (vernix) on.":
     "La OMS sugiere esperar al menos 24 horas (o al menos 6 horas si no es posible). Esperar ayuda a mantener al bebé caliente y estable, y favorece la lactancia. Pide al personal que limpie la sangre y deje la capa blanca (vérnix).",
-  "WHO recommendations": "Recomendaciones de la OMS",
   "Skin-to-skin straight after birth": "Piel con piel nada más nacer",
   "Baby is placed on your chest, dried and covered, for the first hour or more. Linked to steadier temperature and heart rate, and more breastfeeding success. A partner can do it if you cannot.":
     "El bebé se coloca sobre tu pecho, seco y tapado, durante la primera hora o más. Se asocia con una temperatura y un ritmo cardíaco más estables y más éxito en la lactancia. La pareja puede hacerlo si tú no puedes.",
@@ -371,11 +338,4 @@ export const es: Record<string, string> = {
   "Your own wishes": "Tus propios deseos",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Ejemplos: música o luces tenues, moverte libremente, quién corta el cordón, qué acompañantes se quedan, cómo y cuándo quieres que te informen de las opciones. Escríbelos en preferencias para el parto y pregunta al personal qué es posible.",
-  "Ichilov Lis: admission process and questions": "Ichilov Lis: proceso de ingreso y preguntas",
-  "Clalit: group B strep in pregnancy": "Clalit: estreptococo del grupo B en el embarazo",
-  "ACOG: delayed umbilical cord clamping": "ACOG: pinzamiento tardío del cordón umbilical",
-  "Cochrane: timing of cord clamping": "Cochrane: momento del pinzamiento del cordón",
-  "Cochrane: early skin-to-skin contact": "Cochrane: contacto piel con piel temprano",
-  "WHO: maternal and newborn care for a positive postnatal experience":
-    "OMS: atención a la madre y al recién nacido para una experiencia posnatal positiva",
 };

@@ -4,6 +4,7 @@ import { he } from "./locales/he";
 import { ar } from "./locales/ar";
 import { ru } from "./locales/ru";
 import { es } from "./locales/es";
+import { uk } from "./locales/uk";
 import { DEFAULT_ITEMS } from "./checklist";
 import { DEFAULT_FIELDS } from "./notes";
 import { PHRASES } from "./tips";
@@ -19,7 +20,11 @@ const norm = (s: string) =>
 
 /** Every user-visible English string: HTML text nodes, labels, and the data-driven lists. */
 const sources = new Set<string>();
-for (const m of body.matchAll(/>([^<]+)</g)) sources.add(norm(m[1]));
+// Titles of external source links stay exactly as published, so they are never translated.
+const linkTitles = new Set<string>();
+for (const m of body.matchAll(/<a\b[^>]*href="http[^"]*"[^>]*>([^<]+)<\/a/g))
+  linkTitles.add(norm(m[1]));
+for (const m of body.matchAll(/>([^<]+)</g)) if (!linkTitles.has(norm(m[1]))) sources.add(norm(m[1]));
 for (const m of body.matchAll(/(?:aria-label|placeholder)="([^"]+)"/g)) sources.add(m[1]);
 for (const i of DEFAULT_ITEMS) sources.add(i.text);
 for (const f of DEFAULT_FIELDS) [f.label, f.hint].forEach((s) => sources.add(s));
@@ -32,10 +37,15 @@ describe.each([
   ["ar", ar],
   ["ru", ru],
   ["es", es],
+  ["uk", uk],
 ])("%s translations", (_name, dict) => {
   it("covers every English string in the app", () => {
     const skip = new Set(["5-1-1", "4-1-1", "3-1-1", "English", "0 of 0 packed"]);
     expect(needsTranslation.filter((s) => !skip.has(s) && !dict[s])).toEqual([]);
+  });
+
+  it("leaves external source titles in their original wording", () => {
+    expect([...linkTitles].filter((k) => k in dict)).toEqual([]);
   });
 
   it("keeps the same {placeholders} as the English key", () => {

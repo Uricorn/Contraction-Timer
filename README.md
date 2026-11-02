@@ -21,7 +21,7 @@ or as an Android app. No account, no ads, no analytics; data never leaves your d
 - History with delete, CSV export, and "clear all"
 - Screen stays awake while a contraction is running; state survives closing the app or restarts
 - Works offline (service worker on the web, bundled assets on Android)
-- English, Hebrew (עברית), Arabic (العربية), Russian (Русский) and Spanish (Español), with right-to-left layout for Hebrew and Arabic; follows the device language, switch in the footer. Translations live in `src/locales/` (the English text is the key) and `src/i18n.test.ts` fails if a string is missing
+- English, Hebrew (עברית), Arabic (العربية), Russian (Русский), Spanish (Español) and Ukrainian (Українська), with right-to-left layout for Hebrew and Arabic; follows the device language, switch in the footer. External source titles stay in their original published wording. Translations live in `src/locales/` (the English text is the key) and `src/i18n.test.ts` fails if a string is missing
 
 > **Not medical advice.** Always follow guidance from your midwife or doctor.
 
