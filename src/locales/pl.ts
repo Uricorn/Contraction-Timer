@@ -11,6 +11,12 @@ export const pl: Record<string, string> = {
     "6 lub więcej skurczów w ciągu 10 minut. Zadzwoń do położnej lub do szpitala.",
   "Add a missed one": "Dodaj pominięty skurcz",
   "Waters broke now": "Wody odeszły teraz",
+  "Waters broke": "Odeszły wody",
+  "When did your waters break?": "Kiedy odeszły wody?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "Sprawdź płyn. Przejrzysty to norma. Jeśli jest zielony, brązowy lub z krwią, natychmiast zadzwoń do położnej lub do szpitala.",
+  "Edit waters time": "Edytuj godzinę odejścia wód",
+  "Waters time removed": "Usunięto godzinę odejścia wód",
   "Waters broke at {time}": "Wody odeszły o {time}",
   "Share summary": "Udostępnij podsumowanie",
   "Back up": "Kopia zapasowa",

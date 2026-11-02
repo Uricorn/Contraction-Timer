@@ -11,6 +11,12 @@ export const zh: Record<string, string> = {
     "10分钟内出现6次或更多宫缩。请联系您的助产士或医院。",
   "Add a missed one": "补录一次",
   "Waters broke now": "现在破水",
+  "Waters broke": "羊水破了",
+  "When did your waters break?": "羊水是什么时候破的？",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "请查看羊水颜色。清澈是正常的。如果是绿色、棕色或带血，请立即联系助产士或医院。",
+  "Edit waters time": "修改破水时间",
+  "Waters time removed": "已删除破水时间",
   "Waters broke at {time}": "破水时间：{time}",
   "Share summary": "分享摘要",
   "Back up": "备份",

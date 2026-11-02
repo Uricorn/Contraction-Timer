@@ -797,6 +797,25 @@
             </div>
           </form>
         </dialog>
+
+        <dialog id="waters-dialog" aria-labelledby="waters-title">
+          <form id="waters-form">
+            <h2 id="waters-title">Waters broke</h2>
+            <label
+              >When did your waters break?
+              <input id="waters-time" type="datetime-local" required />
+            </label>
+            <p class="notice">
+              Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife
+              or hospital right away.
+            </p>
+            <div class="actions wrap">
+              <button class="soft" type="submit">Save</button>
+              <button id="waters-cancel" class="link" type="button">Cancel</button>
+              <button id="waters-delete" class="link" type="button">Delete</button>
+            </div>
+          </form>
+        </dialog>
       </div>
 
       <footer>

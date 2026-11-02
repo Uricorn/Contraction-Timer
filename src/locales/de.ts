@@ -11,6 +11,12 @@ export const de: Record<string, string> = {
     "6 oder mehr Wehen in 10 Minuten. Ruf deine Hebamme oder die Klinik an.",
   "Add a missed one": "Verpasste Wehe nachtragen",
   "Waters broke now": "Fruchtblase ist jetzt geplatzt",
+  "Waters broke": "Fruchtblase geplatzt",
+  "When did your waters break?": "Wann ist die Fruchtblase geplatzt?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "Prüfe die Flüssigkeit. Klar ist normal. Ist sie grün, braun oder blutig, ruf sofort deine Hebamme oder die Klinik an.",
+  "Edit waters time": "Zeit des Blasensprungs bearbeiten",
+  "Waters time removed": "Zeit des Blasensprungs entfernt",
   "Waters broke at {time}": "Fruchtblase geplatzt um {time}",
   "Share summary": "Zusammenfassung teilen",
   "Back up": "Sichern",

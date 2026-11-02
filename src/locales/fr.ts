@@ -11,6 +11,12 @@ export const fr: Record<string, string> = {
     "6 contractions ou plus en 10 minutes. Appelez votre sage-femme ou la maternité.",
   "Add a missed one": "Ajouter une contraction oubliée",
   "Waters broke now": "Perte des eaux à l'instant",
+  "Waters broke": "Perte des eaux",
+  "When did your waters break?": "Quand avez-vous perdu les eaux ?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "Vérifiez le liquide. Un liquide clair est normal. S’il est vert, marron ou sanglant, appelez immédiatement votre sage-femme ou la maternité.",
+  "Edit waters time": "Modifier l’heure de la perte des eaux",
+  "Waters time removed": "Heure de la perte des eaux supprimée",
   "Waters broke at {time}": "Perte des eaux à {time}",
   "Share summary": "Partager le résumé",
   "Back up": "Sauvegarder",

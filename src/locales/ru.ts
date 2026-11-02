@@ -11,6 +11,12 @@ export const ru: Record<string, string> = {
     "6 и более схваток за 10 минут. Позвоните акушерке или в роддом.",
   "Add a missed one": "Добавить пропущенную",
   "Waters broke now": "Воды отошли сейчас",
+  "Waters broke": "Воды отошли",
+  "When did your waters break?": "Когда отошли воды?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "Проверьте цвет жидкости. Прозрачные воды — это норма. Если они зелёные, коричневые или с кровью, сразу позвоните акушерке или в роддом.",
+  "Edit waters time": "Изменить время отхождения вод",
+  "Waters time removed": "Время отхождения вод удалено",
   "Waters broke at {time}": "Воды отошли в {time}",
   "Share summary": "Поделиться сводкой",
   "Back up": "Резервная копия",

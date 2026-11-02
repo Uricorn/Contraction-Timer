@@ -11,6 +11,12 @@ export const ko: Record<string, string> = {
     "10분 안에 진통이 6번 이상 있었습니다. 조산사나 병원에 연락하세요.",
   "Add a missed one": "놓친 진통 추가",
   "Waters broke now": "지금 양수가 터짐",
+  "Waters broke": "양수가 터짐",
+  "When did your waters break?": "양수가 언제 터졌나요?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "양수 색을 확인하세요. 맑은 것이 정상입니다. 초록색, 갈색 또는 피가 섞여 있다면 즉시 조산사나 병원에 연락하세요.",
+  "Edit waters time": "양수 터진 시각 수정",
+  "Waters time removed": "양수 터진 시각을 삭제했습니다",
   "Waters broke at {time}": "양수가 터진 시각: {time}",
   "Share summary": "요약 공유",
   "Back up": "백업",

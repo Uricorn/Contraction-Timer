@@ -11,6 +11,12 @@ export const he: Record<string, string> = {
     "6 צירים או יותר ב-10 דקות. כדאי להתקשר למיילדת או לבית החולים.",
   "Add a missed one": "הוספת ציר שהוחמץ",
   "Waters broke now": "המים ירדו עכשיו",
+  "Waters broke": "המים ירדו",
+  "When did your waters break?": "מתי המים ירדו?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "בדקו את הנוזל. נוזל צלול הוא תקין. אם הוא ירוק, חום או מדמם, פנו מיד למיילדת או לבית החולים.",
+  "Edit waters time": "עריכת שעת ירידת המים",
+  "Waters time removed": "שעת ירידת המים הוסרה",
   "Waters broke at {time}": "המים ירדו ב-{time}",
   "Share summary": "שיתוף סיכום",
   "Back up": "גיבוי",

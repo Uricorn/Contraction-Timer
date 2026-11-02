@@ -6,7 +6,7 @@ import { initNotes } from "./notes";
 import { getLocale, initI18n, t } from "./i18n";
 import { alertsEnabled, disableAlerts, enableAlerts, notify } from "./alerts";
 import { drawTrend } from "./chart";
-import { openEditor } from "./editor";
+import { openEditor, toLocalInput } from "./editor";
 import { downloadJson, summaryText } from "./share";
 import { showToast } from "./toast";
 import { icons } from "./icons";
@@ -268,6 +268,8 @@ function renderList() {
 const watersNote = $("waters-note");
 function renderHistoryExtras() {
   watersNote.hidden = data.watersBroke === null;
+  $("waters").textContent =
+    data.watersBroke === null ? t("Waters broke now") : t("Edit waters time");
   if (data.watersBroke !== null) {
     watersNote.textContent = t("Waters broke at {time}", { time: time(data.watersBroke) });
   }
@@ -346,10 +348,42 @@ $("export").addEventListener("click", () => {
 
 $("add-missed").addEventListener("click", () => edit(null));
 
+const watersDialog = $<HTMLDialogElement>("waters-dialog");
+const watersTime = $<HTMLInputElement>("waters-time");
 $("waters").addEventListener("click", () => {
-  data.watersBroke = Date.now();
+  const original = toLocalInput(data.watersBroke ?? Date.now());
+  watersTime.value = original;
+  $("waters-delete").hidden = data.watersBroke === null;
+  $<HTMLFormElement>("waters-form").onsubmit = (e) => {
+    e.preventDefault();
+    // Keep the exact stored time unless the user changed it (the input only has minutes).
+    const ms =
+      watersTime.value === original && data.watersBroke !== null
+        ? data.watersBroke
+        : new Date(watersTime.value).getTime();
+    if (Number.isNaN(ms)) return;
+    data.watersBroke = ms;
+    watersDialog.close();
+    save();
+    render();
+  };
+  watersDialog.showModal();
+});
+$("waters-cancel").addEventListener("click", () => watersDialog.close());
+$("waters-delete").addEventListener("click", () => {
+  const previous = data.watersBroke;
+  data.watersBroke = null;
+  watersDialog.close();
   save();
   render();
+  showToast(t("Waters time removed"), {
+    label: t("Undo"),
+    run: () => {
+      data.watersBroke = previous;
+      save();
+      render();
+    },
+  });
 });
 
 $("share").addEventListener("click", async () => {

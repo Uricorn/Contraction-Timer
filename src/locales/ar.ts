@@ -11,6 +11,12 @@ export const ar: Record<string, string> = {
     "6 انقباضات أو أكثر خلال 10 دقائق. اتصلي بالقابلة أو المستشفى.",
   "Add a missed one": "إضافة انقباض فاتني",
   "Waters broke now": "انفجر كيس الماء الآن",
+  "Waters broke": "انفجر كيس الماء",
+  "When did your waters break?": "متى انفجر كيس الماء؟",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
+    "افحصي السائل. السائل الصافي أمر متوقع. إذا كان أخضر أو بنيًا أو دمويًا، فاتصلي بالقابلة أو المستشفى فورًا.",
+  "Edit waters time": "تعديل وقت انفجار كيس الماء",
+  "Waters time removed": "تمت إزالة وقت انفجار كيس الماء",
   "Waters broke at {time}": "انفجر كيس الماء في {time}",
   "Share summary": "مشاركة الملخص",
   "Back up": "نسخ احتياطي",
