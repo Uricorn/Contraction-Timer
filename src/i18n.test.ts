@@ -11,6 +11,9 @@ import { pt } from "./locales/pt";
 import { zh } from "./locales/zh";
 import { ja } from "./locales/ja";
 import { ko } from "./locales/ko";
+import { it as itDict } from "./locales/it";
+import { tr } from "./locales/tr";
+import { pl } from "./locales/pl";
 import { DEFAULT_ITEMS } from "./checklist";
 import { DEFAULT_FIELDS } from "./notes";
 import { PHRASES } from "./tips";
@@ -50,6 +53,9 @@ describe.each([
   ["zh", zh],
   ["ja", ja],
   ["ko", ko],
+  ["it", itDict],
+  ["tr", tr],
+  ["pl", pl],
 ])("%s translations", (_name, dict) => {
   it("covers every English string in the app", () => {
     const skip = new Set(["5-1-1", "4-1-1", "3-1-1", "English", "0 of 0 packed"]);
