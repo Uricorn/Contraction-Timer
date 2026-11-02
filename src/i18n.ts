@@ -18,7 +18,22 @@ import { it } from "./locales/it";
 import { tr } from "./locales/tr";
 import { pl } from "./locales/pl";
 
-export type Lang = "en" | "he" | "ar" | "ru" | "es" | "uk" | "fr" | "de" | "pt" | "zh" | "ja" | "ko" | "it" | "tr" | "pl";
+export type Lang =
+  | "en"
+  | "he"
+  | "ar"
+  | "ru"
+  | "es"
+  | "uk"
+  | "fr"
+  | "de"
+  | "pt"
+  | "zh"
+  | "ja"
+  | "ko"
+  | "it"
+  | "tr"
+  | "pl";
 
 export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: string }> = {
   en: { name: "English", dir: "ltr", locale: "en" },
@@ -39,7 +54,23 @@ export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: str
   pl: { name: "Polski", dir: "ltr", locale: "pl-PL" },
 };
 
-const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar, ru, es, uk, fr, de, pt, zh, ja, ko, it, tr, pl };
+const DICTS: Record<Lang, Record<string, string>> = {
+  en: {},
+  he,
+  ar,
+  ru,
+  es,
+  uk,
+  fr,
+  de,
+  pt,
+  zh,
+  ja,
+  ko,
+  it,
+  tr,
+  pl,
+};
 const KEY = "contraction-timer:lang";
 
 let lang: Lang = "en";

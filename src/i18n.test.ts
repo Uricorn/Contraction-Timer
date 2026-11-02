@@ -33,7 +33,8 @@ const sources = new Set<string>();
 const linkTitles = new Set<string>();
 for (const m of body.matchAll(/<a\b[^>]*href="http[^"]*"[^>]*>([^<]+)<\/a/g))
   linkTitles.add(norm(m[1]));
-for (const m of body.matchAll(/>([^<]+)</g)) if (!linkTitles.has(norm(m[1]))) sources.add(norm(m[1]));
+for (const m of body.matchAll(/>([^<]+)</g))
+  if (!linkTitles.has(norm(m[1]))) sources.add(norm(m[1]));
 for (const m of body.matchAll(/(?:aria-label|placeholder)="([^"]+)"/g)) sources.add(m[1]);
 for (const i of DEFAULT_ITEMS) sources.add(i.text);
 for (const f of DEFAULT_FIELDS) [f.label, f.hint].forEach((s) => sources.add(s));
