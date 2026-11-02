@@ -8,8 +8,11 @@ import { ar } from "./locales/ar";
 import { ru } from "./locales/ru";
 import { es } from "./locales/es";
 import { uk } from "./locales/uk";
+import { it } from "./locales/it";
+import { tr } from "./locales/tr";
+import { pl } from "./locales/pl";
 
-export type Lang = "en" | "he" | "ar" | "ru" | "es" | "uk";
+export type Lang = "en" | "he" | "ar" | "ru" | "es" | "uk" | "it" | "tr" | "pl";
 
 export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: string }> = {
   en: { name: "English", dir: "ltr", locale: "en" },
@@ -19,9 +22,12 @@ export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: str
   ru: { name: "Русский", dir: "ltr", locale: "ru-RU" },
   es: { name: "Español", dir: "ltr", locale: "es" },
   uk: { name: "Українська", dir: "ltr", locale: "uk-UA" },
+  it: { name: "Italiano", dir: "ltr", locale: "it-IT" },
+  tr: { name: "Türkçe", dir: "ltr", locale: "tr-TR" },
+  pl: { name: "Polski", dir: "ltr", locale: "pl-PL" },
 };
 
-const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar, ru, es, uk };
+const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar, ru, es, uk, it, tr, pl };
 const KEY = "contraction-timer:lang";
 
 let lang: Lang = "en";
