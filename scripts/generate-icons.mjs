@@ -1,4 +1,4 @@
-// Dependency-free PNG icon generator (clock face on dark background).
+// Dependency-free PNG icon generator (cute smiling clock).
 // Run: npm run icons
 import { deflateSync } from "node:zlib";
 import { writeFileSync } from "node:fs";
@@ -22,28 +22,57 @@ const chunk = (type, data) => {
   return Buffer.concat([len, td, crc]);
 };
 
+// Cute smiling alarm-clock face. Shapes are in 512-unit space, drawn with 3x3 supersampling.
+const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+const segDist = (px, py, ax, ay, bx, by) => {
+  const dx = bx - ax,
+    dy = by - ay;
+  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy || 1)));
+  return Math.hypot(px - ax - t * dx, py - ay - t * dy);
+};
+const disc = (cx, cy, r, color) => ({ color: hex(color), hit: (x, y) => Math.hypot(x - cx, y - cy) <= r });
+const ring = (cx, cy, r, w, color) => ({
+  color: hex(color),
+  hit: (x, y) => Math.abs(Math.hypot(x - cx, y - cy) - r) <= w / 2,
+});
+const stroke = (pts, w, color) => ({
+  color: hex(color),
+  hit: (x, y) => pts.some((p, i) => i && segDist(x, y, pts[i - 1][0], pts[i - 1][1], p[0], p[1]) <= w / 2),
+});
+const smile = Array.from({ length: 13 }, (_, i) => {
+  const t = i / 12;
+  return [(1 - t) ** 2 * 226 + 2 * t * (1 - t) * 256 + t * t * 286, (1 - t) ** 2 * 318 + 2 * t * (1 - t) * 356 + t * t * 318];
+});
+const layers = [
+  { color: hex("#ffd9c9"), hit: () => true },
+  disc(135, 125, 55, "#ff8fa3"),
+  disc(377, 125, 55, "#ff8fa3"),
+  disc(256, 278, 190, "#ffffff"),
+  ring(256, 278, 181, 18, "#ff8fa3"),
+  disc(200, 258, 16, "#5b3a3a"),
+  disc(312, 258, 16, "#5b3a3a"),
+  disc(160, 316, 26, "#ffb3c1"),
+  disc(352, 316, 26, "#ffb3c1"),
+  stroke(smile, 14, "#5b3a3a"),
+  stroke([[256, 120], [256, 156]], 14, "#ff8fa3"),
+];
+
 function png(size) {
-  const bg = [0x1f, 0x29, 0x37],
-    fg = [0xf9, 0xfa, 0xfb];
-  const c = size / 2,
-    r = size * 0.293,
-    w = size * 0.027;
-  const dist = (px, py, ax, ay, bx, by) => {
-    const dx = bx - ax,
-      dy = by - ay;
-    const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)));
-    return Math.hypot(px - ax - t * dx, py - ay - t * dy);
-  };
+  const k = 512 / size;
   const raw = Buffer.alloc((size * 4 + 1) * size);
   for (let y = 0; y < size; y++) {
     raw[y * (size * 4 + 1)] = 0;
     for (let x = 0; x < size; x++) {
-      const ring = Math.abs(Math.hypot(x - c, y - c) - r) < w;
-      const hands =
-        dist(x, y, c, c * 0.586 + c * 0.414, c, c * 0.586) < w ||
-        dist(x, y, c, c, c + size * 0.137, c + size * 0.078) < w;
-      const col = ring || hands ? fg : bg;
-      raw.set([...col, 255], y * (size * 4 + 1) + 1 + x * 4);
+      const acc = [0, 0, 0];
+      for (let sy = 0; sy < 3; sy++)
+        for (let sx = 0; sx < 3; sx++) {
+          const px = (x + (sx + 0.5) / 3) * k,
+            py = (y + (sy + 0.5) / 3) * k;
+          let col = layers[0].color;
+          for (const l of layers) if (l.hit(px, py)) col = l.color;
+          for (let i = 0; i < 3; i++) acc[i] += col[i] / 9;
+        }
+      raw.set([...acc.map(Math.round), 255], y * (size * 4 + 1) + 1 + x * 4);
     }
   }
   const ihdr = Buffer.alloc(13);
