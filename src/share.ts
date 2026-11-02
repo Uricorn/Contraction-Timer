@@ -31,14 +31,26 @@ export function summaryText(data: Data, now: number, t: Translate, locale: strin
   return lines.join("\n");
 }
 
-export function downloadJson(data: Data): void {
-  const url = URL.createObjectURL(
-    new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }),
-  );
-  const a = Object.assign(document.createElement("a"), {
-    href: url,
-    download: "contractions-backup.json",
-  });
+/** Save a text file: share sheet inside the Android app (WebView ignores downloads), download elsewhere. */
+export async function saveFile(name: string, type: string, content: string): Promise<void> {
+  const file = new File([content], name, { type });
+  const native = (window as { Capacitor?: { isNativePlatform?: () => boolean } }).Capacitor;
+  if (native?.isNativePlatform?.() && navigator.canShare?.({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file], title: name });
+    } catch {
+      /* share cancelled */
+    }
+    return;
+  }
+  const url = URL.createObjectURL(file);
+  const a = Object.assign(document.createElement("a"), { href: url, download: name });
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+export function downloadJson(data: Data): Promise<void> {
+  return saveFile("contractions-backup.json", "application/json", JSON.stringify(data, null, 2));
 }

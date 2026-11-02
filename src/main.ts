@@ -7,7 +7,7 @@ import { getLocale, initI18n, t } from "./i18n";
 import { alertsEnabled, disableAlerts, enableAlerts, notify } from "./alerts";
 import { drawTrend } from "./chart";
 import { openEditor, toLocalInput } from "./editor";
-import { downloadJson, summaryText } from "./share";
+import { downloadJson, saveFile, summaryText } from "./share";
 import { showToast } from "./toast";
 import { icons } from "./icons";
 import {
@@ -340,10 +340,7 @@ $("clear").addEventListener("click", () => {
 });
 
 $("export").addEventListener("click", () => {
-  const url = URL.createObjectURL(new Blob([toCsv(data.contractions)], { type: "text/csv" }));
-  const a = Object.assign(document.createElement("a"), { href: url, download: "contractions.csv" });
-  a.click();
-  URL.revokeObjectURL(url);
+  void saveFile("contractions.csv", "text/csv", toCsv(data.contractions));
 });
 
 $("add-missed").addEventListener("click", () => edit(null));
@@ -399,7 +396,7 @@ $("share").addEventListener("click", async () => {
   }
 });
 
-$("backup").addEventListener("click", () => downloadJson(data));
+$("backup").addEventListener("click", () => void downloadJson(data));
 
 const restoreFile = $<HTMLInputElement>("restore-file");
 $("restore").addEventListener("click", () => restoreFile.click());
