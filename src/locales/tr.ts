@@ -11,6 +11,12 @@ export const tr: Record<string, string> = {
     "10 dakikada 6 veya daha fazla kasılma. Ebenizi veya hastaneyi arayın.",
   "Add a missed one": "Kaçırılan bir kasılmayı ekle",
   "Waters broke now": "Su şimdi geldi",
+  "Waters broke": "Su geldi",
+  "When did your waters break?": "Suyunuz ne zaman geldi?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Sıvıyı kontrol edin. Berrak olması beklenen durumdur. Yeşil, kahverengi veya kanlıysa hemen hastaneye gidin veya ebenizin tavsiyesine uyun.",
+  "Edit waters time": "Su gelme saatini düzenle",
+  "Waters time removed": "Su gelme saati kaldırıldı",
   "Waters broke at {time}": "Su gelme saati: {time}",
   "Share summary": "Özeti paylaş",
   "Back up": "Yedekle",
@@ -19,14 +25,12 @@ export const tr: Record<string, string> = {
   "Edit contraction": "Kasılmayı düzenle",
   "Start time": "Başlangıç saati",
   "End time": "Bitiş saati",
-  "Pain (1–5)": "Ağrı (1–5)",
   Note: "Not",
   "Check the times: the end must come after the start.":
     "Saatleri kontrol edin: bitiş, başlangıçtan sonra olmalı.",
   Save: "Kaydet",
   Cancel: "İptal",
   Delete: "Sil",
-  "pain {n}/5": "ağrı {n}/5",
   "Minutes between contractions": "Kasılmalar arası dakika",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Kasılmalar arasındaki aralıklar (kesikli çizgi = {n} dk hedef)",

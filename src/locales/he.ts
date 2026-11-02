@@ -11,6 +11,12 @@ export const he: Record<string, string> = {
     "6 צירים או יותר ב-10 דקות. כדאי להתקשר למיילדת או לבית החולים.",
   "Add a missed one": "הוספת ציר שהוחמץ",
   "Waters broke now": "המים ירדו עכשיו",
+  "Waters broke": "המים ירדו",
+  "When did your waters break?": "מתי המים ירדו?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "בדקו את הנוזל. נוזל צלול הוא תקין. אם הוא ירוק, חום או מדמם, לכו מיד לבית החולים, או פעלו לפי הנחיית המיילדת.",
+  "Edit waters time": "עריכת שעת ירידת המים",
+  "Waters time removed": "שעת ירידת המים הוסרה",
   "Waters broke at {time}": "המים ירדו ב-{time}",
   "Share summary": "שיתוף סיכום",
   "Back up": "גיבוי",
@@ -19,14 +25,12 @@ export const he: Record<string, string> = {
   "Edit contraction": "עריכת ציר",
   "Start time": "שעת התחלה",
   "End time": "שעת סיום",
-  "Pain (1–5)": "כאב (1–5)",
   Note: "הערה",
   "Check the times: the end must come after the start.":
     "כדאי לבדוק את השעות: הסיום חייב להיות אחרי ההתחלה.",
   Save: "שמירה",
   Cancel: "ביטול",
   Delete: "מחיקה",
-  "pain {n}/5": "כאב {n}/5",
   "Minutes between contractions": "דקות בין צירים",
   "Gaps between contractions (dashed line = {n} min goal)":
     "הפרשים בין צירים (קו מקווקו = יעד של {n} דק׳)",

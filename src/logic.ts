@@ -4,8 +4,6 @@ export interface Contraction {
   start: number;
   /** Epoch ms when it ended, or null while in progress. */
   end: number | null;
-  /** Optional pain rating, 1 to 5. */
-  pain?: number;
   /** Optional free-text note. */
   note?: string;
 }
@@ -257,9 +255,7 @@ export function parseStored(raw: string | null): Data {
       (c.end === null || (isTime(c.end) && c.end >= c.start)),
   );
   for (const c of cs) {
-    if (!(Number.isInteger(c.pain) && (c.pain as number) >= 1 && (c.pain as number) <= 5)) {
-      delete c.pain;
-    }
+    delete (c as { pain?: unknown }).pain; // pain ratings were removed; drop old stored values
     if (typeof c.note !== "string" || !c.note) delete c.note;
     else c.note = c.note.slice(0, 200);
   }

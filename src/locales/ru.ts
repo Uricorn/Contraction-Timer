@@ -11,6 +11,12 @@ export const ru: Record<string, string> = {
     "6 и более схваток за 10 минут. Позвоните акушерке или в роддом.",
   "Add a missed one": "Добавить пропущенную",
   "Waters broke now": "Воды отошли сейчас",
+  "Waters broke": "Воды отошли",
+  "When did your waters break?": "Когда отошли воды?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Проверьте цвет жидкости. Прозрачные воды — это норма. Если они зелёные, коричневые или с кровью, немедленно поезжайте в роддом или следуйте совету акушерки.",
+  "Edit waters time": "Изменить время отхождения вод",
+  "Waters time removed": "Время отхождения вод удалено",
   "Waters broke at {time}": "Воды отошли в {time}",
   "Share summary": "Поделиться сводкой",
   "Back up": "Резервная копия",
@@ -19,14 +25,12 @@ export const ru: Record<string, string> = {
   "Edit contraction": "Изменить схватку",
   "Start time": "Время начала",
   "End time": "Время окончания",
-  "Pain (1–5)": "Боль (1–5)",
   Note: "Заметка",
   "Check the times: the end must come after the start.":
     "Проверьте время: окончание должно быть позже начала.",
   Save: "Сохранить",
   Cancel: "Отмена",
   Delete: "Удалить",
-  "pain {n}/5": "боль {n}/5",
   "Minutes between contractions": "Минуты между схватками",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Промежутки между схватками (пунктир = цель {n} мин)",

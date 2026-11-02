@@ -11,6 +11,12 @@ export const es: Record<string, string> = {
     "6 o más contracciones en 10 minutos. Llama a tu matrona o al hospital.",
   "Add a missed one": "Añadir una que se pasó",
   "Waters broke now": "Se rompió la bolsa ahora",
+  "Waters broke": "Se rompió la fuente",
+  "When did your waters break?": "¿Cuándo se rompió la fuente?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Revisa el líquido. Lo normal es que sea claro. Si es verde, marrón o con sangre, ve al hospital de inmediato, o sigue el consejo de tu matrona.",
+  "Edit waters time": "Editar la hora de la rotura de aguas",
+  "Waters time removed": "Hora de la rotura de aguas eliminada",
   "Waters broke at {time}": "La bolsa se rompió a las {time}",
   "Share summary": "Compartir resumen",
   "Back up": "Copia de seguridad",
@@ -19,14 +25,12 @@ export const es: Record<string, string> = {
   "Edit contraction": "Editar contracción",
   "Start time": "Hora de inicio",
   "End time": "Hora de fin",
-  "Pain (1–5)": "Dolor (1–5)",
   Note: "Nota",
   "Check the times: the end must come after the start.":
     "Revisa las horas: el fin debe ser posterior al inicio.",
   Save: "Guardar",
   Cancel: "Cancelar",
   Delete: "Eliminar",
-  "pain {n}/5": "dolor {n}/5",
   "Minutes between contractions": "Minutos entre contracciones",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Intervalos entre contracciones (línea discontinua = objetivo de {n} min)",

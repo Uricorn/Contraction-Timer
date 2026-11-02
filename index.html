@@ -786,17 +786,6 @@
             <h2 id="editor-title">Edit contraction</h2>
             <label>Start time <input id="ed-start" type="datetime-local" required /></label>
             <label>End time <input id="ed-end" type="datetime-local" /></label>
-            <label
-              >Pain (1–5)
-              <select id="ed-pain">
-                <option value="">–</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select></label
-            >
             <label>Note <textarea id="ed-note" rows="2" maxlength="200"></textarea></label>
             <p id="ed-error" class="notice" role="alert" hidden>
               Check the times: the end must come after the start.
@@ -805,6 +794,25 @@
               <button class="soft" type="submit">Save</button>
               <button id="ed-cancel" class="link" type="button">Cancel</button>
               <button id="ed-delete" class="link" type="button">Delete</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="waters-dialog" aria-labelledby="waters-title">
+          <form id="waters-form">
+            <h2 id="waters-title">Waters broke</h2>
+            <label
+              >When did your waters break?
+              <input id="waters-time" type="datetime-local" required />
+            </label>
+            <p class="notice">
+              Check the fluid. Clear is expected. If it is green, brown or bloody, go to the
+              hospital now, or follow your midwife's advice.
+            </p>
+            <div class="actions wrap">
+              <button class="soft" type="submit">Save</button>
+              <button id="waters-cancel" class="link" type="button">Cancel</button>
+              <button id="waters-delete" class="link" type="button">Delete</button>
             </div>
           </form>
         </dialog>
@@ -821,12 +829,39 @@
 
     <nav class="tabs" aria-label="Sections">
       <button type="button" data-view="timer" aria-current="page">
-        <span aria-hidden="true">⏱️</span>Timer
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="13.5" r="7.5" />
+          <path d="M12 13.5V9" />
+          <path d="M9.5 3h5" /></svg
+        >Timer
       </button>
-      <button type="button" data-view="tips"><span aria-hidden="true">💜</span>Tips</button>
-      <button type="button" data-view="list"><span aria-hidden="true">🎒</span>Bag</button>
-      <button type="button" data-view="notes"><span aria-hidden="true">📝</span>Notes</button>
-      <button type="button" data-view="history"><span aria-hidden="true">📋</span>History</button>
+      <button type="button" data-view="tips">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M12 20s-7.5-4.5-7.5-10.3a4.2 4.2 0 0 1 7.5-2.5 4.2 4.2 0 0 1 7.5 2.5C19.5 15.5 12 20 12 20z"
+          /></svg
+        >Tips
+      </button>
+      <button type="button" data-view="list">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="5" y="8" width="14" height="12.5" rx="3.5" />
+          <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+          <path d="M9 14h6" /></svg
+        >Bag
+      </button>
+      <button type="button" data-view="notes">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6.5 3.5h8l3.5 3.5v13H6.5z" />
+          <path d="M9.5 11.5h5M9.5 15.5h3" /></svg
+        >Notes
+      </button>
+      <button type="button" data-view="history">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="5.5" y="4.5" width="13" height="16" rx="3" />
+          <path d="M9.5 4.5v-.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v.5" />
+          <path d="M9.5 10.5h5M9.5 14.5h5" /></svg
+        >History
+      </button>
     </nav>
     <script type="module" src="/src/main.ts"></script>
   </body>

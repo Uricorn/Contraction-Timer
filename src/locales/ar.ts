@@ -11,6 +11,12 @@ export const ar: Record<string, string> = {
     "6 انقباضات أو أكثر خلال 10 دقائق. اتصلي بالقابلة أو المستشفى.",
   "Add a missed one": "إضافة انقباض فاتني",
   "Waters broke now": "انفجر كيس الماء الآن",
+  "Waters broke": "انفجر كيس الماء",
+  "When did your waters break?": "متى انفجر كيس الماء؟",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "افحصي السائل. السائل الصافي أمر متوقع. إذا كان أخضر أو بنيًا أو دمويًا، فتوجهي إلى المستشفى فورًا، أو اتبعي نصيحة القابلة.",
+  "Edit waters time": "تعديل وقت انفجار كيس الماء",
+  "Waters time removed": "تمت إزالة وقت انفجار كيس الماء",
   "Waters broke at {time}": "انفجر كيس الماء في {time}",
   "Share summary": "مشاركة الملخص",
   "Back up": "نسخ احتياطي",
@@ -19,14 +25,12 @@ export const ar: Record<string, string> = {
   "Edit contraction": "تعديل الانقباض",
   "Start time": "وقت البدء",
   "End time": "وقت الانتهاء",
-  "Pain (1–5)": "الألم (1–5)",
   Note: "ملاحظة",
   "Check the times: the end must come after the start.":
     "تحققي من الأوقات: يجب أن يكون الانتهاء بعد البدء.",
   Save: "حفظ",
   Cancel: "إلغاء",
   Delete: "حذف",
-  "pain {n}/5": "ألم {n}/5",
   "Minutes between contractions": "الدقائق بين الانقباضات",
   "Gaps between contractions (dashed line = {n} min goal)":
     "الفواصل بين الانقباضات (الخط المتقطع = الهدف {n} د)",

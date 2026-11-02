@@ -11,6 +11,12 @@ export const pl: Record<string, string> = {
     "6 lub więcej skurczów w ciągu 10 minut. Zadzwoń do położnej lub do szpitala.",
   "Add a missed one": "Dodaj pominięty skurcz",
   "Waters broke now": "Wody odeszły teraz",
+  "Waters broke": "Odeszły wody",
+  "When did your waters break?": "Kiedy odeszły wody?",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Sprawdź płyn. Przejrzysty to norma. Jeśli jest zielony, brązowy lub z krwią, natychmiast jedź do szpitala albo postępuj zgodnie z radą położnej.",
+  "Edit waters time": "Edytuj godzinę odejścia wód",
+  "Waters time removed": "Usunięto godzinę odejścia wód",
   "Waters broke at {time}": "Wody odeszły o {time}",
   "Share summary": "Udostępnij podsumowanie",
   "Back up": "Kopia zapasowa",
@@ -19,14 +25,12 @@ export const pl: Record<string, string> = {
   "Edit contraction": "Edytuj skurcz",
   "Start time": "Czas rozpoczęcia",
   "End time": "Czas zakończenia",
-  "Pain (1–5)": "Ból (1–5)",
   Note: "Notatka",
   "Check the times: the end must come after the start.":
     "Sprawdź godziny: koniec musi być po początku.",
   Save: "Zapisz",
   Cancel: "Anuluj",
   Delete: "Usuń",
-  "pain {n}/5": "ból {n}/5",
   "Minutes between contractions": "Minuty między skurczami",
   "Gaps between contractions (dashed line = {n} min goal)":
     "Przerwy między skurczami (linia przerywana = cel {n} min)",
