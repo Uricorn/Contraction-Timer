@@ -2,6 +2,8 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { he } from "./locales/he";
 import { ar } from "./locales/ar";
+import { ru } from "./locales/ru";
+import { es } from "./locales/es";
 import { DEFAULT_ITEMS } from "./checklist";
 import { DEFAULT_FIELDS } from "./notes";
 import { PHRASES } from "./tips";
@@ -28,6 +30,8 @@ const needsTranslation = [...sources].filter((s) => /[A-Za-z]{2}/.test(s));
 describe.each([
   ["he", he],
   ["ar", ar],
+  ["ru", ru],
+  ["es", es],
 ])("%s translations", (_name, dict) => {
   it("covers every English string in the app", () => {
     const skip = new Set(["5-1-1", "4-1-1", "3-1-1", "English", "0 of 0 packed"]);

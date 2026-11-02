@@ -2,13 +2,13 @@
 export const he: Record<string, string> = {
   Welcome: "ברוכים הבאים",
   "Tap the big circle when a contraction starts and again when it ends. Everything stays on this device and works offline.":
-    "הקישי על העיגול הגדול כשציר מתחיל ושוב כשהוא מסתיים. הכול נשאר במכשיר ועובד גם בלי אינטרנט.",
+    "להקיש על העיגול הגדול כשציר מתחיל, ושוב כשהוא מסתיים. הכול נשאר במכשיר ועובד גם בלי אינטרנט.",
   "Got it": "הבנתי",
   "Notify me when it's time to go": "להתריע כשהגיע הזמן לצאת",
   "A contraction has lasted over 2 minutes. Call your midwife or hospital.":
-    "ציר נמשך יותר מ-2 דקות. התקשרי למיילדת או לבית החולים.",
+    "ציר נמשך יותר מ-2 דקות. כדאי להתקשר למיילדת או לבית החולים.",
   "6 or more contractions in 10 minutes. Call your midwife or hospital.":
-    "6 צירים או יותר ב-10 דקות. התקשרי למיילדת או לבית החולים.",
+    "6 צירים או יותר ב-10 דקות. כדאי להתקשר למיילדת או לבית החולים.",
   "Add a missed one": "הוספת ציר שהוחמץ",
   "Waters broke now": "המים ירדו עכשיו",
   "Waters broke at {time}": "המים ירדו ב-{time}",
@@ -22,7 +22,7 @@ export const he: Record<string, string> = {
   "Pain (1–5)": "כאב (1–5)",
   Note: "הערה",
   "Check the times: the end must come after the start.":
-    "בדקי את השעות: הסיום חייב להיות אחרי ההתחלה.",
+    "כדאי לבדוק את השעות: הסיום חייב להיות אחרי ההתחלה.",
   Save: "שמירה",
   Cancel: "ביטול",
   Delete: "מחיקה",
@@ -39,15 +39,15 @@ export const he: Record<string, string> = {
   "Replace your current timing with this backup?": "להחליף את התזמון הנוכחי בגיבוי הזה?",
   "Backup restored": "הגיבוי שוחזר",
   "Notifications are blocked. Allow them in your browser or phone settings.":
-    "ההתראות חסומות. אפשרי אותן בהגדרות הדפדפן או הטלפון.",
+    "ההתראות חסומות. אפשר לאפשר אותן בהגדרות הדפדפן או הטלפון.",
   "Timing isn't being saved. Your browser is blocking storage, so keep this page open.":
-    "התזמון לא נשמר. הדפדפן חוסם אחסון, אז השאירי את הדף הזה פתוח.",
+    "התזמון לא נשמר. הדפדפן חוסם אחסון, אז כדאי להשאיר את הדף הזה פתוח.",
   "Contraction deleted": "הציר נמחק",
   Undo: "ביטול",
   "Contraction Timer": "טיימר צירים",
   "Offline contraction timer for labour. No account, no tracking.":
     "טיימר צירים ללא חיבור לאינטרנט. בלי חשבון ובלי מעקב.",
-  Ready: "מוכנה",
+  Ready: "מוכנים",
   Start: "התחלה",
   Stop: "עצירה",
   Pause: "השהיה",
@@ -55,7 +55,7 @@ export const he: Record<string, string> = {
   "🫧 Contraction": "🫧 צירים",
   "☁️ Paused": "☁️ מושהה",
   "🌿 Resting": "🌿 מנוחה",
-  "Ready when you are": "מוכנה כשאת מוכנה",
+  "Ready when you are": "מוכנים כשאתם מוכנים",
   "{time} since the last one began": "{time} מתחילת הקודם",
   "paused for {time}": "מושהה {time}",
   "avg {time}": "ממוצע {time}",
@@ -74,25 +74,25 @@ export const he: Record<string, string> = {
   "Breathe in": "שאיפה",
   "Slowly out": "נשיפה איטית",
   "Contractions have matched {rule} for a full hour. It may be time to head to the hospital or birth centre. Call ahead to let them know you are coming.":
-    "הצירים תואמים ל-{rule} במשך שעה שלמה. ייתכן שהגיע הזמן לצאת לבית החולים או למרכז הלידה. התקשרי מראש כדי לעדכן שאת בדרך.",
+    "הצירים תואמים ל-{rule} במשך שעה שלמה. ייתכן שהגיע הזמן לצאת לבית החולים או למרכז הלידה. כדאי להתקשר מראש ולעדכן שמגיעים.",
   "Keep timing. A few more contractions will show your pattern.":
-    "המשיכי למדוד. עוד כמה צירים יראו את הדפוס שלך.",
+    "להמשיך למדוד. עוד כמה צירים יראו את הדפוס.",
   "Matching {rule}. Keep going until all three are ticked.":
-    "תואם ל-{rule}. המשיכי עד שכל שלושת התנאים מסומנים.",
-  "Not at {rule} yet. Keep going, you're doing great.": "עוד לא ב-{rule}. המשיכי, את מצוינת.",
-  "Start timing to see how you're tracking.": "התחילי למדוד כדי לראות איך הולך.",
+    "תואם ל-{rule}. להמשיך עד שכל שלושת התנאים מסומנים.",
+  "Not at {rule} yet. Keep going, you're doing great.": "עוד לא ב-{rule}. להמשיך, הולך מצוין.",
+  "Start timing to see how you're tracking.": "להתחיל למדוד כדי לראות איך הולך.",
   "When to go": "מתי לצאת",
-  "Based on your last hour.": "לפי השעה האחרונה שלך.",
+  "Based on your last hour.": "לפי השעה האחרונה.",
   "Which one should I pick?": "איזו לבחור?",
   "The numbers are minutes between contractions. A bigger number means you set off earlier.":
     "המספרים הם דקות בין צירים. מספר גדול יותר אומר שיוצאים מוקדם יותר.",
   ": earliest. Good if you live far away, or have had a baby before (labour can be quicker).":
-    ": הכי מוקדם. מתאים אם את גרה רחוק או אם כבר ילדת (לידה יכולה להתקדם מהר יותר).",
+    ": הכי מוקדם. מתאים למי שגר רחוק או שכבר ילד בעבר (לידה יכולה להתקדם מהר יותר).",
   ": the usual middle choice, often for a first baby.": ": הבחירה הנפוצה באמצע, לרוב ללידה ראשונה.",
   ": latest. Only if you live close, or your midwife or doctor told you to wait longer.":
-    ": הכי מאוחר. רק אם את גרה קרוב או שהמיילדת או הרופא אמרו לחכות יותר.",
+    ": הכי מאוחר. רק למי שגר קרוב או שהמיילדת או הרופא אמרו לחכות יותר.",
   "If your provider gave you a number, use theirs. Not sure? Pick 5-1-1 and call them.":
-    "אם הצוות הרפואי נתן לך מספר, השתמשי בו. לא בטוחה? בחרי 5-1-1 והתקשרי אליהם.",
+    "אם הצוות הרפואי נתן מספר, להשתמש בו. לא בטוחים? לבחור 5-1-1 ולהתקשר אליהם.",
   "minutes apart or less": "דקות בין צירים או פחות",
   "minute long or more": "דקה אורך או יותר",
   "hour of both": "שעה של שניהם",
@@ -101,29 +101,29 @@ export const he: Record<string, string> = {
   Guideline: "הנחיה",
   "Tips & support": "טיפים ותמיכה",
   "Things you and your partner can do. Evidence notes come from published reviews, with links below. Ask your midwife what suits you.":
-    "דברים שאת ובן או בת הזוג יכולים לעשות. הערות הראיות מבוססות על סקירות שפורסמו, עם קישורים למטה. שאלי את המיילדת מה מתאים לך.",
+    "דברים שאפשר לעשות ביחד. הערות הראיות מבוססות על סקירות שפורסמו, עם קישורים למטה. כדאי לשאול את המיילדת מה מתאים.",
   "Go to the hospital now if": "לצאת לבית החולים מיד אם",
   "you have bleeding heavier than a period, or any bleeding with pain":
-    "יש לך דימום חזק מווסת, או כל דימום עם כאב",
+    "יש דימום חזק יותר מווסת, או כל דימום עם כאב",
   "baby is moving much less than usual": "התינוק זז הרבה פחות מהרגיל",
   "your waters break and the fluid is green, brown or bloody": "המים ירדו והנוזל ירוק, חום או מדמם",
   "a contraction lasts longer than 2 minutes": "צירים נמשכים יותר מ-2 דקות",
   "you have 6 or more contractions in 10 minutes": "יש 6 צירים או יותר ב-10 דקות",
   "contractions match your 3-1-1 or 4-1-1 guideline": "הצירים תואמים להנחיית 3-1-1 או 4-1-1",
   "Strong urge to push, or baby is coming: call your local emergency number.":
-    "דחף חזק ללחוץ, או שהתינוק בדרך: התקשרי למספר החירום המקומי.",
+    "דחף חזק ללחוץ, או שהתינוק בדרך: להתקשר למספר החירום המקומי.",
   "Call your midwife or maternity unit first if": "קודם להתקשר למיילדת או למחלקת יולדות אם",
   "your waters break and the fluid is clear": "המים ירדו והנוזל צלול",
   "contractions begin to be regular, or match 5-1-1":
     "הצירים מתחילים להיות סדירים, או תואמים ל-5-1-1",
-  "you are under 37 weeks and think you may be in labour": "את לפני שבוע 37 וחושבת שאת אולי בלידה",
-  "you are unsure or worried about anything": "את לא בטוחה או מודאגת מכל דבר",
+  "you are under 37 weeks and think you may be in labour": "לפני שבוע 37 ויש חשד ללידה",
+  "you are unsure or worried about anything": "יש חוסר ודאות או דאגה מכל דבר",
   "They will tell you whether to come in, and can prepare for you. Save their number now. If in doubt, go.":
-    "הם יגידו לך אם להגיע, ויוכלו להתכונן לקראתך. שמרי את המספר שלהם כבר עכשיו. במקרה של ספק, לכי.",
+    "הם יגידו אם להגיע, ויוכלו להתכונן לקראתכם. כדאי לשמור את המספר שלהם כבר עכשיו. במקרה של ספק, לצאת.",
   "NHS: signs that labour has begun": "NHS: סימנים לתחילת לידה",
   "Breathe together": "לנשום יחד",
   "Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but studies are small, so use what feels good.":
-    "נשימה איטית עם נשיפה ארוכה יותר. שיטות הרפיה עשויות להפחית מעט את הכאב, אבל המחקרים קטנים, אז בחרי במה שנעים לך.",
+    "נשימה איטית עם נשיפה ארוכה יותר. שיטות הרפיה עשויות להפחית מעט את הכאב, אבל המחקרים קטנים, אז לבחור במה שנעים.",
   "Start breathing guide": "הפעלת מדריך נשימה",
   "Cochrane: relaxation techniques": "Cochrane: טכניקות הרפיה",
   "Words to say": "מילים לומר",
@@ -141,20 +141,20 @@ export const he: Record<string, string> = {
   Common: "שכיח",
   "Only if needed": "רק במקרה הצורך",
   "Be present for the whole labour, don't leave her alone for long, and speak up for her wishes. In 27 trials, continuous support meant more spontaneous births, around 40 minutes shorter labour on average, and fewer negative feelings about the birth.":
-    "להיות נוכחים לאורך כל הלידה, לא להשאיר אותה לבד לזמן ארוך, ולהשמיע את רצונותיה. ב-27 ניסויים, תמיכה רציפה הביאה ליותר לידות ספונטניות, ללידה קצרה בכ-40 דקות בממוצע, ולפחות רגשות שליליים כלפי הלידה.",
+    "להיות נוכחים לאורך כל הלידה, לא להשאיר את היולדת לבד לזמן ארוך, ולהשמיע את רצונותיה. ב-27 ניסויים, תמיכה רציפה הביאה ליותר לידות ספונטניות, ללידה קצרה בכ-40 דקות בממוצע, ולפחות רגשות שליליים כלפי הלידה.",
   "Cochrane review": "סקירת Cochrane",
   "Move and stay upright": "לנוע ולהישאר זקופה",
   "Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with fewer caesareans. Quality was mixed, so follow what feels right.":
-    "ללכת, להתנדנד, להישען על מיטה או כדור לידה, לכרוע או להתנדנד על ארבע. בהשוואה לשכיבה, תנוחות זקופות קיצרו את השלב הראשון בכשעה ו-20 דקות, עם פחות ניתוחים קיסריים. איכות המחקרים מעורבת, אז עשי מה שמרגיש נכון.",
+    "ללכת, להתנדנד, להישען על מיטה או כדור לידה, לכרוע או להתנדנד על ארבע. בהשוואה לשכיבה, תנוחות זקופות קיצרו את השלב הראשון בכשעה ו-20 דקות, עם פחות ניתוחים קיסריים. איכות המחקרים מעורבת, אז לעשות מה שמרגיש נכון.",
   Massage: "עיסוי",
   "Firm strokes or pressure on the lower back, shoulders or hands. Massage lowered reported pain in the first stage in small trials. Ask what pressure and where, and check often, because it changes.":
     "לחיצות או משיחות יציבות על הגב התחתון, הכתפיים או הידיים. עיסוי הפחית כאב מדווח בשלב הראשון בניסויים קטנים. לשאול באיזה לחץ ואיפה, ולבדוק לעתים קרובות כי זה משתנה.",
   "Warm water": "מים חמימים",
   "A warm shower or bath is a common comfort. Reviews of birth pools found fewer epidurals and no clear harm to mothers or babies. Showers are less studied. Keep the water warm, not hot, and ask your midwife before using a bath or pool.":
-    "מקלחת או אמבטיה חמימה הן דרך נפוצה להקלה. סקירות על בריכות לידה מצאו פחות אפידורלים ולא נמצא נזק ברור לאמהות או לתינוקות. מקלחות נחקרו פחות. שמרי על מים חמימים ולא חמים, ושאלי את המיילדת לפני שימוש באמבט או בבריכה.",
+    "מקלחת או אמבטיה חמימה הן דרך נפוצה להקלה. סקירות על בריכות לידה מצאו פחות אפידורלים ולא נמצא נזק ברור לאמהות או לתינוקות. מקלחות נחקרו פחות. לשמור על מים חמימים ולא חמים, ולשאול את המיילדת לפני שימוש באמבט או בבריכה.",
   "Pain relief options": "אפשרויות להקלת כאב",
   "Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember what she decided in advance, and that she can change her mind.":
-    "לגז צחוק, לזריקות, לאפידורל ול-TENS יש יתרונות וחסרונות. עזרו לה לזכור מה החליטה מראש, ושהיא יכולה לשנות את דעתה.",
+    "לגז צחוק, לזריקות, לאפידורל ול-TENS יש יתרונות וחסרונות. כדאי לעזור לזכור מה הוחלט מראש, ושאפשר לשנות את הדעת.",
   "NHS: pain relief in labour": "NHS: הקלת כאב בלידה",
   "Practical comforts": "נוחות מעשית",
   "Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone calls and the bag, so she can focus. Time each contraction from the start, and take breaks yourself too.":
@@ -170,16 +170,16 @@ export const he: Record<string, string> = {
     "הקישורים דורשים חיבור לאינטרנט. כל שאר חלקי האפליקציה פועלים גם ללא חיבור. משפחת הכללים 5-1-1 היא כלל אצבע נפוץ ולא תקן קליני רשמי.",
   "Links need an internet connection. General information, not medical advice.":
     "הקישורים דורשים חיבור לאינטרנט. מידע כללי, לא ייעוץ רפואי.",
-  "You are doing it. I am right here.": "את עושה את זה. אני כאן לידך.",
-  "Every contraction brings you closer to meeting your baby.": "כל ציר מקרב אותך לפגוש את התינוק.",
-  "Let your shoulders drop. Breathe out slowly.": "תני לכתפיים לרדת. נשפי לאט.",
-  "You are stronger than you know.": "את חזקה יותר ממה שאת יודעת.",
+  "You are doing it. I am right here.": "זה קורה. אני כאן לידכם.",
+  "Every contraction brings you closer to meeting your baby.": "כל ציר מקרב לפגוש את התינוק.",
+  "Let your shoulders drop. Breathe out slowly.": "לתת לכתפיים לרדת. לנשוף לאט.",
+  "You are stronger than you know.": "יש בכם כוח גדול מכפי שנדמה.",
   "One at a time. Just this one.": "אחד בכל פעם. רק זה.",
   "This one will pass, and you have handled every one so far.":
-    "גם זה יעבור, וכבר התמודדת עם כל הצירים עד עכשיו.",
-  "I'm not going anywhere. I've got you.": "אני לא הולך לשום מקום. אני איתך.",
-  "You're doing so well. I'm so proud of you.": "את מצוינת. אני כל כך גאה בך.",
-  "Rest now. Let your body go soft between them.": "תנוחי עכשיו. תני לגוף להתרכך בין הצירים.",
+    "גם זה יעבור, וכבר עברתם את כל הצירים עד עכשיו.",
+  "I'm not going anywhere. I've got you.": "אני לא הולך לשום מקום. אני איתכם.",
+  "You're doing so well. I'm so proud of you.": "אתם מצוינים. אני כל כך גאה.",
+  "Rest now. Let your body go soft between them.": "לנוח עכשיו. לתת לגוף להתרכך בין הצירים.",
   Timer: "טיימר",
   Tips: "טיפים",
   Bag: "תיק",
@@ -189,13 +189,13 @@ export const he: Record<string, string> = {
   Language: "שפה",
   "Export CSV": "ייצוא CSV",
   "Clear all": "מחיקת הכול",
-  "Nothing yet. Tap the circle when one begins.": "עדיין אין כלום. הקישי על העיגול כשציר מתחיל.",
+  "Nothing yet. Tap the circle when one begins.": "עדיין אין כלום. להקיש על העיגול כשציר מתחיל.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":
-    "זה לא ייעוץ רפואי. פעלי תמיד לפי המיילדת או הרופא. הכול נשמר במכשיר הזה בלבד.",
+    "זה לא ייעוץ רפואי. תמיד לפעול לפי המיילדת או הרופא. הכול נשמר במכשיר הזה בלבד.",
   "Source code": "קוד מקור",
   "Hospital bag": "תיק לבית החולים",
   "A starting list. Tick things off, delete what you don't need, and add your own.":
-    "רשימת פתיחה. סמני מה שארזת, מחקי מה שלא צריך והוסיפי משלך.",
+    "רשימת פתיחה. לסמן מה שנארז, למחוק מה שלא צריך ולהוסיף פריטים משלכם.",
   Add: "הוספה",
   "Add an item": "הוספת פריט",
   "Untick all": "ביטול כל הסימונים",
@@ -205,7 +205,7 @@ export const he: Record<string, string> = {
   "Clalit: delivery room bag": "כללית: תיק לחדר לידה",
   "Meuhedet: when and what to pack": "מאוחדת: מתי ומה לארוז",
   "Similac: hospital bag checklist": "Similac: רשימת תיק לבית החולים",
-  "ID for you and your partner": "תעודות זהות שלך ושל בן או בת הזוג",
+  "ID for you and your partner": "תעודות זהות של שני בני הזוג",
   "Pregnancy tracking card, complete and in order": "תיק מעקב הריון, מלא ומסודר",
   "Folder with pregnancy test results and scans": "תיקייה עם תוצאות בדיקות ההריון והאולטרסאונד",
   "Health fund / insurance card and any forms the hospital needs":
@@ -223,7 +223,7 @@ export const he: Record<string, string> = {
   "Phone, long charger, headphones or speaker": "טלפון, מטען ארוך, אוזניות או רמקול",
   "Pillow and spare pillowcase": "כרית וציפית רזרבית",
   "Towel or robe": "מגבת או חלוק",
-  "Warm socks for you and your partner": "גרביים חמות לך ולבן או בת הזוג",
+  "Warm socks for you and your partner": "גרביים חמות לשני בני הזוג",
   "Flip-flops for the shower": "כפכפים למקלחת",
   "Bags for dirty clothes": "שקיות לבגדים מלוכלכים",
   "Toiletries, toothbrush, hair ties, lip balm, wipes":
@@ -238,15 +238,15 @@ export const he: Record<string, string> = {
   "Loose comfy clothes and slippers": "בגדים רחבים ונוחים וכפכפי בית",
   "Absorbent underwear or pads": "תחתונים סופגים או תחבושות",
   "Nursing bra and breast pads": "חזיית הנקה ורפידות הנקה",
-  "Going-home outfit for you": "בגדים ליציאה הביתה בשבילך",
+  "Going-home outfit for you": "בגדים ליציאה הביתה ליולדת",
   "Baby going-home outfit: two layers, hat, blanket, cloth nappy":
     "בגדי תינוק ליציאה הביתה: שתי שכבות, כובע, שמיכה, חיתול בד",
   "Newborn nappies and wipes": "חיתולים ומגבונים לילוד",
   "Leave valuables and jewellery at home": "להשאיר חפצי ערך ותכשיטים בבית",
   "Hospital notes": "הערות לבית החולים",
   "Answers staff often ask for. Fill in ahead of time so you don't have to think mid-contraction. Saved on this device only.":
-    "תשובות שהצוות שואל עליהן לעתים קרובות. מלאי מראש כדי שלא תצטרכי לחשוב באמצע ציר. נשמר במכשיר הזה בלבד.",
-  "Add your own question": "הוספת שאלה משלך",
+    "תשובות שהצוות שואל עליהן לעתים קרובות. כדאי למלא מראש כדי לא להצטרך לחשוב באמצע ציר. נשמר במכשיר הזה בלבד.",
+  "Add your own question": "הוספת שאלה משלכם",
   "Full name": "שם מלא",
   "ID number": "מספר תעודת זהות",
   "Date of birth": "תאריך לידה",
@@ -262,7 +262,7 @@ export const he: Record<string, string> = {
   "Baby's movements": "תנועות התינוק",
   "normal, or less than usual": "רגילות, או פחות מהרגיל",
   "Any bleeding?": "יש דימום?",
-  "Last ate or drank": "מתי אכלת או שתית לאחרונה",
+  "Last ate or drank": "מתי אכלו או שתו לאחרונה",
   "time and what": "שעה ומה",
   "Previous births": "לידות קודמות",
   "how many, how they went, any caesarean": "כמה, איך עברו, האם היה קיסרי",
@@ -279,31 +279,31 @@ export const he: Record<string, string> = {
   "names, ID numbers, relationship (hospitals limit how many)":
     "שמות, מספרי זהות, קרבה (בתי חולים מגבילים את המספר)",
   "Pain relief wishes": "העדפות להקלת כאב",
-  "e.g. natural, epidural, open to options": "למשל טבעית, אפידורל, פתוחה לאפשרויות",
+  "e.g. natural, epidural, open to options": "למשל טבעית, אפידורל, פתוח לאפשרויות",
   "Birth preferences": "העדפות ללידה",
   "e.g. movement, music, delayed cord clamping": "למשל תנועה, מוזיקה, השהיית חיתוך חבל הטבור",
   "Newborn choices": "בחירות לגבי הילוד",
   "first bath, delayed cord clamping, vitamin K, vaccines, cord blood, rooming-in":
     "רחצה ראשונה, השהיית חיתוך חבל הטבור, ויטמין K, חיסונים, דם טבור, רומינג-אין",
   "Feeding plan": "תוכנית האכלה",
-  "breast, bottle, not sure": "הנקה, בקבוק, לא בטוחה",
+  "breast, bottle, not sure": "הנקה, בקבוק, לא בטוח",
   "Emergency contact": "איש קשר לחירום",
   "Common procedures and why": "הליכים נפוצים ומדוע",
   "Tap one to read more. Routines vary by hospital and by your situation, so ask your care team what is standard for you.":
-    "הקישי על אחד כדי לקרוא עוד. הנהלים משתנים בין בתי חולים ובין מצבים, אז שאלי את הצוות המטפל מה נהוג אצלך.",
+    "להקיש על אחד כדי לקרוא עוד. הנהלים משתנים בין בתי חולים ובין מצבים, אז כדאי לשאול את הצוות המטפל מה נהוג.",
   "Vitamin K injection": "זריקת ויטמין K",
   "A single dose given to the newborn soon after birth. Newborns have low vitamin K, which helps blood clot, and the injection prevents a rare but serious bleeding problem. Oral drops exist but need repeated doses.":
     "מנה בודדת הניתנת ליילוד זמן קצר אחרי הלידה. ליילודים רמות נמוכות של ויטמין K, שמסייע לקרישת דם, והזריקה מונעת בעיית דימום נדירה אך חמורה. קיימות גם טיפות דרך הפה, אך הן דורשות מנות חוזרות.",
   "NHS: what happens straight after the birth": "NHS: מה קורה מיד אחרי הלידה",
   "Eye ointment": "משחת עיניים",
   "Antibiotic ointment in the baby’s eyes to prevent infection from bacteria passed on in birth. Policies differ between hospitals and countries, and some now give it only when infection risk is higher, so ask if it is routine where you are.":
-    "משחה אנטיביוטית בעיני התינוק למניעת זיהום מחיידקים שעוברים בלידה. המדיניות שונה בין בתי חולים ומדינות, וחלקם נותנים אותה כיום רק כשהסיכון לזיהום גבוה יותר, אז שאלי אם זה נהוג אצלכם.",
+    "משחה אנטיביוטית בעיני התינוק למניעת זיהום מחיידקים שעוברים בלידה. המדיניות שונה בין בתי חולים ומדינות, וחלקם נותנים אותה כיום רק כשהסיכון לזיהום גבוה יותר, אז כדאי לשאול אם זה נהוג.",
   "AAO: erythromycin to prevent newborn eye infection":
     "AAO: אריתרומיצין למניעת זיהום עיניים ביילוד",
   "CDC: preventing newborn eye infection": "CDC: מניעת זיהום עיניים ביילוד",
   "Hepatitis B vaccine": "חיסון הפטיטיס B",
   "Often offered in the first days. Protects against a liver infection that can be passed on at birth and is more serious in babies. Recommendations differ by country and by the mother’s test result, so ask what your hospital gives and when.":
-    "מוצע לרוב בימים הראשונים. מגן מפני זיהום בכבד שיכול לעבור בלידה וחמור יותר אצל תינוקות. ההמלצות שונות בין מדינות ולפי תוצאת הבדיקה של האם, אז שאלי מה בית החולים נותן ומתי.",
+    "מוצע לרוב בימים הראשונים. מגן מפני זיהום בכבד שיכול לעבור בלידה וחמור יותר אצל תינוקות. ההמלצות שונות בין מדינות ולפי תוצאת הבדיקה של האם, אז כדאי לשאול מה בית החולים נותן ומתי.",
   "CDC: hepatitis B vaccine for newborns": "CDC: חיסון הפטיטיס B ליילודים",
   "Newborn checks and screening": "בדיקות וסקר ליילוד",
   "Weight and Apgar scores in the first minutes, then a full exam, a heel-prick blood test for rare treatable conditions, a hearing test, and often a heart oxygen check. They find problems early, when treatment works best.":
@@ -311,14 +311,14 @@ export const he: Record<string, string> = {
   "NHS: newborn screening": "NHS: סקר ילודים",
   "Group B strep antibiotics": "אנטיביוטיקה לסטרפטוקוק קבוצה B",
   "If your GBS test was positive, antibiotics through a drip during labour lower the chance of passing it to baby. Tell staff your result when you arrive.":
-    "אם בדיקת ה-GBS שלך הייתה חיובית, אנטיביוטיקה דרך עירוי במהלך הלידה מורידה את הסיכוי להעביר זאת לתינוק. ספרי לצוות מה התוצאה כשאת מגיעה.",
+    "אם בדיקת ה-GBS הייתה חיובית, אנטיביוטיקה דרך עירוי במהלך הלידה מורידה את הסיכוי להעביר זאת לתינוק. כדאי לספר לצוות מה התוצאה בהגעה.",
   "ACOG: group B strep and pregnancy": "ACOG: סטרפטוקוק קבוצה B והריון",
   "Monitoring the baby’s heartbeat": "ניטור דופק התינוק",
   "Staff listen to baby’s heart on admission, by a monitor belt or hand-held device. If all is well, you can often ask for intermittent monitoring so you can move around.":
-    "הצוות מאזין ללב התינוק בקבלה, בחגורת ניטור או במכשיר כף יד. אם הכול תקין, אפשר לרוב לבקש ניטור לסירוגין כדי שתוכלי לנוע.",
+    "הצוות מאזין ללב התינוק בקבלה, בחגורת ניטור או במכשיר כף יד. אם הכול תקין, אפשר לרוב לבקש ניטור לסירוגין כדי שאפשר יהיה לנוע.",
   "Drip (IV line) and blood tests": "עירוי (נתיב ורידי) ובדיקות דם",
   "A drip allows fluids and medicines quickly if needed, and is usual with an epidural. If you want to move freely, ask whether a capped line (not connected) is enough.":
-    "עירוי מאפשר מתן נוזלים ותרופות במהירות אם יידרש, והוא נהוג עם אפידורל. אם את רוצה לנוע בחופשיות, שאלי אם נתיב סגור (לא מחובר) מספיק.",
+    "עירוי מאפשר מתן נוזלים ותרופות במהירות אם יידרש, והוא נהוג עם אפידורל. מי שרוצה לנוע בחופשיות יכול לשאול אם נתיב סגור (לא מחובר) מספיק.",
   "Injection after birth to help the womb contract": "זריקה אחרי הלידה שעוזרת לרחם להתכווץ",
   "Often offered as the placenta comes out. It lowers the risk of heavy bleeding after the birth. You can ask about waiting for the placenta naturally if you are low risk, and discuss it in advance.":
     "מוצעת לרוב עם יציאת השליה. היא מורידה את הסיכון לדימום חזק אחרי הלידה. אם הסיכון שלך נמוך אפשר לשאול על המתנה ליציאה טבעית של השליה, ומומלץ לדון בכך מראש.",
@@ -326,29 +326,29 @@ export const he: Record<string, string> = {
     "AAFP: סיכום סקירת Cochrane על השלב השלישי של הלידה",
   "Induction and cutting (episiotomy)": "השראת לידה וחתך (אפיזיוטומיה)",
   "Induction is offered when waiting is riskier than starting labour, and an episiotomy only when baby needs to be born quickly. Ask your care team to explain why if they are suggested.":
-    "השראת לידה מוצעת כשההמתנה מסוכנת יותר מהתחלת הלידה, ואפיזיוטומיה רק כשהתינוק צריך להיוולד מהר. בקשי מהצוות להסביר מדוע אם הם מציעים זאת.",
+    "השראת לידה מוצעת כשההמתנה מסוכנת יותר מהתחלת הלידה, ואפיזיוטומיה רק כשהתינוק צריך להיוולד מהר. כדאי לבקש מהצוות להסביר מדוע אם הם מציעים זאת.",
   "NICE NG207: inducing labour": "NICE NG207: השראת לידה",
   "Cochrane: episiotomy": "Cochrane: אפיזיוטומיה",
   "Special requests to consider": "בקשות מיוחדות לשקול",
   "You can ask. Staff will agree when it is safe for you and baby. Decide in advance, write it under newborn choices or birth preferences, and tell the team on arrival.":
-    "אפשר לבקש. הצוות יסכים כשזה בטוח לך ולתינוק. החליטי מראש, כתבי זאת תחת בחירות לגבי הילוד או העדפות ללידה, ועדכני את הצוות בהגעה.",
+    "אפשר לבקש. הצוות יסכים כשזה בטוח ליולדת ולתינוק. כדאי להחליט מראש, לכתוב זאת תחת בחירות לגבי הילוד או העדפות ללידה, ולעדכן את הצוות בהגעה.",
   "Delayed cord clamping": "השהיית חיתוך חבל הטבור",
   "Wait at least 30 to 60 seconds (or until the cord stops pulsing) before clamping, if baby is well. More blood passes to the baby, which raises iron stores in the first months. ACOG and WHO both recommend it for healthy babies. Not suitable if baby needs help right away.":
     "להמתין לפחות 30 עד 60 שניות (או עד שהחבל מפסיק לפעום) לפני הידוק, אם התינוק במצב טוב. יותר דם עובר לתינוק, מה שמעלה את מאגרי הברזל בחודשים הראשונים. ACOG ו-WHO ממליצים על כך לתינוקות בריאים. לא מתאים אם התינוק צריך עזרה מיידית.",
   ACOG: "ACOG",
   "Delay the first bath": "דחיית הרחצה הראשונה",
   "WHO suggests waiting at least 24 hours (or at least 6 hours if that is not possible). Waiting helps keep baby warm and steady, and supports breastfeeding. Ask staff to wipe off blood and leave the white coating (vernix) on.":
-    "WHO ממליץ להמתין לפחות 24 שעות (או לפחות 6 שעות אם זה לא אפשרי). ההמתנה עוזרת לשמור על חום ויציבות התינוק, ותומכת בהנקה. בקשי מהצוות לנגב את הדם ולהשאיר את הציפוי הלבן (ורניקס).",
+    "WHO ממליץ להמתין לפחות 24 שעות (או לפחות 6 שעות אם זה לא אפשרי). ההמתנה עוזרת לשמור על חום ויציבות התינוק, ותומכת בהנקה. כדאי לבקש מהצוות לנגב את הדם ולהשאיר את הציפוי הלבן (ורניקס).",
   "WHO recommendations": "המלצות WHO",
   "Skin-to-skin straight after birth": "מגע עור לעור מיד אחרי הלידה",
   "Baby is placed on your chest, dried and covered, for the first hour or more. Linked to steadier temperature and heart rate, and more breastfeeding success. A partner can do it if you cannot.":
-    "התינוק מונח על החזה שלך, מיובש ומכוסה, בשעה הראשונה או יותר. קשור לטמפרטורה ולקצב לב יציבים יותר ולהצלחה גבוהה יותר בהנקה. בן או בת הזוג יכולים לעשות זאת אם את לא יכולה.",
+    "התינוק מונח על החזה, מיובש ומכוסה, בשעה הראשונה או יותר. קשור לטמפרטורה ולקצב לב יציבים יותר ולהצלחה גבוהה יותר בהנקה. בן או בת הזוג יכולים לעשות זאת אם היולדת לא יכולה.",
   "Keep baby with you (rooming-in)": "התינוק נשאר איתך (רומינג-אין)",
   "Baby stays in your room day and night rather than a nursery. Can make feeding on demand easier. Rest matters too, so choose what works for you, and ask about partial rooming-in.":
-    "התינוק נשאר בחדר שלך יום ולילה במקום בתינוקייה. יכול להקל על הנקה לפי דרישה. גם מנוחה חשובה, אז בחרי מה שמתאים לך, ושאלי על רומינג-אין חלקי.",
+    "התינוק נשאר בחדר יום ולילה במקום בתינוקייה. יכול להקל על הנקה לפי דרישה. גם מנוחה חשובה, אז לבחור מה שמתאים, ולשאול על רומינג-אין חלקי.",
   "Your own wishes": "הרצונות שלך",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
-    "דוגמאות: מוזיקה או תאורה עמומה, תנועה חופשית, מי חותך את חבל הטבור, אילו מלווים נשארים, איך ומתי תרצי שיספרו לך על אפשרויות. כתבי אותם תחת העדפות ללידה ושאלי את הצוות מה אפשרי.",
+    "דוגמאות: מוזיקה או תאורה עמומה, תנועה חופשית, מי חותך את חבל הטבור, אילו מלווים נשארים, ואיך ומתי רוצים לשמוע על אפשרויות. לכתוב אותם תחת העדפות ללידה ולשאול את הצוות מה אפשרי.",
   "Ichilov Lis: admission process and questions": "איכילוב ליס: תהליך קבלה ושאלות",
   "Clalit: group B strep in pregnancy": "כללית: סטרפטוקוק קבוצה B בהריון",
   "ACOG: delayed umbilical cord clamping": "ACOG: השהיית חיתוך חבל הטבור",

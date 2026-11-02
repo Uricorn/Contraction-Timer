@@ -5,17 +5,21 @@
  */
 import { he } from "./locales/he";
 import { ar } from "./locales/ar";
+import { ru } from "./locales/ru";
+import { es } from "./locales/es";
 
-export type Lang = "en" | "he" | "ar";
+export type Lang = "en" | "he" | "ar" | "ru" | "es";
 
 export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: string }> = {
   en: { name: "English", dir: "ltr", locale: "en" },
   he: { name: "עברית", dir: "rtl", locale: "he-IL" },
   // Latin digits so the timer matches the clock and common usage in Israel.
   ar: { name: "العربية", dir: "rtl", locale: "ar-u-nu-latn" },
+  ru: { name: "Русский", dir: "ltr", locale: "ru-RU" },
+  es: { name: "Español", dir: "ltr", locale: "es" },
 };
 
-const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar };
+const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar, ru, es };
 const KEY = "contraction-timer:lang";
 
 let lang: Lang = "en";

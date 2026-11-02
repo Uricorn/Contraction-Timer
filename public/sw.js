@@ -46,7 +46,9 @@ self.addEventListener("fetch", (event) => {
             }
             return res;
           })
-          .catch(() => (event.request.mode === "navigate" ? caches.match("./index.html") : Response.error())),
+          .catch(() =>
+            event.request.mode === "navigate" ? caches.match("./index.html") : Response.error(),
+          ),
     ),
   );
 });
