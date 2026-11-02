@@ -9,6 +9,7 @@ import { drawTrend } from "./chart";
 import { openEditor } from "./editor";
 import { downloadJson, summaryText } from "./share";
 import { showToast } from "./toast";
+import { icons } from "./icons";
 import {
   formatDuration,
   parseStored,
@@ -118,9 +119,16 @@ const segButtons = document.querySelectorAll<HTMLButtonElement>(".seg button");
 const time = (ms: number) =>
   new Date(ms).toLocaleTimeString(getLocale(), { hour: "2-digit", minute: "2-digit" });
 
+/** Drops the leading emoji from a translated label (the locale keys still carry it). */
+const stripEmoji = (s: string) => s.replace(/^\S+\s+/, "");
+
 function setState(state: string, text: string, btn: string) {
   document.body.dataset.state = state;
-  label.textContent = text;
+  const icon = icons[state as keyof typeof icons];
+  if (icon) {
+    label.innerHTML = icon;
+    label.append(stripEmoji(text));
+  } else label.textContent = text;
   button.textContent = btn;
 }
 

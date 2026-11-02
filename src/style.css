@@ -350,8 +350,24 @@ a {
   font-size: 0.8rem;
   color: var(--muted);
 }
-.tabs button span {
-  font-size: 1.2rem;
+.icon {
+  width: 1.3em;
+  height: 1.3em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.25em;
+}
+.label .icon {
+  margin-inline-end: 0.35em;
+}
+.tabs button .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: baseline;
 }
 .tabs button[aria-current="page"] {
   background: var(--panel);
