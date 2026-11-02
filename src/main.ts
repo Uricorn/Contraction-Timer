@@ -7,7 +7,7 @@ import { getLocale, initI18n, t } from "./i18n";
 import { alertsEnabled, disableAlerts, enableAlerts, notify } from "./alerts";
 import { drawTrend } from "./chart";
 import { openEditor, toLocalInput } from "./editor";
-import { downloadJson, saveFile, summaryText } from "./share";
+import { downloadJson, summaryText } from "./share";
 import { showToast } from "./toast";
 import { icons } from "./icons";
 import {
@@ -17,7 +17,6 @@ import {
   dangerSigns,
   MINUTE,
   sortByStart,
-  toCsv,
   windowStats,
   ruleMeters,
   type Meter,
@@ -337,10 +336,6 @@ $("clear").addEventListener("click", () => {
     void holdScreen(false);
     render();
   }
-});
-
-$("export").addEventListener("click", () => {
-  void saveFile("contractions.csv", "text/csv", toCsv(data.contractions));
 });
 
 $("add-missed").addEventListener("click", () => edit(null));

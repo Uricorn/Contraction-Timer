@@ -46,7 +46,7 @@ body {
   background: var(--bg-idle);
   color: var(--ink);
   transition: background 0.8s ease;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+  padding: calc(env(safe-area-inset-top) + 4px) env(safe-area-inset-right) env(safe-area-inset-bottom)
     env(safe-area-inset-left);
 }
 body[data-state="contracting"] {
