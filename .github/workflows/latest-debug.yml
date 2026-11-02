@@ -1,8 +1,10 @@
-name: Nightly
+name: Latest debug
 
-# Builds a debug APK every night and publishes it to a rolling "nightly"
-# pre-release. Skipped when nothing changed since the last nightly build.
+# Builds a debug APK on every push to main (and nightly as a fallback) and
+# keeps it as the single asset of a rolling "latest-debug" pre-release.
 on:
+  push:
+    branches: [main]
   schedule:
     - cron: "0 2 * * *"
   workflow_dispatch:
@@ -11,21 +13,21 @@ permissions:
   contents: write
 
 concurrency:
-  group: nightly
+  group: latest-debug
   cancel-in-progress: false
 
 jobs:
-  nightly:
+  latest-debug:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - name: Check for new commits
+      - name: Check for new commits (nightly runs skip if unchanged)
         id: changes
         run: |
           git fetch --tags --force
-          if [ "$(git rev-parse -q --verify refs/tags/nightly^{commit})" = "$(git rev-parse HEAD)" ] \
+          if [ "$(git rev-parse -q --verify refs/tags/latest-debug^{commit})" = "$(git rev-parse HEAD)" ] \
             && [ "${{ github.event_name }}" = "schedule" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
@@ -54,18 +56,17 @@ jobs:
       - name: Name the APK
         if: steps.changes.outputs.changed == 'true'
         run: |
-          cp android/app/build/outputs/apk/debug/app-debug.apk \
-            "contraction-timer-nightly-$(date -u +%Y%m%d).apk"
-      - name: Move the nightly tag
+          cp android/app/build/outputs/apk/debug/app-debug.apk contraction-timer-debug.apk
+      - name: Move the latest-debug tag
         if: steps.changes.outputs.changed == 'true'
         run: |
-          git tag -f nightly
-          git push -f origin refs/tags/nightly
+          git tag -f latest-debug
+          git push -f origin refs/tags/latest-debug
       - if: steps.changes.outputs.changed == 'true'
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
         with:
-          tag_name: nightly
-          name: Nightly build
+          tag_name: latest-debug
+          name: Latest debug build
           prerelease: true
           body: "Automated debug build of `${{ github.sha }}`. Not for production use."
-          files: contraction-timer-nightly-*.apk
+          files: contraction-timer-debug.apk
