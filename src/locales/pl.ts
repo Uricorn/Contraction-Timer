@@ -190,7 +190,6 @@ export const pl: Record<string, string> = {
   History: "Historia",
   Sections: "Sekcje",
   Language: "Język",
-  "Export CSV": "Eksportuj CSV",
   "Clear all": "Wyczyść wszystko",
   "Nothing yet. Tap the circle when one begins.":
     "Na razie nic. Dotknij koła, gdy zacznie się skurcz.",

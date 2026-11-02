@@ -188,7 +188,6 @@ export const uk: Record<string, string> = {
   History: "Історія",
   Sections: "Розділи",
   Language: "Мова",
-  "Export CSV": "Експорт CSV",
   "Clear all": "Очистити все",
   "Nothing yet. Tap the circle when one begins.":
     "Поки нічого немає. Натисніть на коло, коли почнеться перейма.",

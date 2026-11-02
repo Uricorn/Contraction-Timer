@@ -191,7 +191,6 @@ export const tr: Record<string, string> = {
   History: "Geçmiş",
   Sections: "Bölümler",
   Language: "Dil",
-  "Export CSV": "CSV olarak dışa aktar",
   "Clear all": "Tümünü temizle",
   "Nothing yet. Tap the circle when one begins.":
     "Henüz bir şey yok. Bir kasılma başlayınca daireye dokunun.",

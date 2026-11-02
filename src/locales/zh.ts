@@ -178,7 +178,6 @@ export const zh: Record<string, string> = {
   History: "历史记录",
   Sections: "栏目",
   Language: "语言",
-  "Export CSV": "导出 CSV",
   "Clear all": "全部清除",
   "Nothing yet. Tap the circle when one begins.": "暂无记录。宫缩开始时点击圆圈。",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":

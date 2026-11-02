@@ -180,7 +180,6 @@ export const he: Record<string, string> = {
   History: "היסטוריה",
   Sections: "מקטעים",
   Language: "שפה",
-  "Export CSV": "ייצוא CSV",
   "Clear all": "מחיקת הכול",
   "Nothing yet. Tap the circle when one begins.": "עדיין אין כלום. להקיש על העיגול כשציר מתחיל.",
   "Not medical advice. Always follow your midwife or doctor. Everything stays on this device.":

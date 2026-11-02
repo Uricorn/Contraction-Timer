@@ -17,7 +17,6 @@ import {
   dangerSigns,
   MINUTE,
   sortByStart,
-  toCsv,
   windowStats,
   ruleMeters,
   type Meter,
@@ -339,13 +338,6 @@ $("clear").addEventListener("click", () => {
   }
 });
 
-$("export").addEventListener("click", () => {
-  const url = URL.createObjectURL(new Blob([toCsv(data.contractions)], { type: "text/csv" }));
-  const a = Object.assign(document.createElement("a"), { href: url, download: "contractions.csv" });
-  a.click();
-  URL.revokeObjectURL(url);
-});
-
 $("add-missed").addEventListener("click", () => edit(null));
 
 const watersDialog = $<HTMLDialogElement>("waters-dialog");
@@ -399,7 +391,7 @@ $("share").addEventListener("click", async () => {
   }
 });
 
-$("backup").addEventListener("click", () => downloadJson(data));
+$("backup").addEventListener("click", () => void downloadJson(data));
 
 const restoreFile = $<HTMLInputElement>("restore-file");
 $("restore").addEventListener("click", () => restoreFile.click());

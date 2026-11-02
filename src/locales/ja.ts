@@ -186,7 +186,6 @@ export const ja: Record<string, string> = {
   History: "履歴",
   Sections: "セクション",
   Language: "言語",
-  "Export CSV": "CSVを書き出す",
   "Clear all": "すべて消去",
   "Nothing yet. Tap the circle when one begins.":
     "まだ記録がありません。陣痛が始まったら丸をタップしてください。",

@@ -8,7 +8,6 @@ import {
   MINUTE,
   parseStored,
   ruleMeters,
-  toCsv,
   windowStats,
   type Contraction,
 } from "./logic";
@@ -113,16 +112,6 @@ describe("formatDuration", () => {
     expect(formatDuration(3_599_999)).toBe("59:59");
     expect(formatDuration(3_725_000)).toBe("1:02:05");
     expect(formatDuration(-5)).toBe("0:00");
-  });
-});
-
-describe("toCsv", () => {
-  it("has header and one row per contraction", () => {
-    const lines = toCsv([mk(0, 60), mk(5, 45)])
-      .trim()
-      .split("\n");
-    expect(lines).toHaveLength(3);
-    expect(lines[2].endsWith(",45,300")).toBe(true);
   });
 });
 

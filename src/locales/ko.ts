@@ -185,7 +185,6 @@ export const ko: Record<string, string> = {
   History: "기록",
   Sections: "섹션",
   Language: "언어",
-  "Export CSV": "CSV 내보내기",
   "Clear all": "모두 지우기",
   "Nothing yet. Tap the circle when one begins.":
     "아직 기록이 없습니다. 진통이 시작되면 원을 누르세요.",
