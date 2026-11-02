@@ -1,7 +1,7 @@
 # Contraction Timer
 
 [![CI](https://github.com/Uricorn/Contraction-Timer/actions/workflows/ci.yml/badge.svg)](https://github.com/Uricorn/Contraction-Timer/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: AGPL-3.0-only](https://img.shields.io/badge/license-AGPL--3.0--only-blue.svg)](LICENSE)
 
 A minimal contraction timer for labour that runs **fully offline** — in the browser (installable PWA)
 or as an Android app. No account, no ads, no analytics; data never leaves your device.
@@ -74,7 +74,7 @@ Feature inspiration: [petewritescode/contraction-timer](https://github.com/petew
 
 ## License
 
-[MIT](LICENSE)
+[AGPL-3.0-only](LICENSE)
 
 ## Dependencies
 
