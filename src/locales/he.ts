@@ -13,8 +13,8 @@ export const he: Record<string, string> = {
   "Waters broke now": "המים ירדו עכשיו",
   "Waters broke": "המים ירדו",
   "When did your waters break?": "מתי המים ירדו?",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "בדקו את הנוזל. נוזל צלול הוא תקין. אם הוא ירוק, חום או מדמם, פנו מיד למיילדת או לבית החולים.",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "בדקו את הנוזל. נוזל צלול הוא תקין. אם הוא ירוק, חום או מדמם, לכו מיד לבית החולים, או פעלו לפי הנחיית המיילדת.",
   "Edit waters time": "עריכת שעת ירידת המים",
   "Waters time removed": "שעת ירידת המים הוסרה",
   "Waters broke at {time}": "המים ירדו ב-{time}",

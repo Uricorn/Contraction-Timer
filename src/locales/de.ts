@@ -13,8 +13,8 @@ export const de: Record<string, string> = {
   "Waters broke now": "Fruchtblase ist jetzt geplatzt",
   "Waters broke": "Fruchtblase geplatzt",
   "When did your waters break?": "Wann ist die Fruchtblase geplatzt?",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "Prüfe die Flüssigkeit. Klar ist normal. Ist sie grün, braun oder blutig, ruf sofort deine Hebamme oder die Klinik an.",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Prüfe die Flüssigkeit. Klar ist normal. Ist sie grün, braun oder blutig, fahr sofort in die Klinik oder folge dem Rat deiner Hebamme.",
   "Edit waters time": "Zeit des Blasensprungs bearbeiten",
   "Waters time removed": "Zeit des Blasensprungs entfernt",
   "Waters broke at {time}": "Fruchtblase geplatzt um {time}",

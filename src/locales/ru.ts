@@ -13,8 +13,8 @@ export const ru: Record<string, string> = {
   "Waters broke now": "Воды отошли сейчас",
   "Waters broke": "Воды отошли",
   "When did your waters break?": "Когда отошли воды?",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "Проверьте цвет жидкости. Прозрачные воды — это норма. Если они зелёные, коричневые или с кровью, сразу позвоните акушерке или в роддом.",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Проверьте цвет жидкости. Прозрачные воды — это норма. Если они зелёные, коричневые или с кровью, немедленно поезжайте в роддом или следуйте совету акушерки.",
   "Edit waters time": "Изменить время отхождения вод",
   "Waters time removed": "Время отхождения вод удалено",
   "Waters broke at {time}": "Воды отошли в {time}",

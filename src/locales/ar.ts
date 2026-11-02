@@ -13,8 +13,8 @@ export const ar: Record<string, string> = {
   "Waters broke now": "انفجر كيس الماء الآن",
   "Waters broke": "انفجر كيس الماء",
   "When did your waters break?": "متى انفجر كيس الماء؟",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "افحصي السائل. السائل الصافي أمر متوقع. إذا كان أخضر أو بنيًا أو دمويًا، فاتصلي بالقابلة أو المستشفى فورًا.",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "افحصي السائل. السائل الصافي أمر متوقع. إذا كان أخضر أو بنيًا أو دمويًا، فتوجهي إلى المستشفى فورًا، أو اتبعي نصيحة القابلة.",
   "Edit waters time": "تعديل وقت انفجار كيس الماء",
   "Waters time removed": "تمت إزالة وقت انفجار كيس الماء",
   "Waters broke at {time}": "انفجر كيس الماء في {time}",

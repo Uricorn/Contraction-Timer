@@ -13,8 +13,8 @@ export const tr: Record<string, string> = {
   "Waters broke now": "Su şimdi geldi",
   "Waters broke": "Su geldi",
   "When did your waters break?": "Suyunuz ne zaman geldi?",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "Sıvıyı kontrol edin. Berrak olması beklenen durumdur. Yeşil, kahverengi veya kanlıysa hemen ebenizi veya hastaneyi arayın.",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Sıvıyı kontrol edin. Berrak olması beklenen durumdur. Yeşil, kahverengi veya kanlıysa hemen hastaneye gidin veya ebenizin tavsiyesine uyun.",
   "Edit waters time": "Su gelme saatini düzenle",
   "Waters time removed": "Su gelme saati kaldırıldı",
   "Waters broke at {time}": "Su gelme saati: {time}",

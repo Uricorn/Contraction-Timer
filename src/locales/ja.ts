@@ -13,8 +13,8 @@ export const ja: Record<string, string> = {
   "Waters broke now": "今、破水した",
   "Waters broke": "破水した",
   "When did your waters break?": "いつ破水しましたか？",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "羊水の色を確認してください。透明なら問題ありません。緑色、茶色、血が混じっている場合は、すぐに助産師または病院に連絡してください。",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "羊水の色を確認してください。透明なら問題ありません。緑色、茶色、血が混じっている場合は、すぐに病院へ行くか、助産師の指示に従ってください。",
   "Edit waters time": "破水の時刻を編集",
   "Waters time removed": "破水の時刻を削除しました",
   "Waters broke at {time}": "破水した時刻：{time}",

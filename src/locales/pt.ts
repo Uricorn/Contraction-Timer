@@ -13,8 +13,8 @@ export const pt: Record<string, string> = {
   "Waters broke now": "A bolsa rompeu agora",
   "Waters broke": "A bolsa rompeu",
   "When did your waters break?": "Quando a bolsa rompeu?",
-  "Check the fluid. Clear is expected. If it is green, brown or bloody, call your midwife or hospital right away.":
-    "Verifique o líquido. Líquido transparente é o esperado. Se estiver verde, marrom ou com sangue, ligue imediatamente para a parteira ou o hospital.",
+  "Check the fluid. Clear is expected. If it is green, brown or bloody, go to the hospital now, or follow your midwife's advice.":
+    "Verifique o líquido. Líquido transparente é o esperado. Se estiver verde, marrom ou com sangue, vá ao hospital imediatamente ou siga a orientação da sua parteira.",
   "Edit waters time": "Editar a hora da ruptura da bolsa",
   "Waters time removed": "Hora da ruptura da bolsa removida",
   "Waters broke at {time}": "A bolsa rompeu às {time}",
