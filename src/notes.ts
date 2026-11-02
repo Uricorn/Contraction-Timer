@@ -4,7 +4,9 @@ import { t } from "./i18n";
 
 type Field = { id: string; label: string; hint: string; value: string; long?: boolean };
 
-const KEY = "contraction-timer:notes:v2";
+const KEY = "contraction-timer:notes:v3";
+const V2_KEY = "contraction-timer:notes:v2";
+
 let saveTimer: ReturnType<typeof setTimeout> | undefined;
 const OLD_KEY = "contraction-timer:notes:v1";
 
@@ -15,6 +17,15 @@ const LONG = [
   "Problems this pregnancy",
   "Newborn choices",
   "Companions allowed in the delivery room",
+];
+
+const ADDED_IN_V3 = [
+  "First day of last period",
+  "Height and weight",
+  "Baby's estimated weight",
+  "Were all tests and scans normal?",
+  "Medicine taken today?",
+  "Pain level now",
 ];
 
 export const DEFAULT_FIELDS: Field[] = [
@@ -48,6 +59,12 @@ export const DEFAULT_FIELDS: Field[] = [
   ],
   ["Feeding plan", "breast, bottle, not sure"],
   ["Emergency contact", "name and phone"],
+  ["First day of last period", ""],
+  ["Height and weight", "before pregnancy and now"],
+  ["Baby's estimated weight", "and when it was measured"],
+  ["Were all tests and scans normal?", "note anything that was not"],
+  ["Medicine taken today?", "what and when"],
+  ["Pain level now", "1 to 10"],
 ].map(([label, hint], i) => ({
   id: `d${i}`,
   label,
@@ -59,6 +76,15 @@ export const DEFAULT_FIELDS: Field[] = [
 const valid = isArrayOf<Field>(
   (r) => typeof r.id === "string" && typeof r.label === "string" && typeof r.value === "string",
 );
+
+/** First run of v3: keep v2 (or v1) answers and edits, then add the questions new in v3. */
+function migrateV2(): Field[] {
+  const fields = load(V2_KEY, migrate, valid);
+  const added = DEFAULT_FIELDS.filter(
+    (d) => ADDED_IN_V3.includes(d.label) && !fields.some((f) => f.label === d.label),
+  );
+  return fields.concat(structuredClone(added));
+}
 
 /** First run of v2: keep anything typed in v1, drop the retired field, add new defaults. */
 function migrate(): Field[] {
@@ -75,7 +101,7 @@ export function initNotes(): void {
   const host = document.getElementById("notes-list") as HTMLElement;
   const form = document.getElementById("notes-form") as HTMLFormElement;
   const input = document.getElementById("notes-input") as HTMLInputElement;
-  let fields = load(KEY, migrate, valid);
+  let fields = load(KEY, migrateV2, valid);
   // Keep placeholder hints current for default questions (answers are untouched).
   for (const f of fields) f.hint = DEFAULT_FIELDS.find((d) => d.label === f.label)?.hint ?? f.hint;
 

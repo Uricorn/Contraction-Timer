@@ -332,4 +332,15 @@ export const uk: Record<string, string> = {
   "Your own wishes": "Ваші власні побажання",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Приклади: музика або приглушене світло, вільний рух, хто перетинає пуповину, хто з супроводу залишається, як і коли ви хочете дізнаватися про варіанти. Запишіть їх у побажаннях щодо пологів і запитайте персонал, що можливо.",
+  "First day of last period": "Перший день останніх місячних",
+  "Height and weight": "Зріст і вага",
+  "before pregnancy and now": "до вагітності та зараз",
+  "Baby's estimated weight": "Орієнтовна вага дитини",
+  "and when it was measured": "і коли її вимірювали",
+  "Were all tests and scans normal?": "Чи всі аналізи та УЗД були в нормі?",
+  "note anything that was not": "зазначте, що було не в нормі",
+  "Medicine taken today?": "Чи приймали ліки сьогодні?",
+  "what and when": "які і коли",
+  "Pain level now": "Рівень болю зараз",
+  "1 to 10": "від 1 до 10",
 };

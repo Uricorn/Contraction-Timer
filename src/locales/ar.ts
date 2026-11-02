@@ -327,4 +327,15 @@ export const ar: Record<string, string> = {
   "Your own wishes": "رغباتكِ الخاصة",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "أمثلة: الموسيقى أو الإضاءة الخافتة، حرية الحركة، من يقطع الحبل السري، أي المرافقين يبقون، وكيف ومتى تريدين أن تُخبَري بالخيارات. اكتبيها ضمن تفضيلات الولادة واسألي الطاقم عمّا هو ممكن.",
+  "First day of last period": "أول يوم من آخر دورة شهرية",
+  "Height and weight": "الطول والوزن",
+  "before pregnancy and now": "قبل الحمل والآن",
+  "Baby's estimated weight": "الوزن التقديري للجنين",
+  "and when it was measured": "ومتى تم قياسه",
+  "Were all tests and scans normal?": "هل كانت جميع الفحوصات والتصوير طبيعية؟",
+  "note anything that was not": "اكتبي ما لم يكن طبيعياً",
+  "Medicine taken today?": "هل تناولتِ دواءً اليوم؟",
+  "what and when": "أي دواء ومتى",
+  "Pain level now": "مستوى الألم الآن",
+  "1 to 10": "من 1 إلى 10",
 };

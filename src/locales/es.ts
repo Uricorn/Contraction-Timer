@@ -338,4 +338,15 @@ export const es: Record<string, string> = {
   "Your own wishes": "Tus propios deseos",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Ejemplos: música o luces tenues, moverte libremente, quién corta el cordón, qué acompañantes se quedan, cómo y cuándo quieres que te informen de las opciones. Escríbelos en preferencias para el parto y pregunta al personal qué es posible.",
+  "First day of last period": "Primer día de la última regla",
+  "Height and weight": "Altura y peso",
+  "before pregnancy and now": "antes del embarazo y ahora",
+  "Baby's estimated weight": "Peso estimado del bebé",
+  "and when it was measured": "y cuándo se midió",
+  "Were all tests and scans normal?": "¿Fueron normales todas las pruebas y ecografías?",
+  "note anything that was not": "anote lo que no lo fue",
+  "Medicine taken today?": "¿Ha tomado algún medicamento hoy?",
+  "what and when": "cuál y cuándo",
+  "Pain level now": "Nivel de dolor ahora",
+  "1 to 10": "de 1 a 10",
 };

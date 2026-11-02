@@ -333,4 +333,15 @@ export const ru: Record<string, string> = {
   "Your own wishes": "Ваши собственные пожелания",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Примеры: музыка или приглушённый свет, свободное движение, кто перережет пуповину, какие сопровождающие остаются, как и когда вы хотите узнавать о вариантах. Запишите их в пожеланиях к родам и спросите персонал, что возможно.",
+  "First day of last period": "Первый день последних месячных",
+  "Height and weight": "Рост и вес",
+  "before pregnancy and now": "до беременности и сейчас",
+  "Baby's estimated weight": "Предполагаемый вес ребёнка",
+  "and when it was measured": "и когда его измеряли",
+  "Were all tests and scans normal?": "Все ли анализы и УЗИ были в норме?",
+  "note anything that was not": "отметьте, что было не в норме",
+  "Medicine taken today?": "Принимали ли лекарство сегодня?",
+  "what and when": "какое и когда",
+  "Pain level now": "Уровень боли сейчас",
+  "1 to 10": "от 1 до 10",
 };

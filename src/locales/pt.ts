@@ -83,8 +83,7 @@ export const pt: Record<string, string> = {
     "Cumpre a regra {rule}. Continue até os três itens estarem marcados.",
   "Not at {rule} yet. Keep going, you're doing great.":
     "Ainda não chegou à regra {rule}. Continue, está a ir muito bem.",
-  "Start timing to see how you're tracking.":
-    "Comece a cronometrar para ver como está a evoluir.",
+  "Start timing to see how you're tracking.": "Comece a cronometrar para ver como está a evoluir.",
   "When to go": "Quando ir",
   "Based on your last hour.": "Com base na sua última hora.",
   "Which one should I pick?": "Qual devo escolher?",
@@ -234,8 +233,7 @@ export const pt: Record<string, string> = {
     "Snacks leves: tâmaras, frutos secos, fruta, bolachas",
   "Comfort items: small lamp, fan, heat pack, massage ball, playlist":
     "Itens de conforto: candeeiro pequeno, ventoinha, saco de calor, bola de massagem, playlist",
-  "Partner: change of clothes, snacks, charger":
-    "Parceiro: muda de roupa, snacks, carregador",
+  "Partner: change of clothes, snacks, charger": "Parceiro: muda de roupa, snacks, carregador",
   "Partner: zip-up hoodie or button shirt for skin-to-skin":
     "Parceiro: casaco com fecho ou camisa de botões para o contacto pele com pele",
   "Loose comfy clothes and slippers": "Roupa larga e confortável e pantufas",
@@ -270,8 +268,7 @@ export const pt: Record<string, string> = {
   "Previous births": "Partos anteriores",
   "how many, how they went, any caesarean": "quantos, como correram, alguma cesariana",
   "Problems this pregnancy": "Problemas nesta gravidez",
-  "e.g. diabetes, blood pressure, low placenta":
-    "p. ex. diabetes, tensão arterial, placenta baixa",
+  "e.g. diabetes, blood pressure, low placenta": "p. ex. diabetes, tensão arterial, placenta baixa",
   Allergies: "Alergias",
   "medicines, latex, food": "medicamentos, látex, alimentos",
   "Medicines and supplements": "Medicamentos e suplementos",
@@ -342,4 +339,15 @@ export const pt: Record<string, string> = {
   "Your own wishes": "Os seus próprios desejos",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Exemplos: música ou luz suave, mover-se livremente, quem corta o cordão, que acompanhantes ficam, como e quando quer ser informada sobre as opções. Escreva-os em “Preferências para o parto” e pergunte à equipa o que é possível.",
+  "First day of last period": "Primeiro dia da última menstruação",
+  "Height and weight": "Altura e peso",
+  "before pregnancy and now": "antes da gravidez e agora",
+  "Baby's estimated weight": "Peso estimado do bebé",
+  "and when it was measured": "e quando foi medido",
+  "Were all tests and scans normal?": "Todos os exames e ecografias foram normais?",
+  "note anything that was not": "anote o que não foi",
+  "Medicine taken today?": "Tomou algum medicamento hoje?",
+  "what and when": "qual e quando",
+  "Pain level now": "Nível de dor agora",
+  "1 to 10": "de 1 a 10",
 };

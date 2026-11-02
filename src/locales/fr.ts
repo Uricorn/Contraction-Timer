@@ -83,8 +83,7 @@ export const fr: Record<string, string> = {
     "Correspond à la règle {rule}. Continuez jusqu'à ce que les trois cases soient cochées.",
   "Not at {rule} yet. Keep going, you're doing great.":
     "Pas encore à la règle {rule}. Continuez, vous vous débrouillez très bien.",
-  "Start timing to see how you're tracking.":
-    "Lancez le chronométrage pour voir où vous en êtes.",
+  "Start timing to see how you're tracking.": "Lancez le chronométrage pour voir où vous en êtes.",
   "When to go": "Quand partir",
   "Based on your last hour.": "D'après votre dernière heure.",
   "Which one should I pick?": "Laquelle choisir ?",
@@ -126,7 +125,8 @@ export const fr: Record<string, string> = {
     "les contractions deviennent régulières ou correspondent à la règle 5-1-1",
   "you are under 37 weeks and think you may be in labour":
     "vous avez moins de 37 semaines et pensez être en travail",
-  "you are unsure or worried about anything": "vous avez un doute ou une inquiétude, quelle qu'elle soit",
+  "you are unsure or worried about anything":
+    "vous avez un doute ou une inquiétude, quelle qu'elle soit",
   "They will tell you whether to come in, and can prepare for you. Save their number now. If in doubt, go.":
     "Ils vous diront s'il faut venir et pourront se préparer. Enregistrez dès maintenant leur numéro. En cas de doute, allez-y.",
   "Breathe together": "Respirer ensemble",
@@ -177,7 +177,8 @@ export const fr: Record<string, string> = {
   "This one will pass, and you have handled every one so far.":
     "Celle-ci va passer, et vous avez surmonté toutes les précédentes.",
   "I'm not going anywhere. I've got you.": "Je ne bouge pas. Je suis avec vous.",
-  "You're doing so well. I'm so proud of you.": "Vous vous débrouillez si bien. Je suis si fier de vous.",
+  "You're doing so well. I'm so proud of you.":
+    "Vous vous débrouillez si bien. Je suis si fier de vous.",
   "Rest now. Let your body go soft between them.":
     "Reposez-vous maintenant. Laissez votre corps se détendre entre les contractions.",
   Timer: "Chrono",
@@ -208,7 +209,8 @@ export const fr: Record<string, string> = {
   "Health fund / insurance card and any forms the hospital needs":
     "Carte d'assurance maladie / de mutuelle et les formulaires dont la maternité a besoin",
   "Birth plan (a few copies)": "Projet de naissance (quelques exemplaires)",
-  "Medicines you take regularly, with doses": "Médicaments que vous prenez régulièrement, avec les doses",
+  "Medicines you take regularly, with doses":
+    "Médicaments que vous prenez régulièrement, avec les doses",
   "Any medicines or supplements your doctor said to bring":
     "Les médicaments ou compléments que votre médecin vous a demandé d'apporter",
   "List of drug allergies": "Liste des allergies médicamenteuses",
@@ -268,14 +270,15 @@ export const fr: Record<string, string> = {
   "Last ate or drank": "Dernier repas ou dernière boisson",
   "time and what": "heure et quoi",
   "Previous births": "Accouchements précédents",
-  "how many, how they went, any caesarean": "combien, comment ils se sont passés, césarienne éventuelle",
+  "how many, how they went, any caesarean":
+    "combien, comment ils se sont passés, césarienne éventuelle",
   "Problems this pregnancy": "Problèmes durant cette grossesse",
-  "e.g. diabetes, blood pressure, low placenta":
-    "p. ex. diabète, tension artérielle, placenta bas",
+  "e.g. diabetes, blood pressure, low placenta": "p. ex. diabète, tension artérielle, placenta bas",
   Allergies: "Allergies",
   "medicines, latex, food": "médicaments, latex, aliments",
   "Medicines and supplements": "Médicaments et compléments",
-  "Medical conditions and past surgeries": "Problèmes de santé et interventions chirurgicales passées",
+  "Medical conditions and past surgeries":
+    "Problèmes de santé et interventions chirurgicales passées",
   "Blood type": "Groupe sanguin",
   "Group B strep result": "Résultat du streptocoque du groupe B",
   "positive, negative or unknown": "positif, négatif ou inconnu",
@@ -342,4 +345,15 @@ export const fr: Record<string, string> = {
   "Your own wishes": "Vos propres souhaits",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Exemples : musique ou lumière tamisée, liberté de mouvement, qui coupe le cordon, quels accompagnants restent, comment et quand vous souhaitez être informée des options. Notez-les sous « Préférences pour la naissance » et demandez au personnel ce qui est possible.",
+  "First day of last period": "Premier jour des dernières règles",
+  "Height and weight": "Taille et poids",
+  "before pregnancy and now": "avant la grossesse et maintenant",
+  "Baby's estimated weight": "Poids estimé du bébé",
+  "and when it was measured": "et quand il a été mesuré",
+  "Were all tests and scans normal?": "Tous les examens et échographies étaient-ils normaux ?",
+  "note anything that was not": "notez ce qui ne l'était pas",
+  "Medicine taken today?": "Médicament pris aujourd'hui ?",
+  "what and when": "lequel et quand",
+  "Pain level now": "Niveau de douleur actuel",
+  "1 to 10": "de 1 à 10",
 };

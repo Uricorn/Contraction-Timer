@@ -121,7 +121,8 @@ export const de: Record<string, string> = {
     "Starker Pressdrang oder das Baby kommt: Ruf den örtlichen Notruf an.",
   "Call your midwife or maternity unit first if":
     "Ruf zuerst deine Hebamme oder die Geburtsstation an, wenn",
-  "your waters break and the fluid is clear": "die Fruchtblase platzt und das Fruchtwasser klar ist",
+  "your waters break and the fluid is clear":
+    "die Fruchtblase platzt und das Fruchtwasser klar ist",
   "contractions begin to be regular, or match 5-1-1":
     "die Wehen regelmäßig werden oder der 5-1-1-Regel entsprechen",
   "you are under 37 weeks and think you may be in labour":
@@ -201,14 +202,14 @@ export const de: Record<string, string> = {
   "Untick all": "Alle abwählen",
   "Restore defaults": "Standard wiederherstellen",
   "ID for you and your partner": "Ausweise für dich und deinen Partner",
-  "Pregnancy tracking card, complete and in order":
-    "Mutterpass, vollständig und in Ordnung",
+  "Pregnancy tracking card, complete and in order": "Mutterpass, vollständig und in Ordnung",
   "Folder with pregnancy test results and scans":
     "Mappe mit Untersuchungsergebnissen und Ultraschallbildern aus der Schwangerschaft",
   "Health fund / insurance card and any forms the hospital needs":
     "Krankenkassen-/Versicherungskarte und alle Formulare, die die Klinik braucht",
   "Birth plan (a few copies)": "Geburtsplan (einige Kopien)",
-  "Medicines you take regularly, with doses": "Medikamente, die du regelmäßig nimmst, mit Dosierung",
+  "Medicines you take regularly, with doses":
+    "Medikamente, die du regelmäßig nimmst, mit Dosierung",
   "Any medicines or supplements your doctor said to bring":
     "Alle Medikamente oder Nahrungsergänzungsmittel, die dein Arzt mitzubringen empfohlen hat",
   "List of drug allergies": "Liste der Medikamentenallergien",
@@ -230,12 +231,10 @@ export const de: Record<string, string> = {
   "Toiletries, toothbrush, hair ties, lip balm, wipes":
     "Kulturbeutel, Zahnbürste, Haargummis, Lippenbalsam, Feuchttücher",
   "Water bottle with a straw": "Wasserflasche mit Strohhalm",
-  "Light snacks: dates, nuts, fruit, crackers":
-    "Leichte Snacks: Datteln, Nüsse, Obst, Cracker",
+  "Light snacks: dates, nuts, fruit, crackers": "Leichte Snacks: Datteln, Nüsse, Obst, Cracker",
   "Comfort items: small lamp, fan, heat pack, massage ball, playlist":
     "Wohlfühldinge: kleine Lampe, Ventilator, Wärmekissen, Massageball, Playlist",
-  "Partner: change of clothes, snacks, charger":
-    "Partner: Wechselkleidung, Snacks, Ladegerät",
+  "Partner: change of clothes, snacks, charger": "Partner: Wechselkleidung, Snacks, Ladegerät",
   "Partner: zip-up hoodie or button shirt for skin-to-skin":
     "Partner: Kapuzenjacke mit Reißverschluss oder Hemd mit Knöpfen für den Hautkontakt",
   "Loose comfy clothes and slippers": "Lockere, bequeme Kleidung und Hausschuhe",
@@ -285,8 +284,7 @@ export const de: Record<string, string> = {
   "Pain relief wishes": "Wünsche zur Schmerzlinderung",
   "e.g. natural, epidural, open to options": "z. B. natürlich, PDA, offen für Optionen",
   "Birth preferences": "Geburtswünsche",
-  "e.g. movement, music, delayed cord clamping":
-    "z. B. Bewegung, Musik, spätes Abnabeln",
+  "e.g. movement, music, delayed cord clamping": "z. B. Bewegung, Musik, spätes Abnabeln",
   "Newborn choices": "Entscheidungen für das Neugeborene",
   "first bath, delayed cord clamping, vitamin K, vaccines, cord blood, rooming-in":
     "erstes Bad, spätes Abnabeln, Vitamin K, Impfungen, Nabelschnurblut, Rooming-in",
@@ -342,4 +340,15 @@ export const de: Record<string, string> = {
   "Your own wishes": "Deine eigenen Wünsche",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "Beispiele: Musik oder gedämpftes Licht, sich frei bewegen, wer die Nabelschnur durchtrennt, welche Begleitpersonen bleiben, wie und wann du über Optionen informiert werden möchtest. Notiere sie unter „Geburtswünsche“ und frag das Personal, was möglich ist.",
+  "First day of last period": "Erster Tag der letzten Periode",
+  "Height and weight": "Größe und Gewicht",
+  "before pregnancy and now": "vor der Schwangerschaft und jetzt",
+  "Baby's estimated weight": "Geschätztes Gewicht des Babys",
+  "and when it was measured": "und wann es gemessen wurde",
+  "Were all tests and scans normal?": "Waren alle Untersuchungen und Ultraschalls unauffällig?",
+  "note anything that was not": "Auffälliges notieren",
+  "Medicine taken today?": "Heute ein Medikament genommen?",
+  "what and when": "welches und wann",
+  "Pain level now": "Schmerzstärke jetzt",
+  "1 to 10": "von 1 bis 10",
 };

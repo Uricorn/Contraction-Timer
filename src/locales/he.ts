@@ -319,4 +319,15 @@ export const he: Record<string, string> = {
   "Your own wishes": "הרצונות שלך",
   "Examples: music or low lights, moving freely, who cuts the cord, which companions stay, how and when you want to be told about options. Write them under birth preferences and ask staff what is possible.":
     "דוגמאות: מוזיקה או תאורה עמומה, תנועה חופשית, מי חותך את חבל הטבור, אילו מלווים נשארים, ואיך ומתי רוצים לשמוע על אפשרויות. לכתוב אותם תחת העדפות ללידה ולשאול את הצוות מה אפשרי.",
+  "First day of last period": "תאריך היום הראשון של המחזור האחרון",
+  "Height and weight": "גובה ומשקל",
+  "before pregnancy and now": "לפני ההריון וכעת",
+  "Baby's estimated weight": "הערכת משקל התינוק",
+  "and when it was measured": "ומתי נמדד",
+  "Were all tests and scans normal?": "האם כל הבדיקות וסקירות האולטרסאונד היו תקינות?",
+  "note anything that was not": "לציין מה לא היה תקין",
+  "Medicine taken today?": "נטילת תרופה היום?",
+  "what and when": "איזו ומתי",
+  "Pain level now": "רמת כאב כעת",
+  "1 to 10": "1 עד 10",
 };
