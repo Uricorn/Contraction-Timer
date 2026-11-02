@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#fdf6f0" />
+    <meta
+      name="description"
+      content="Offline contraction timer for labour. No account, no tracking."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <title>Contraction Timer</title>
+  </head>
+  <body data-state="idle">
+    <main>
+      <!-- TIMER -->
+      <div id="view-timer" class="view">
+        <section class="timer">
+          <p id="save-warning" class="notice" role="alert" hidden>
+            Timing isn't being saved. Your browser is blocking storage, so keep this page open.
+          </p>
+          <p id="state-label" class="label" role="status" aria-live="polite">Ready</p>
+          <p id="clock" class="clock" role="timer">0:00</p>
+          <p id="clock-sub" class="sub">&nbsp;</p>
+          <div class="orb-wrap">
+            <button id="toggle" class="orb" type="button">Start</button>
+          </div>
+          <button id="pause" class="soft" type="button" hidden>Pause</button>
+          <p id="danger" class="notice" role="alert" hidden></p>
+          <label class="check-row"
+            ><input id="alerts" type="checkbox" /> Notify me when it's time to go</label
+          >
+          <p id="alerts-note" class="small" role="status" hidden></p>
+        </section>
+
+        <section id="welcome" class="card" hidden>
+          <h2>Welcome</h2>
+          <p>
+            Tap the big circle when a contraction starts and again when it ends. Everything stays on
+            this device and works offline.
+          </p>
+          <button id="welcome-ok" class="soft" type="button">Got it</button>
+        </section>
+
+        <section class="card guide" aria-labelledby="guide-title">
+          <div class="guide-head">
+            <h2 id="guide-title">When to go</h2>
+            <div class="seg" role="radiogroup" aria-label="Guideline">
+              <button type="button" role="radio" data-rule="5-1-1">5-1-1</button>
+              <button type="button" role="radio" data-rule="4-1-1">4-1-1</button>
+              <button type="button" role="radio" data-rule="3-1-1">3-1-1</button>
+            </div>
+          </div>
+          <p id="guide-sub" class="guide-sub">Based on your last hour.</p>
+          <details class="which">
+            <summary>Which one should I pick?</summary>
+            <p>
+              The numbers are minutes between contractions. A bigger number means you set off
+              earlier.
+            </p>
+            <ul>
+              <li>
+                <strong>5-1-1</strong>: earliest. Good if you live far away, or have had a baby
+                before (labour can be quicker).
+              </li>
+              <li><strong>4-1-1</strong>: the usual middle choice, often for a first baby.</li>
+              <li>
+                <strong>3-1-1</strong>: latest. Only if you live close, or your midwife or doctor
+                told you to wait longer.
+              </li>
+            </ul>
+            <p>
+              If your provider gave you a number, use theirs. Not sure? Pick 5-1-1 and call them.
+            </p>
+          </details>
+
+          <div class="meter" id="m-apart">
+            <span class="digit" id="d-apart">5</span>
+            <div class="meter-body">
+              <div class="meter-line">
+                <span id="t-apart">minutes apart or less</span>
+                <strong id="v-apart">–</strong>
+              </div>
+              <div class="bar"><i id="b-apart"></i></div>
+            </div>
+          </div>
+          <div class="meter" id="m-length">
+            <span class="digit">1</span>
+            <div class="meter-body">
+              <div class="meter-line">
+                <span>minute long or more</span>
+                <strong id="v-length">–</strong>
+              </div>
+              <div class="bar"><i id="b-length"></i></div>
+            </div>
+          </div>
+          <div class="meter" id="m-hour">
+            <span class="digit">1</span>
+            <div class="meter-body">
+              <div class="meter-line">
+                <span>hour of both</span>
+                <strong id="v-hour">–</strong>
+              </div>
+              <div class="bar"><i id="b-hour"></i></div>
+            </div>
+          </div>
+
+          <p id="rule" class="rule" role="status" aria-live="polite">
+            Start timing to see how you're tracking.
+          </p>
+          <p class="guide-foot">
+            <span id="stat-count">0</span> in the last hour ·
+            <button type="button" class="link inline" data-goto="tips">Other reasons to go</button>
+          </p>
+        </section>
+      </div>
+
+      <!-- TIPS -->
+      <div id="view-tips" class="view" hidden>
+        <h1>Tips &amp; support</h1>
+        <p class="lead">
+          Things you and your partner can do. Evidence notes come from published reviews, with links
+          below. Ask your midwife what suits you.
+        </p>
+
+        <section class="card urgent go-now" id="go-now">
+          <h2>Go to the hospital now if</h2>
+          <ul>
+            <li>you have bleeding heavier than a period, or any bleeding with pain</li>
+            <li>baby is moving much less than usual</li>
+            <li>your waters break and the fluid is green, brown or bloody</li>
+            <li>a contraction lasts longer than 2 minutes</li>
+            <li>you have 6 or more contractions in 10 minutes</li>
+            <li>contractions match your 3-1-1 or 4-1-1 guideline</li>
+          </ul>
+          <p>Strong urge to push, or baby is coming: call your local emergency number.</p>
+        </section>
+
+        <section class="card urgent" id="when-to-call">
+          <h2>Call your midwife or maternity unit first if</h2>
+          <ul>
+            <li>your waters break and the fluid is clear</li>
+            <li>contractions begin to be regular, or match 5-1-1</li>
+            <li>you are under 37 weeks and think you may be in labour</li>
+            <li>you are unsure or worried about anything</li>
+          </ul>
+          <p>
+            They will tell you whether to come in, and can prepare for you. Save their number now.
+            If in doubt, go.
+          </p>
+          <a
+            href="https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >NHS: signs that labour has begun</a
+          >
+        </section>
+
+        <section class="card breathe">
+          <h2>Breathe together</h2>
+          <p class="small">
+            Slow breathing with a longer breath out. Relaxation methods may lower pain a little, but
+            studies are small, so use what feels good.
+          </p>
+          <div id="pacer" class="pacer" aria-hidden="true"><span id="pacer-text">Ready</span></div>
+          <button id="pacer-btn" class="soft" type="button">Start breathing guide</button>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD009514/PREG_relaxation-techniques-pain-management-labour"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane: relaxation techniques</a
+          >
+        </section>
+
+        <section class="card words">
+          <h2>Words to say</h2>
+          <blockquote id="phrase">You are doing it. I am right here.</blockquote>
+          <button id="phrase-btn" class="soft" type="button">Another one</button>
+          <p class="small">
+            Constant, calm support is linked to shorter labours and better birth experiences.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD003766/PREG_continuous-support-women-during-childbirth"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane: continuous support</a
+          >
+        </section>
+
+        <h2 class="section">How a partner can help</h2>
+
+        <article class="card tip">
+          <h3>Stay close <span class="tag some">Some evidence</span></h3>
+          <p>
+            Be present for the whole labour, don't leave her alone for long, and speak up for her
+            wishes. In 27 trials, continuous support meant more spontaneous births, around 40
+            minutes shorter labour on average, and fewer negative feelings about the birth.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD003766/PREG_continuous-support-women-during-childbirth"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Move and stay upright <span class="tag some">Some evidence</span></h3>
+          <p>
+            Walk, sway, lean over a bed or birth ball, kneel, or rock on all fours. Compared with
+            lying down, upright positions made the first stage about 1 hour 20 minutes shorter, with
+            fewer caesareans. Quality was mixed, so follow what feels right.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD003934/PREG_maternal-position-during-first-stage-labour"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Massage <span class="tag some">Some evidence</span></h3>
+          <p>
+            Firm strokes or pressure on the lower back, shoulders or hands. Massage lowered reported
+            pain in the first stage in small trials. Ask what pressure and where, and check often,
+            because it changes.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD009290/PREG_massage-reflexology-and-other-manual-methods-pain-management-labour"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Warm water <span class="tag limited">Limited evidence</span></h3>
+          <p>
+            A warm shower or bath is a common comfort. Reviews of birth pools found fewer epidurals
+            and no clear harm to mothers or babies. Showers are less studied. Keep the water warm,
+            not hot, and ask your midwife before using a bath or pool.
+          </p>
+          <a
+            class="src"
+            href="https://www.cochrane.org/CD000111/PREG_immersion-water-during-labour-and-birth"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cochrane review</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Pain relief options <span class="tag info">Know your options</span></h3>
+          <p>
+            Gas and air, injections, epidurals and TENS all have pros and cons. Help her remember
+            what she decided in advance, and that she can change her mind.
+          </p>
+          <a
+            class="src"
+            href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens/pain-relief-in-labour/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >NHS: pain relief in labour</a
+          >
+        </article>
+
+        <article class="card tip">
+          <h3>Practical comforts <span class="tag info">Common sense</span></h3>
+          <p>
+            Offer sips of water, a cool cloth, dim lights, quiet, and a calm voice. Handle phone
+            calls and the bag, so she can focus. Time each contraction from the start, and take
+            breaks yourself too.
+          </p>
+        </article>
+
+        <section class="card sources">
+          <h2>Sources</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.nhs.uk/pregnancy/labour-and-birth/signs-that-labour-has-begun/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NHS: signs that labour has begun</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nice.org.uk/guidance/ng235"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NICE NG235: intrapartum care</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.acog.org/womens-health/faqs/how-to-tell-when-labor-begins"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ACOG: how to tell when labor begins</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://healthy.kaiserpermanente.org/health-wellness/maternity/labor-delivery/when-to-go"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Kaiser Permanente: when to go to the hospital</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.tasmc.org.il/lis/mamy-lis/articles/when-to-arrive/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ichilov Lis: when to come to the delivery room</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://me.health.gov.il/parenting/family-planning/labor/stages/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ministry of Health: stages of labour</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.maccabi4u.co.il/maccabi_circles/pregnancy-and-birth/pregnancy_weeks/birth/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Maccabi: labour and when to come in</a
+              >
+            </li>
+          </ul>
+          <p class="small">
+            Links need an internet connection. Everything else in this app works offline. The 5-1-1
+            family of rules is a widely used rule of thumb, not an official clinical standard.
+          </p>
+        </section>
+      </div>
+
+      <!-- BAG CHECKLIST -->
+      <div id="view-list" class="view" hidden>
+        <h1>Hospital bag</h1>
+        <p class="lead">
+          A starting list. Tick things off, delete what you don't need, and add your own.
+        </p>
+        <section class="card">
+          <p id="check-count" class="small count">0 of 0 packed</p>
+          <ul id="check-list" class="editable"></ul>
+          <form id="check-form" class="add">
+            <input
+              id="check-input"
+              type="text"
+              placeholder="Add an item"
+              aria-label="Add an item"
+              maxlength="80"
+            />
+            <button class="soft" type="submit">Add</button>
+          </form>
+          <div class="row-links">
+            <button id="check-untick" type="button" class="link">Untick all</button>
+            <button id="check-reset" type="button" class="link">Restore defaults</button>
+          </div>
+        </section>
+
+        <section class="card sources">
+          <h2>Sources</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.nhs.uk/best-start-in-life/pregnancy/preparing-for-labour-and-birth/hospital-bag-checklist/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NHS: hospital bag checklist</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.tommys.org/pregnancy-information/giving-birth/packing-hospital-bag"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Tommy's: packing your bag for labour and birth</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nct.org.uk/information/labour-birth/planning-birth/hospital-bag-checklist-what-do-i-need"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NCT: hospital bag checklist</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www2.hse.ie/pregnancy-birth/labour/preparing/hospital-bag/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >HSE: hospital bag for labour and birth</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://health.clevelandclinic.org/what-to-pack-in-hospital-bag"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Cleveland Clinic: what to pack in your hospital bag</a
+              >
+            </li>
+          </ul>
+          <p class="small">
+            Links need an internet connection. General information, not medical advice.
+          </p>
+        </section>
+      </div>
+
+      <!-- HOSPITAL NOTES -->
+      <div id="view-notes" class="view" hidden>
+        <h1>Hospital notes</h1>
+        <p class="lead">
+          Answers staff often ask for. Fill in ahead of time so you don't have to think
+          mid-contraction. Saved on this device only.
+        </p>
+        <section class="card">
+          <div id="notes-list"></div>
+          <form id="notes-form" class="add">
+            <input
+              id="notes-input"
+              type="text"
+              placeholder="Add your own question"
+              aria-label="Add your own question"
+              maxlength="80"
+            />
+            <button class="soft" type="submit">Add</button>
+          </form>
+          <div class="row-links">
+            <button id="notes-reset" type="button" class="link">Restore defaults</button>
+          </div>
+        </section>
+
+        <h2 class="section">Common procedures and why</h2>
+        <section class="card">
+          <p class="small">
+            Tap one to read more. Routines vary by hospital and by your situation, so ask your care
+            team what is standard for you.
+          </p>
+          <details class="info">
+            <summary>Vitamin K injection <span class="tag info">Standard</span></summary>
+            <p>
+              A single dose given to the newborn soon after birth. Newborns have low vitamin K,
+              which helps blood clot, and the injection prevents a rare but serious bleeding
+              problem. Oral drops exist but need repeated doses.
+            </p>
+            <a
+              class="src"
+              href="https://www.nhs.uk/pregnancy/labour-and-birth/what-happens-straight-after/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >NHS: what happens straight after the birth</a
+            >
+          </details>
+          <details class="info">
+            <summary>Eye ointment <span class="tag info">Standard</span></summary>
+            <p>
+              Antibiotic ointment in the baby’s eyes to prevent infection from bacteria passed on in
+              birth. Policies differ between hospitals and countries, and some now give it only when
+              infection risk is higher, so ask if it is routine where you are.
+            </p>
+            <a
+              class="src"
+              href="https://www.aao.org/education/clinical-statement/use-of-erythromycin-in-prevention-of-neonatal-opht"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AAO: erythromycin to prevent newborn eye infection</a
+            ><a
+              class="src"
+              href="https://www.cdc.gov/std/treatment-guidelines/gonorrhea-neonates.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CDC: preventing newborn eye infection</a
+            >
+          </details>
+          <details class="info">
+            <summary>Hepatitis B vaccine <span class="tag info">Standard</span></summary>
+            <p>
+              Often offered in the first days. Protects against a liver infection that can be passed
+              on at birth and is more serious in babies. Recommendations differ by country and by
+              the mother’s test result, so ask what your hospital gives and when.
+            </p>
+            <a
+              class="src"
+              href="https://www.cdc.gov/hepatitis-b/hcp/perinatal-provider-overview/vaccine-administration.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CDC: hepatitis B vaccine for newborns</a
+            >
+          </details>
+          <details class="info">
+            <summary>Newborn checks and screening <span class="tag info">Standard</span></summary>
+            <p>
+              Weight and Apgar scores in the first minutes, then a full exam, a heel-prick blood
+              test for rare treatable conditions, a hearing test, and often a heart oxygen check.
+              They find problems early, when treatment works best.
+            </p>
+            <a
+              class="src"
+              href="https://www.nhs.uk/conditions/baby/newborn-screening/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >NHS: newborn screening</a
+            >
+          </details>
+          <details class="info">
+            <summary>Group B strep antibiotics <span class="tag info">Standard</span></summary>
+            <p>
+              If your GBS test was positive, antibiotics through a drip during labour lower the
+              chance of passing it to baby. Tell staff your result when you arrive.
+            </p>
+            <a
+              class="src"
+              href="https://www.acog.org/womens-health/faqs/group-b-strep-and-pregnancy"
+              target="_blank"
+              rel="noopener noreferrer"
+              >ACOG: group B strep and pregnancy</a
+            >
+          </details>
+          <details class="info">
+            <summary>
+              Monitoring the baby’s heartbeat <span class="tag info">Standard</span>
+            </summary>
+            <p>
+              Staff listen to baby’s heart on admission, by a monitor belt or hand-held device. If
+              all is well, you can often ask for intermittent monitoring so you can move around.
+            </p>
+            <a
+              class="src"
+              href="https://www.nice.org.uk/guidance/ng235"
+              target="_blank"
+              rel="noopener noreferrer"
+              >NICE NG235: intrapartum care</a
+            >
+          </details>
+          <details class="info">
+            <summary>Drip (IV line) and blood tests <span class="tag info">Common</span></summary>
+            <p>
+              A drip allows fluids and medicines quickly if needed, and is usual with an epidural.
+              If you want to move freely, ask whether a capped line (not connected) is enough.
+            </p>
+            <a
+              class="src"
+              href="https://www.nice.org.uk/guidance/ng235"
+              target="_blank"
+              rel="noopener noreferrer"
+              >NICE NG235: intrapartum care</a
+            >
+          </details>
+          <details class="info">
+            <summary>
+              Injection after birth to help the womb contract <span class="tag info">Common</span>
+            </summary>
+            <p>
+              Often offered as the placenta comes out. It lowers the risk of heavy bleeding after
+              the birth. You can ask about waiting for the placenta naturally if you are low risk,
+              and discuss it in advance.
+            </p>
+            <a
+              class="src"
+              href="https://www.aafp.org/afp/2021/0401/p404"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AAFP: summary of the Cochrane review on the third stage of labour</a
+            >
+          </details>
+          <details class="info">
+            <summary>
+              Induction and cutting (episiotomy) <span class="tag info">Only if needed</span>
+            </summary>
+            <p>
+              Induction is offered when waiting is riskier than starting labour, and an episiotomy
+              only when baby needs to be born quickly. Ask your care team to explain why if they are
+              suggested.
+            </p>
+            <a
+              class="src"
+              href="https://www.nice.org.uk/guidance/ng207"
+              target="_blank"
+              rel="noopener noreferrer"
+              >NICE NG207: inducing labour</a
+            ><a
+              class="src"
+              href="https://www.cochrane.org/CD000081/PREG_restrictive-versus-routine-episiotomy-vaginal-births"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Cochrane: episiotomy</a
+            >
+          </details>
+        </section>
+
+        <h2 class="section">Special requests to consider</h2>
+        <section class="card">
+          <p class="small">
+            You can ask. Staff will agree when it is safe for you and baby. Decide in advance, write
+            it under newborn choices or birth preferences, and tell the team on arrival.
+          </p>
+          <details class="info">
+            <summary>Delayed cord clamping <span class="tag some">Some evidence</span></summary>
+            <p>
+              Wait at least 30 to 60 seconds (or until the cord stops pulsing) before clamping, if
+              baby is well. More blood passes to the baby, which raises iron stores in the first
+              months. ACOG and WHO both recommend it for healthy babies. Not suitable if baby needs
+              help right away.
+            </p>
+            <a
+              class="src"
+              href="https://www.acog.org/clinical/guidance/committee-opinion/2020/12/delayed-umbilical-cord-clamping-after-birth/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >ACOG</a
+            ><a
+              class="src"
+              href="https://www.cochrane.org/CD003248/PREG_effect-timing-umbilical-cord-clamping-term-infants-mother-and-baby-outcomes"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Cochrane review</a
+            >
+          </details>
+          <details class="info">
+            <summary>Delay the first bath <span class="tag some">Some evidence</span></summary>
+            <p>
+              WHO suggests waiting at least 24 hours (or at least 6 hours if that is not possible).
+              Waiting helps keep baby warm and steady, and supports breastfeeding. Ask staff to wipe
+              off blood and leave the white coating (vernix) on.
+            </p>
+            <a
+              class="src"
+              href="https://www.who.int/publications/i/item/9789240045989"
+              target="_blank"
+              rel="noopener noreferrer"
+              >WHO recommendations</a
+            >
+          </details>
+          <details class="info">
+            <summary>
+              Skin-to-skin straight after birth <span class="tag some">Some evidence</span>
+            </summary>
+            <p>
+              Baby is placed on your chest, dried and covered, for the first hour or more. Linked to
+              steadier temperature and heart rate, and more breastfeeding success. A partner can do
+              it if you cannot.
+            </p>
+            <a
+              class="src"
+              href="https://www.cochrane.org/CD003519/PREG_early-skin-skin-contact-mothers-and-their-healthy-newborn-infants"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Cochrane review</a
+            >
+          </details>
+          <details class="info">
+            <summary>
+              Keep baby with you (rooming-in) <span class="tag limited">Limited evidence</span>
+            </summary>
+            <p>
+              Baby stays in your room day and night rather than a nursery. Can make feeding on
+              demand easier. Rest matters too, so choose what works for you, and ask about partial
+              rooming-in.
+            </p>
+          </details>
+          <details class="info">
+            <summary>Your own wishes <span class="tag info">Common sense</span></summary>
+            <p>
+              Examples: music or low lights, moving freely, who cuts the cord, which companions
+              stay, how and when you want to be told about options. Write them under birth
+              preferences and ask staff what is possible.
+            </p>
+          </details>
+        </section>
+
+        <section class="card sources">
+          <h2>Sources</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.babycentre.co.uk/a546727/admission-procedures-early-labour-checks"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BabyCentre: what happens when you arrive in labour</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.acog.org/womens-health/faqs/group-b-strep-and-pregnancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ACOG: group B strep and pregnancy</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.acog.org/clinical/guidance/committee-opinion/2020/12/delayed-umbilical-cord-clamping-after-birth/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ACOG: delayed umbilical cord clamping</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.cochrane.org/CD003248/PREG_effect-timing-umbilical-cord-clamping-term-infants-mother-and-baby-outcomes"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Cochrane: timing of cord clamping</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.cochrane.org/CD003519/PREG_early-skin-skin-contact-mothers-and-their-healthy-newborn-infants"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Cochrane: early skin-to-skin contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.who.int/publications/i/item/9789240045989"
+                target="_blank"
+                rel="noopener noreferrer"
+                >WHO: maternal and newborn care for a positive postnatal experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nice.org.uk/guidance/ng235"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NICE NG235: intrapartum care</a
+              >
+            </li>
+          </ul>
+          <p class="small">
+            Links need an internet connection. General information, not medical advice.
+          </p>
+        </section>
+      </div>
+
+      <!-- HISTORY -->
+      <div id="view-history" class="view" hidden>
+        <section class="history">
+          <header>
+            <h1>History</h1>
+            <div class="actions">
+              <button id="export" type="button" class="link">Export CSV</button>
+              <button id="clear" type="button" class="link">Clear all</button>
+            </div>
+          </header>
+          <div class="actions wrap">
+            <button id="add-missed" type="button" class="soft">Add a missed one</button>
+            <button id="waters" type="button" class="soft">Waters broke now</button>
+          </div>
+          <p id="waters-note" class="small" hidden></p>
+          <ol id="list"></ol>
+          <p id="empty" class="empty">Nothing yet. Tap the circle when one begins.</p>
+          <div id="trend" class="card" hidden>
+            <h2>Trend</h2>
+            <svg id="trend-svg" viewBox="0 0 300 100" role="img" preserveAspectRatio="none"></svg>
+            <p id="trend-cap" class="small"></p>
+          </div>
+          <div class="actions wrap">
+            <button id="share" type="button" class="link">Share summary</button>
+            <button id="backup" type="button" class="link">Back up</button>
+            <button id="restore" type="button" class="link">Restore</button>
+            <input id="restore-file" type="file" accept="application/json" hidden />
+          </div>
+        </section>
+
+        <dialog id="editor" aria-labelledby="editor-title">
+          <form id="editor-form">
+            <h2 id="editor-title">Edit contraction</h2>
+            <label>Start time <input id="ed-start" type="datetime-local" required /></label>
+            <label>End time <input id="ed-end" type="datetime-local" /></label>
+            <label
+              >Pain (1–5)
+              <select id="ed-pain">
+                <option value="">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select></label
+            >
+            <label>Note <textarea id="ed-note" rows="2" maxlength="200"></textarea></label>
+            <p id="ed-error" class="notice" role="alert" hidden>
+              Check the times: the end must come after the start.
+            </p>
+            <div class="actions wrap">
+              <button class="soft" type="submit">Save</button>
+              <button id="ed-cancel" class="link" type="button">Cancel</button>
+              <button id="ed-delete" class="link" type="button">Delete</button>
+            </div>
+          </form>
+        </dialog>
+      </div>
+
+      <footer>
+        <p>
+          Not medical advice. Always follow your midwife or doctor. Everything stays on this device.
+        </p>
+        <p class="lang"><select id="lang" aria-label="Language"></select></p>
+        <p><a href="https://github.com/Uricorn/Contraction-Timer">Source code</a></p>
+      </footer>
+    </main>
+
+    <nav class="tabs" aria-label="Sections">
+      <button type="button" data-view="timer" aria-current="page">
+        <span aria-hidden="true">⏱️</span>Timer
+      </button>
+      <button type="button" data-view="tips"><span aria-hidden="true">💜</span>Tips</button>
+      <button type="button" data-view="list"><span aria-hidden="true">🎒</span>Bag</button>
+      <button type="button" data-view="notes"><span aria-hidden="true">📝</span>Notes</button>
+      <button type="button" data-view="history"><span aria-hidden="true">📋</span>History</button>
+    </nav>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

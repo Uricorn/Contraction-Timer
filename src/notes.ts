@@ -1,0 +1,165 @@
+/** Hospital notes tab: answers to questions staff ask, with fill-in spots. */
+import { isArrayOf, load, save } from "./store";
+import { t } from "./i18n";
+
+type Field = { id: string; label: string; hint: string; value: string; long?: boolean };
+
+const KEY = "contraction-timer:notes:v3";
+const V2_KEY = "contraction-timer:notes:v2";
+
+let saveTimer: ReturnType<typeof setTimeout> | undefined;
+const OLD_KEY = "contraction-timer:notes:v1";
+
+const LONG = [
+  "Birth preferences",
+  "Pain relief wishes",
+  "Medical conditions",
+  "Problems this pregnancy",
+  "Newborn choices",
+  "Companions allowed in the delivery room",
+];
+
+const ADDED_IN_V3 = [
+  "First day of last period",
+  "Height and weight",
+  "Baby's estimated weight",
+  "Were all tests and scans normal?",
+  "Medicine taken today?",
+  "Pain level now",
+];
+
+export const DEFAULT_FIELDS: Field[] = [
+  ["Full name", ""],
+  ["ID number", ""],
+  ["Date of birth", ""],
+  ["Health fund and member number", ""],
+  ["Due date and weeks pregnant", "e.g. 14 Nov, 39 weeks"],
+  ["Doctor or midwife", "name and phone"],
+  ["Contractions started", "time they began"],
+  ["Waters broken?", "time, and colour (clear is normal)"],
+  ["Baby's movements", "normal, or less than usual"],
+  ["Any bleeding?", ""],
+  ["Last ate or drank", "time and what"],
+  ["Previous births", "how many, how they went, any caesarean"],
+  ["Problems this pregnancy", "e.g. diabetes, blood pressure, low placenta"],
+  ["Allergies", "medicines, latex, food"],
+  ["Medicines and supplements", ""],
+  ["Medical conditions and past surgeries", ""],
+  ["Blood type", ""],
+  ["Group B strep result", "positive, negative or unknown"],
+  [
+    "Companions allowed in the delivery room",
+    "names, ID numbers, relationship (hospitals limit how many)",
+  ],
+  ["Pain relief wishes", "e.g. natural, epidural, open to options"],
+  ["Birth preferences", "e.g. movement, music, delayed cord clamping"],
+  [
+    "Newborn choices",
+    "first bath, delayed cord clamping, vitamin K, vaccines, cord blood, rooming-in",
+  ],
+  ["Feeding plan", "breast, bottle, not sure"],
+  ["Emergency contact", "name and phone"],
+  ["First day of last period", ""],
+  ["Height and weight", "before pregnancy and now"],
+  ["Baby's estimated weight", "and when it was measured"],
+  ["Were all tests and scans normal?", "note anything that was not"],
+  ["Medicine taken today?", "what and when"],
+  ["Pain level now", "1 to 10"],
+].map(([label, hint], i) => ({
+  id: `d${i}`,
+  label,
+  hint,
+  value: "",
+  long: LONG.includes(label),
+}));
+
+const valid = isArrayOf<Field>(
+  (r) => typeof r.id === "string" && typeof r.label === "string" && typeof r.value === "string",
+);
+
+/** First run of v3: keep v2 (or v1) answers and edits, then add the questions new in v3. */
+function migrateV2(): Field[] {
+  const fields = load(V2_KEY, migrate, valid);
+  const added = DEFAULT_FIELDS.filter(
+    (d) => ADDED_IN_V3.includes(d.label) && !fields.some((f) => f.label === d.label),
+  );
+  return fields.concat(structuredClone(added));
+}
+
+/** First run of v2: keep anything typed in v1, drop the retired field, add new defaults. */
+function migrate(): Field[] {
+  const typed = load<Field[]>(OLD_KEY, () => [], valid).filter(
+    (f) => f.value && f.label !== "Baby's name ideas",
+  );
+  const merged = structuredClone(DEFAULT_FIELDS).map(
+    (d) => typed.find((f) => f.label === d.label) ?? d,
+  );
+  return merged.concat(typed.filter((f) => !DEFAULT_FIELDS.some((d) => d.label === f.label)));
+}
+
+export function initNotes(): void {
+  const host = document.getElementById("notes-list") as HTMLElement;
+  const form = document.getElementById("notes-form") as HTMLFormElement;
+  const input = document.getElementById("notes-input") as HTMLInputElement;
+  let fields = load(KEY, migrateV2, valid);
+  // Keep placeholder hints current for default questions (answers are untouched).
+  for (const f of fields) f.hint = DEFAULT_FIELDS.find((d) => d.label === f.label)?.hint ?? f.hint;
+
+  const render = () =>
+    host.replaceChildren(
+      ...fields.map((f) => {
+        const wrap = document.createElement("div");
+        wrap.className = "field";
+        const head = document.createElement("div");
+        head.className = "field-head";
+        const label = document.createElement("label");
+        label.textContent = t(f.label);
+        const id = `note-${f.id}`;
+        label.htmlFor = id;
+        const del = document.createElement("button");
+        del.type = "button";
+        del.className = "del";
+        del.textContent = "✕";
+        del.setAttribute("aria-label", t("Delete {name}", { name: t(f.label) }));
+        del.addEventListener("click", () => {
+          fields = fields.filter((x) => x.id !== f.id);
+          save(KEY, fields);
+          render();
+        });
+        head.append(label, del);
+        const el = f.long ? document.createElement("textarea") : document.createElement("input");
+        el.id = id;
+        el.value = f.value;
+        el.placeholder = t(f.hint ?? "");
+        if (el instanceof HTMLTextAreaElement) el.rows = 3;
+        el.addEventListener("input", () => {
+          f.value = el.value;
+          clearTimeout(saveTimer);
+          saveTimer = setTimeout(() => save(KEY, fields), 300);
+        });
+        wrap.append(head, el);
+        return wrap;
+      }),
+    );
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const label = input.value.trim();
+    if (!label) return;
+    fields.push({ id: crypto.randomUUID(), label, hint: "", value: "", long: true });
+    input.value = "";
+    save(KEY, fields);
+    render();
+  });
+
+  document.getElementById("notes-reset")?.addEventListener("click", () => {
+    if (confirm(t("Restore the default questions? Your answers will be cleared."))) {
+      fields = structuredClone(DEFAULT_FIELDS);
+      save(KEY, fields);
+      render();
+    }
+  });
+
+  document.addEventListener("langchange", render);
+  render();
+}
