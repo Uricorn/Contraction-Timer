@@ -8,6 +8,9 @@ import { uk } from "./locales/uk";
 import { fr } from "./locales/fr";
 import { de } from "./locales/de";
 import { pt } from "./locales/pt";
+import { zh } from "./locales/zh";
+import { ja } from "./locales/ja";
+import { ko } from "./locales/ko";
 import { DEFAULT_ITEMS } from "./checklist";
 import { DEFAULT_FIELDS } from "./notes";
 import { PHRASES } from "./tips";
@@ -44,6 +47,9 @@ describe.each([
   ["fr", fr],
   ["de", de],
   ["pt", pt],
+  ["zh", zh],
+  ["ja", ja],
+  ["ko", ko],
 ])("%s translations", (_name, dict) => {
   it("covers every English string in the app", () => {
     const skip = new Set(["5-1-1", "4-1-1", "3-1-1", "English", "0 of 0 packed"]);

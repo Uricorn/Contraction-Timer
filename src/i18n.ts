@@ -11,8 +11,11 @@ import { uk } from "./locales/uk";
 import { fr } from "./locales/fr";
 import { de } from "./locales/de";
 import { pt } from "./locales/pt";
+import { zh } from "./locales/zh";
+import { ja } from "./locales/ja";
+import { ko } from "./locales/ko";
 
-export type Lang = "en" | "he" | "ar" | "ru" | "es" | "uk" | "fr" | "de" | "pt";
+export type Lang = "en" | "he" | "ar" | "ru" | "es" | "uk" | "fr" | "de" | "pt" | "zh" | "ja" | "ko";
 
 export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: string }> = {
   en: { name: "English", dir: "ltr", locale: "en" },
@@ -25,9 +28,12 @@ export const LANGS: Record<Lang, { name: string; dir: "ltr" | "rtl"; locale: str
   fr: { name: "Français", dir: "ltr", locale: "fr-FR" },
   de: { name: "Deutsch", dir: "ltr", locale: "de-DE" },
   pt: { name: "Português", dir: "ltr", locale: "pt-PT" },
+  zh: { name: "中文", dir: "ltr", locale: "zh-CN" },
+  ja: { name: "日本語", dir: "ltr", locale: "ja-JP" },
+  ko: { name: "한국어", dir: "ltr", locale: "ko-KR" },
 };
 
-const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar, ru, es, uk, fr, de, pt };
+const DICTS: Record<Lang, Record<string, string>> = { en: {}, he, ar, ru, es, uk, fr, de, pt, zh, ja, ko };
 const KEY = "contraction-timer:lang";
 
 let lang: Lang = "en";
