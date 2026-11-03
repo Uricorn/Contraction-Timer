@@ -25,6 +25,6 @@ updates:
       gradle:
         patterns: ["*"]
     ignore:
-      # AGP 8.x breaks on Gradle >= 9.6; revisit when moving to AGP 9.
+      # AGP 9.0 breaks on Gradle >= 9.6 (removed internal API); revisit on a newer AGP.
       - dependency-name: gradle
-        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+        versions: [">=9.6"]
