@@ -11,8 +11,8 @@ Your data never leaves your phone.
 
 <p align="center">
   <img src="docs/screenshots/timer.png" alt="Timer view mid-contraction with the 'When to go' progress meters" width="260">
-  <img src="docs/screenshots/timer-dark.png" alt="Timer in dark mode" width="260">
   <img src="docs/screenshots/tips.png" alt="Tips tab with breathing guide and partner tips" width="260">
+  <img src="docs/screenshots/history.png" alt="Contraction history" width="260">
 </p>
 
 ## Why you'll like it
@@ -27,7 +27,6 @@ Your data never leaves your phone.
 
 <p align="center">
   <img src="docs/screenshots/bag.png" alt="Hospital bag checklist" width="260">
-  <img src="docs/screenshots/history.png" alt="Contraction history" width="260">
 </p>
 
 ## Everything it does
