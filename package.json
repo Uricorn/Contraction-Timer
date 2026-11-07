@@ -1,6 +1,6 @@
 {
   "name": "contraction-timer",
-  "version": "0.3.0",
+  "version": "0.2.2",
   "private": true,
   "description": "Offline-first contraction timer for Android and the web",
   "license": "AGPL-3.0-only",
