@@ -86,7 +86,8 @@ jobs:
           dir=android/app/build/outputs/apk/release
           if [ -n "$KEYSTORE_B64" ]; then
             echo "$KEYSTORE_B64" | base64 -d > /tmp/release.keystore
-            "$ANDROID_HOME"/build-tools/*/apksigner sign \
+            apksigner="$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -n1)"
+            "$apksigner" sign \
               --ks /tmp/release.keystore --ks-key-alias "$KEY_ALIAS" \
               --ks-pass env:KEYSTORE_PASSWORD \
               --out "$dir/contraction-timer-${TAG}.apk" "$dir/app-release-unsigned.apk"
