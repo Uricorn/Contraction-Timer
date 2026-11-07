@@ -10,9 +10,10 @@ Your data never leaves your phone.
 **[Open the web app](https://uricorn.github.io/Contraction-Timer/)** · installs as a PWA · also available as an Android app
 
 <p align="center">
-  <img src="docs/screenshots/timer.png" alt="Timer view mid-contraction with the 'When to go' progress meters" width="260">
-  <img src="docs/screenshots/tips.png" alt="Tips tab with breathing guide and partner tips" width="260">
-  <img src="docs/screenshots/history.png" alt="Contraction history" width="260">
+  <img src="docs/screenshots/timer.png" alt="Timer view mid-contraction with the 'When to go' progress meters" width="195">
+  <img src="docs/screenshots/tips.png" alt="Tips tab with breathing guide and partner tips" width="195">
+  <img src="docs/screenshots/bag.png" alt="Hospital bag checklist" width="195">
+  <img src="docs/screenshots/history.png" alt="Contraction history" width="195">
 </p>
 
 ## Why you'll like it
@@ -24,10 +25,6 @@ Your data never leaves your phone.
 - **Made for your partner too.** Breathing pacer, words to say, and evidence-rated partner tips with links to Cochrane, NHS and NICE.
 - **Speaks your language.** English, עברית, العربية, Русский, Español, Українська, Français, Deutsch, Português, 中文, 日本語, 한국어, Italiano, Türkçe and Polski, with right-to-left layout for Hebrew and Arabic. It follows your device language.
 - **Tiny and fast.** No UI framework, about 5 kB of JavaScript.
-
-<p align="center">
-  <img src="docs/screenshots/bag.png" alt="Hospital bag checklist" width="260">
-</p>
 
 ## Everything it does
 
