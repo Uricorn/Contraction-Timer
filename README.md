@@ -43,11 +43,11 @@ Your data never leaves your phone.
 
 ## Get it
 
-| Platform | How                                                                                      |
-| -------- | ---------------------------------------------------------------------------------------- |
-| Web      | <https://uricorn.github.io/Contraction-Timer/>, then "Add to Home Screen" to install     |
-| Android  | Download the APK from [Releases](https://github.com/Uricorn/Contraction-Timer/releases)  |
-| F-Droid  | Store metadata is included, see [docs/FDROID.md](docs/FDROID.md)                         |
+| Platform | How                                                                                     |
+| -------- | --------------------------------------------------------------------------------------- |
+| Web      | <https://uricorn.github.io/Contraction-Timer/>, then "Add to Home Screen" to install    |
+| Android  | Download the APK from [Releases](https://github.com/Uricorn/Contraction-Timer/releases) |
+| F-Droid  | Store metadata is included, see [docs/FDROID.md](docs/FDROID.md)                        |
 
 ## Development
 
