@@ -3,27 +3,48 @@
 [![CI](https://github.com/Uricorn/Contraction-Timer/actions/workflows/ci.yml/badge.svg)](https://github.com/Uricorn/Contraction-Timer/actions/workflows/ci.yml)
 [![License: AGPL-3.0-only](https://img.shields.io/badge/license-AGPL--3.0--only-blue.svg)](LICENSE)
 
-A minimal contraction timer for labour that runs **fully offline** — in the browser (installable PWA)
-or as an Android app. No account, no ads, no analytics; data never leaves your device.
+**Know when it's time to go — without the noise.**
+A calm, one-tap contraction timer for labour. No account, no ads, no tracking, no internet needed.
+Your data never leaves your phone.
 
-**Try it:** <https://uricorn.github.io/Contraction-Timer/> (after enabling GitHub Pages, see below)
+**[Open the web app](https://uricorn.github.io/Contraction-Timer/)** · installs as a PWA · also available as an Android app
 
-## Features
+<p align="center">
+  <img src="docs/screenshots/timer.png" alt="Timer view mid-contraction with the 'When to go' progress meters" width="195">
+  <img src="docs/screenshots/tips.png" alt="Tips tab with breathing guide and partner tips" width="195">
+  <img src="docs/screenshots/bag.png" alt="Hospital bag checklist" width="195">
+  <img src="docs/screenshots/history.png" alt="Contraction history" width="195">
+</p>
 
-- One big start/stop button; the background colour shows contracting / resting at a glance
+## Why you'll like it
+
+- **Built for exhausted hands and tired eyes.** One big button starts and stops a contraction. The background colour tells you contracting or resting at a glance.
+- **Answers the real question: "is it time?"** A "When to go" panel tracks the 5-1-1 / 4-1-1 / 3-1-1 guideline (your choice) with a progress meter for each digit, and can notify you when you hit it. A "when to call right away" card is always one tap away.
+- **Private by design.** Fully offline, no account, no analytics. Nothing is uploaded, ever.
+- **Calm, not clinical.** Soft design, light and dark modes, and a button that gently breathes with you during a contraction.
+- **Made for your partner too.** Breathing pacer, words to say, and evidence-rated partner tips with links to Cochrane, NHS and NICE.
+- **Speaks your language.** English, עברית, العربية, Русский, Español, Українська, Français, Deutsch, Português, 中文, 日本語, 한국어, Italiano, Türkçe and Polski, with right-to-left layout for Hebrew and Arabic. It follows your device language.
+- **Tiny and fast.** No UI framework, about 5 kB of JavaScript.
+
+## Everything it does
+
 - Live timer for the current contraction and the rest since the last one
 - One-hour averages: number of contractions, average length, average time apart
 - Pause and resume (paused gaps are left out of the averages)
-- 5-1-1 / 4-1-1 / 3-1-1 guideline alert (your choice), plus a "when to call right away" card
-- A "When to go" panel where each digit of 5-1-1 / 4-1-1 / 3-1-1 has its own progress meter
-- Tips tab: breathing pacer, words to say, evidence-rated partner tips with links to Cochrane, NHS and NICE
-- Calm, soft design with light and dark modes; the button gently breathes during a contraction
-- History with delete, CSV export, and "clear all"
+- Hospital bag checklist and hospital notes, both editable
+- History with delete, CSV export and "clear all"
 - Screen stays awake while a contraction is running; state survives closing the app or restarts
 - Works offline (service worker on the web, bundled assets on Android)
-- English, Hebrew (עברית), Arabic (العربية), Russian (Русский), Spanish (Español), Ukrainian (Українська), French (Français), German (Deutsch), Portuguese (Português), Chinese (中文), Japanese (日本語), Korean (한국어), Italian (Italiano), Turkish (Türkçe) and Polish (Polski), with right-to-left layout for Hebrew and Arabic; follows the device language, switch in the footer. External source titles stay in their original published wording. Translations live in `src/locales/` (the English text is the key) and `src/i18n.test.ts` fails if a string is missing
 
 > **Not medical advice.** Always follow guidance from your midwife or doctor.
+
+## Get it
+
+| Platform | How                                                                                     |
+| -------- | --------------------------------------------------------------------------------------- |
+| Web      | <https://uricorn.github.io/Contraction-Timer/>, then "Add to Home Screen" to install    |
+| Android  | Download the APK from [Releases](https://github.com/Uricorn/Contraction-Timer/releases) |
+| F-Droid  | Store metadata is included, see [docs/FDROID.md](docs/FDROID.md)                        |
 
 ## Development
 
@@ -37,8 +58,9 @@ npm run lint       # ESLint
 npm run build      # type-check + production build into dist/
 ```
 
-Stack: TypeScript, Vite, Vitest, Capacitor — no UI framework, ~5 kB of JS. The timing logic lives in
-[`src/logic.ts`](src/logic.ts) and is unit tested; the UI is in [`src/main.ts`](src/main.ts).
+Stack: TypeScript, Vite, Vitest, Capacitor. The timing logic lives in [`src/logic.ts`](src/logic.ts)
+and is unit tested; the UI is in [`src/main.ts`](src/main.ts). Translations live in `src/locales/`
+(the English text is the key) and `src/i18n.test.ts` fails if a string is missing.
 
 ### Android
 
@@ -51,22 +73,13 @@ cd android && ./gradlew assembleDebug     # APK in android/app/build/outputs/apk
 
 Or open `android/` in Android Studio. The app id is `io.github.uricorn.contractiontimer`.
 
-## CI/CD
+### CI/CD
 
 | Workflow                                       | When         | What                                                   |
 | ---------------------------------------------- | ------------ | ------------------------------------------------------ |
 | [`ci.yml`](.github/workflows/ci.yml)           | push / PR    | lint, format check, tests, build, debug APK (artifact) |
 | [`pages.yml`](.github/workflows/pages.yml)     | push to main | deploys the web app to GitHub Pages                    |
 | [`release.yml`](.github/workflows/release.yml) | tag `v*`     | builds the APK and creates a GitHub release            |
-
-One-time setup: **Settings → Pages → Source: GitHub Actions**. To publish a signed APK add the secrets
-`ANDROID_KEYSTORE_B64`, `ANDROID_KEYSTORE_PASSWORD` and `ANDROID_KEY_ALIAS`; without them the release
-contains an unsigned APK. Dependabot keeps npm, Gradle and Actions up to date.
-
-## F-Droid
-
-The app has no proprietary dependencies and fastlane store metadata is included. See
-[docs/FDROID.md](docs/FDROID.md) for the submission steps and a draft build recipe.
 
 ## Credits
 
@@ -75,10 +88,3 @@ Feature inspiration: [petewritescode/contraction-timer](https://github.com/petew
 ## License
 
 [AGPL-3.0-only](LICENSE)
-
-## Dependencies
-
-Kept deliberately small: two runtime packages (Capacitor) and a modern, current toolchain
-(Vite, TypeScript, Vitest, ESLint flat config). `npm audit` is clean; `overrides` in
-`package.json` pin patched `minimatch`/`glob` for the Capacitor CLI and can be dropped once it
-updates. Dependabot runs weekly with grouped PRs (we start on the latest versions).
