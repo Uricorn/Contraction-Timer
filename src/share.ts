@@ -35,11 +35,18 @@ export function summaryText(data: Data, now: number, t: Translate, locale: strin
 export async function saveFile(name: string, type: string, content: string): Promise<void> {
   const file = new File([content], name, { type });
   const native = (window as { Capacitor?: { isNativePlatform?: () => boolean } }).Capacitor;
-  if (native?.isNativePlatform?.() && navigator.canShare?.({ files: [file] })) {
+  if (native?.isNativePlatform?.() && navigator.share) {
     try {
-      await navigator.share({ files: [file], title: name });
-    } catch {
-      /* share cancelled */
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: name });
+      } else {
+        await navigator.share({ title: name, text: content });
+      }
+    } catch (e) {
+      // User dismissing the sheet is fine; any other failure must not be silent.
+      if ((e as { name?: string })?.name !== "AbortError") {
+        alert(`Could not save ${name}`);
+      }
     }
     return;
   }
