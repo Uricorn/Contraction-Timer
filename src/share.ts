@@ -1,4 +1,7 @@
 /** Plain-text summary for sharing, and JSON backup helpers. */
+import { Capacitor } from "@capacitor/core";
+import { Directory, Encoding, Filesystem } from "@capacitor/filesystem";
+import { Share } from "@capacitor/share";
 import { formatDuration, sortByStart, windowStats, HOUR, type Data } from "./logic";
 
 type Translate = (key: string, params?: Record<string, string | number>) => string;
@@ -34,19 +37,19 @@ export function summaryText(data: Data, now: number, t: Translate, locale: strin
 /** Save a text file: share sheet inside the Android app (WebView ignores downloads), download elsewhere. */
 export async function saveFile(name: string, type: string, content: string): Promise<void> {
   const file = new File([content], name, { type });
-  const native = (window as { Capacitor?: { isNativePlatform?: () => boolean } }).Capacitor;
-  if (native?.isNativePlatform?.() && navigator.share) {
+  if (Capacitor.isNativePlatform()) {
     try {
-      if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: name });
-      } else {
-        await navigator.share({ title: name, text: content });
-      }
+      const written = await Filesystem.writeFile({
+        path: name,
+        data: content,
+        directory: Directory.Cache,
+        encoding: Encoding.UTF8,
+      });
+      await Share.share({ title: name, url: written.uri, dialogTitle: name });
     } catch (e) {
       // User dismissing the sheet is fine; any other failure must not be silent.
-      if ((e as { name?: string })?.name !== "AbortError") {
-        alert(`Could not save ${name}`);
-      }
+      const msg = String((e as { message?: string })?.message ?? e);
+      if (!/cancel/i.test(msg)) alert(`Could not save ${name}: ${msg}`);
     }
     return;
   }
