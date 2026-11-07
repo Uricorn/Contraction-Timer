@@ -84,9 +84,6 @@ Or open `android/` in Android Studio. The app id is `io.github.uricorn.contracti
 | [`pages.yml`](.github/workflows/pages.yml)     | push to main | deploys the web app to GitHub Pages                    |
 | [`release.yml`](.github/workflows/release.yml) | tag `v*`     | builds the APK and creates a GitHub release            |
 
-Publishing the web app needs **Settings → Pages → Source: GitHub Actions**. Dependabot keeps npm,
-Gradle and Actions up to date.
-
 ## Credits
 
 Feature inspiration: [petewritescode/contraction-timer](https://github.com/petewritescode/contraction-timer).
