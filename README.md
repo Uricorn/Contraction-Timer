@@ -84,9 +84,8 @@ Or open `android/` in Android Studio. The app id is `io.github.uricorn.contracti
 | [`pages.yml`](.github/workflows/pages.yml)     | push to main | deploys the web app to GitHub Pages                    |
 | [`release.yml`](.github/workflows/release.yml) | tag `v*`     | builds the APK and creates a GitHub release            |
 
-Publishing the web app needs **Settings → Pages → Source: GitHub Actions**. For a signed APK, add the
-secrets `ANDROID_KEYSTORE_B64`, `ANDROID_KEYSTORE_PASSWORD` and `ANDROID_KEY_ALIAS`; without them the
-release contains an unsigned APK. Dependabot keeps npm, Gradle and Actions up to date.
+Publishing the web app needs **Settings → Pages → Source: GitHub Actions**. Dependabot keeps npm,
+Gradle and Actions up to date.
 
 ## Credits
 
