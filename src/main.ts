@@ -391,7 +391,28 @@ $("share").addEventListener("click", async () => {
   }
 });
 
-$("backup").addEventListener("click", () => void downloadJson(data));
+// Everything besides the timing data that lives in localStorage (checklist, notes, language, alerts).
+const EXTRA_KEYS = [
+  "contraction-timer:checklist:v2",
+  "contraction-timer:notes:v3",
+  "contraction-timer:lang",
+  "contraction-timer:alerts",
+];
+
+function collectExtras(): Record<string, string> {
+  const extras: Record<string, string> = {};
+  for (const k of EXTRA_KEYS) {
+    try {
+      const v = localStorage.getItem(k);
+      if (v !== null) extras[k] = v;
+    } catch {
+      /* storage blocked */
+    }
+  }
+  return extras;
+}
+
+$("backup").addEventListener("click", () => void downloadJson({ ...data, extras: collectExtras() }));
 
 const restoreFile = $<HTMLInputElement>("restore-file");
 $("restore").addEventListener("click", () => restoreFile.click());
@@ -413,9 +434,34 @@ restoreFile.addEventListener("change", async () => {
     return;
   }
   const restored = parseStored(text);
+  let extras: Record<string, string> = {};
+  try {
+    const raw = JSON.parse(text) as { extras?: unknown };
+    const e = Array.isArray(raw) ? null : raw.extras;
+    if (typeof e === "object" && e !== null) {
+      for (const k of EXTRA_KEYS) {
+        const v = (e as Record<string, unknown>)[k];
+        if (typeof v === "string") extras[k] = v;
+      }
+    }
+  } catch {
+    extras = {};
+  }
   if (!confirm(t("Replace your current timing with this backup?"))) return;
   data = restored;
   save();
+  const hasExtras = Object.keys(extras).length > 0;
+  if (hasExtras) {
+    for (const [k, v] of Object.entries(extras)) {
+      try {
+        localStorage.setItem(k, v);
+      } catch {
+        document.dispatchEvent(new CustomEvent("savefail"));
+      }
+    }
+    location.reload(); // checklist, notes and language are read at startup
+    return;
+  }
   render();
   showToast(t("Backup restored"));
 });

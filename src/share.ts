@@ -51,6 +51,6 @@ export async function saveFile(name: string, type: string, content: string): Pro
   setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
-export function downloadJson(data: Data): Promise<void> {
+export function downloadJson(data: Data & { extras?: Record<string, unknown> }): Promise<void> {
   return saveFile("contractions-backup.json", "application/json", JSON.stringify(data, null, 2));
 }
