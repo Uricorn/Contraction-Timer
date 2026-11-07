@@ -412,7 +412,10 @@ function collectExtras(): Record<string, string> {
   return extras;
 }
 
-$("backup").addEventListener("click", () => void downloadJson({ ...data, extras: collectExtras() }));
+$("backup").addEventListener(
+  "click",
+  () => void downloadJson({ ...data, extras: collectExtras() }),
+);
 
 const restoreFile = $<HTMLInputElement>("restore-file");
 $("restore").addEventListener("click", () => restoreFile.click());
