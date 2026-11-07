@@ -1,10 +1,13 @@
 name: Release
 
 # Push a tag like v0.1.0 to build an APK and publish a GitHub release.
+# Pushing to main releases automatically when package.json's version has no
+# v<version> tag yet (bump the version to cut a release).
 # Also runs when a release is published (tags created by other workflows or the
 # API with GITHUB_TOKEN do not trigger push events) or manually with a tag.
 on:
   push:
+    branches: [main]
     tags: ["v*"]
   release:
     types: [published]
@@ -18,15 +21,40 @@ concurrency:
   group: release-${{ github.event.inputs.tag || github.event.release.tag_name || github.ref_name }}
   cancel-in-progress: false
 
-env:
-  TAG: ${{ github.event.inputs.tag || github.event.release.tag_name || github.ref_name }}
-
-permissions:
-  contents: write
-
 jobs:
-  apk:
+  meta:
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.t.outputs.tag }}
+      release: ${{ steps.t.outputs.release }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - id: t
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_type }}" = "branch" ]; then
+            tag="v$(node -p "require('./package.json').version")"
+            git fetch --tags --force
+            if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+              echo "release=false" >> "$GITHUB_OUTPUT"
+            else
+              git tag "$tag"
+              git push origin "refs/tags/$tag"
+              echo "release=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            tag="${{ github.event.inputs.tag || github.event.release.tag_name || github.ref_name }}"
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+  apk:
+    needs: meta
+    if: needs.meta.outputs.release == 'true'
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ needs.meta.outputs.tag }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
