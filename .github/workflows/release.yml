@@ -35,12 +35,20 @@ jobs:
         with:
           fetch-depth: 0
       - id: t
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_type }}" = "branch" ]; then
             tag="v$(node -p "require('./package.json').version")"
             git fetch --tags --force
             if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
-              echo "release=false" >> "$GITHUB_OUTPUT"
+              # Tag exists: only skip if a GitHub release already exists for it
+              # (a failed earlier build leaves a tag but no release/APK).
+              if gh release view "$tag" >/dev/null 2>&1; then
+                echo "release=false" >> "$GITHUB_OUTPUT"
+              else
+                echo "release=true" >> "$GITHUB_OUTPUT"
+              fi
             else
               git tag "$tag"
               git push origin "refs/tags/$tag"
